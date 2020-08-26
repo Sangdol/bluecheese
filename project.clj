@@ -1,6 +1,7 @@
 (defproject bluecheese "0.1.0-SNAPSHOT"
   :description "bluecheese"
-  :dependencies [[org.clojure/clojure "1.10.0"]]
+  :dependencies [[org.clojure/clojure "1.10.0"]
+                 [markdown-clj "1.10.5"]]
   ;; https://github.com/weavejester/lein-auto
   :plugins [ [lein-auto "0.1.3"]]
   ;; monitor contents directory to regenerate when some of them change

@@ -1,6 +1,6 @@
 (ns bluecheese.ui-generator-test
   (:require [clojure.test :refer :all])
-  (:require [bluecheese.ui-generator :refer :all]))
+  (:require [bluecheese.static-generator :refer :all]))
 
 (deftest interpolate-test
   (is (= "Hello, world!"

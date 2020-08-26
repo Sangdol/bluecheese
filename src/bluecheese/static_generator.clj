@@ -1,9 +1,9 @@
-(ns bluecheese.ui-generator
+(ns bluecheese.static-generator
   (:require [clojure.string :as str])
   (:use [bluecheese.config :only [config]]))
 
 (defn interpolate-variable [template variable data]
-  "interpolate sinlge variable with single data"
+  "interpolate single variable with single data"
   (str/replace template
                (str "{{" variable "}}")
                data))
@@ -41,13 +41,7 @@
                    "page"
                    page)))
 
-(defn generate-ui [env-config]
-  ;; js
-  (generate-file (:js-template-path env-config)
-                 ["data"]
-                 [(:json-daily-data-path env-config)]
-                 (:js-output-path env-config))
-
+(defn generate-static-pages [env-config]
   ;; html
   (generate-html env-config "index")
   (generate-html env-config "about-data"))

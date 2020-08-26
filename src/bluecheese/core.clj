@@ -1,14 +1,9 @@
 (ns bluecheese.core
-  (:use [bluecheese.data-transformer :only [transform-data]]
-        [bluecheese.ui-generator :only [generate-ui]]
+  (:use [bluecheese.static-generator :only [generate-static-pages]]
         [bluecheese.config :only [config]]))
 
-(def ops {"data" (fn [env-config]
-                   (transform-data
-                     (:csv-owid-data-path env-config)
-                     (:json-daily-data-path env-config)))
-          "ui" (fn [env-config]
-                  (generate-ui env-config))})
+(def ops {"ui" (fn [env-config]
+                  (generate-static-pages env-config))})
 
 
 (defn run [op env-config]

@@ -1,8 +1,11 @@
-.PHONY: bluecheese
+.PHONY: bluecheese test
 
 #
 # local
 #
+
+test:
+	lein test-refresh :changes-only
 
 bluecheese:
 	lein run all local
