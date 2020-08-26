@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Europe COVID-19 Cases, Densities, and Trends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Daily coronavirus cases, densities, and trends of European countries">
+    <meta name="robots" content="index,follow">
+    <meta property="og:image" content="https://europecorona.com/ogimage.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto" rel="stylesheet" type="text/css">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/skeleton.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="tabulator/css/materialize/tabulator_materialize.min.css" rel="stylesheet">
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5ZJBNQ3"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23501808-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23501808-4', { 'optimize_id': 'OPT-5ZJBNQ3'});
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="tabulator/js/tabulator.min.js"></script>
+    <script src="js/js.cookie.min.js"></script>
+    <script type="text/javascript" src="eu_cookie.js"></script>
+</head>
+<body>
+        <div id="container">
+        <section class="menu">
+            <a href="/" class="back-home ">
+                <img src="img/go-back-left-arrow.svg" />
+            </a>
+        </section>
+        <section class="header">
+            <h3 class="title">About data</h3>
+        </section>
+        </section>
+        <section class="content">
+            <p>
+                The data of this website is from <a href="https://ourworldindata.org/">Our World in Data</a>.
+            </p>
+
+            <p>
+                Our World in Data (OWID) is a scientific online publication that focuses on large global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.
+            </p>
+
+            <p>
+                Our World in Data takes data from the <a href="https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide">European Center for Disease Prevention and Control (ECDC)</a>.
+            </p>
+
+            <p>
+                You can check out more details about the data on <a href="https://ourworldindata.org/coronavirus-source-data">this page</a>.
+            </p>
+
+            <p>
+
+                To be able to provide better information than the raw data this website has some conditional rules.
+
+                <ul>
+                    <li>
+                        <a href="https://github.com/owid/covid-19-data/issues/83">Sometimes a new cases value can be 0 as a temporary value.</a>
+                        If the country had more 20 cases in the past week the table ignores the 0 and show the last valid data.
+                    </li>
+                    <li>
+                        When a new cases value is minus for an adjustment, the table shows it as 0 in trend charts.
+                    </li>
+                </ul>
+            </p>
+
+            <p>
+                Please send me an email to <a href="mailto:hammerha+corona-project@gmail.com">hammerha+corona-project@gmail.com</a> if you have any questions or feedback about the website.
+            </p>
+        </section>
+    </div>
+
+</body>
+</html>
