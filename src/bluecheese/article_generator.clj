@@ -23,24 +23,20 @@
 
 (defn parse-variables [variables]
   "parse `key = value` style text"
-  (-> variables
-      (str/split #"(?m)\n")
-      ((fn [xs]
-         (mapcat #(str/split % #"=") xs)))
-      (#(map str/trim %))
-      ((fn [xs]
-         ; remove starting and ending quotes
-         (map #(str/replace % #"[\^\"\"$]" "") xs)))
-      (#(apply hash-map %))))
+  (->>
+    (str/split variables #"(?m)\n")
+    (mapcat #(str/split % #"="))
+    (map str/trim)
+    (map #(str/replace % #"[\^\"\"$]" ""))
+    (apply hash-map)))
 
 
 ; TODO add file path info
 (defn convert-md-to-map [md-file-content]
   "read a markdown file and return a map with metadata variables and converted html"
-  (->
-    md-file-content
-    (str/split #"(?m)^\+\+\+")
-    (#(map str/trim %))
+  (->>
+    (str/split md-file-content #"(?m)^\+\+\+")
+    (map str/trim)
     ((fn [[_, variables, md]]
        (merge
          (parse-variables variables)
@@ -55,13 +51,8 @@
        (map #((convert-md-to-map (slurp %))))))
 
 
-(defn generate-htmls [article-template-path articles]
-  (map (partial interpolate article-template-path) articles))
-
-
 (defn generate-article-pages [env-config]
-  (->
-    ; returns [{variables: {}, html: ""}]
+  (->>
     (read-md-files (:kr-md-path env-config))
-    (partial generate-htmls (:article-template-path env-config))))
+    (map (partial interpolate (:article-template-path env-config)))))
 
