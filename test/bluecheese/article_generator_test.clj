@@ -14,9 +14,9 @@
 
 
 (deftest convert-md-to-html-test
-  (is (= {:variables {"abc" "def"}
-          :html "<h1>hello</h1>"}
-         (convert-md-to-html (str "+++\n"
-                                  "abc=def\n"
-                                  "+++\n"
-                                  "# hello")))))
+  (is (= {"abc" "def"
+          "html" "<h1>hello</h1>"}
+         (convert-md-to-map (str "+++\n"
+                                 "abc=def\n"
+                                 "+++\n"
+                                 "# hello")))))

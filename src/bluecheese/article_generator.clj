@@ -9,38 +9,16 @@
                (str "{{" variable "}}")
                data))
 
-(defn interpolate [template variables data-list]
+
+(defn interpolate
   "interpolate multiple variables with multiple data"
-  (reduce (fn [template zip]
-            (interpolate-variable template (first zip) (second zip)))
-          template
-          (map vector variables data-list)))
-
-(defn generate-message [output-path]
-  (str "Success: " output-path))
-
-(defn generate-file [template-path variables data-paths output-path]
-  (->>
-    (interpolate
-      (slurp template-path)
-      variables
-      (map slurp data-paths))
-    (spit output-path))
-  (->>
-    (generate-message output-path)
-    (println)))
-
-(defn generate-html [env-config page]
-  (generate-file (:html-template-path env-config)
-                 ["body"]
-                 [(interpolate-variable
-                    (:html-body-content-path-template env-config)
-                    "page"
-                    page)]
-                 (interpolate-variable
-                   (:html-output-path-template env-config)
-                   "page"
-                   page)))
+  ([template variables data-list]
+   (interpolate template (zipmap variables data-list)))
+  ([template m]
+   (reduce (fn [[k v]]
+             (interpolate-variable template k v))
+           template
+           m)))
 
 
 (defn parse-variables [variables]
@@ -56,15 +34,17 @@
       (#(apply hash-map %))))
 
 
-(defn convert-md-to-html [md-file-content]
+; TODO add file path info
+(defn convert-md-to-map [md-file-content]
   "read a markdown file and return a map with metadata variables and converted html"
   (->
     md-file-content
     (str/split #"(?m)^\+\+\+")
     (#(map str/trim %))
     ((fn [[_, variables, md]]
-      {:variables (parse-variables variables)
-       :html      (md/md-to-html-string md)}))))
+       (merge
+         (parse-variables variables)
+         {"html" (md/md-to-html-string md)})))))
 
 
 (defn read-md-files [md-path]
@@ -72,16 +52,16 @@
   (->> md-path
        clojure.java.io/file
        file-seq
-       (map #((convert-md-to-html (slurp %))))))
+       (map #((convert-md-to-map (slurp %))))))
 
 
-(defn generate-htmls [articles]
-  "")
-
+(defn generate-htmls [article-template-path articles]
+  (map (partial interpolate article-template-path) articles))
 
 
 (defn generate-article-pages [env-config]
   (->
     ; returns [{variables: {}, html: ""}]
     (read-md-files (:kr-md-path env-config))
-    generate-htmls))
+    (partial generate-htmls (:article-template-path env-config))))
+
