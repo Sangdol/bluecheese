@@ -1,11 +1,12 @@
 (ns bluecheese.config)
 
+(def dist-path "dist")
 
 (def common
-  {;; html
+  {:kr-md-path                      "md/kr/blog"
    :article-template-path           "web/template/article-template.html"
    :common-head                     "web/template/common-head.html"
-   :dist-path                       "dist"})
+   :kr-blog-path                    (str dist-path "/blog")})
 
 
 (def local {})

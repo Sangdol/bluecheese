@@ -3,8 +3,8 @@
             [markdown.core :as md]
             [clojure.java.io :as io]
             [clostache.parser :as clo]
-            [stasis.core :as stasis]
-            [clojure.walk :as walk])
+            [clojure.walk :as walk]
+            [me.raynes.fs :as fs])
   (:use [bluecheese.config :only [config]]))
 
 
@@ -14,7 +14,7 @@
     (str/split variables #"(?m)\n")
     (mapcat #(str/split % #"="))
     (map str/trim)
-    (map #(str/replace % #"[\^\"\"$]" ""))
+    (map #(str/replace % #"[\^\"\"$\^\'\'$]" ""))  ; unquote
     (apply hash-map))) ;; (into {}) ??
 
 
@@ -49,26 +49,34 @@
     dir
     io/file
     file-seq
-    (map (partial slurp))
+    ((fn [xs]
+       (println xs (count xs) " md files.")
+       xs))
+    (filter (fn [^java.io.File f] (. f (isFile))))
+    (map slurp)
     (map md->map)))
 
 
+(defn write-article [dist-path articles]
+  (when-let [dist (io/resource dist-path)]
+    (fs/delete-dir dist))
+  (doseq [article articles]
+    (let [filepath (str dist-path "/" (:url-path article))]
+      (println "Writing a file to " filepath article)
+      (fs/mkdirs (fs/parent filepath))
+      (spit filepath (:html article)))))
+
+
 (defn generate-article-pages [env-config]
-  (let [article (:article-template-path env-config)
+  (let [md-path (:kr-md-path env-config)
+        article (:article-template-path env-config)
         common-head (:common-head env-config)
-        dist (:dist-path env-config)]
-    (stasis/empty-directory! dist)
+        dist (:kr-blog-path env-config)]
     (->>
-      (read-md-files (:kr-md-path env-config))
+      (read-md-files (io/resource md-path))
       (map walk/keywordize-keys)
-      ; v render template with map
-      ; v render template with common-head
-      ; v generate files
+      (map #(merge % {:common-head (slurp (io/file (io/resource common-head)))}))
       (map #(merge % {:html (clo/render-resource article %)}))
-      (map #(merge % {:html (clo/render {:html %} common-head)}))
-      (map #(stasis/export-page {:url-path %}
-                                {:html %}
-                                dist
-                                {})))))
+      ((partial write-article dist)))))
 
 
