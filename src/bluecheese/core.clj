@@ -1,10 +1,13 @@
 (ns bluecheese.core
   (:use [bluecheese.static-generator :only [generate-static-pages]]
         [bluecheese.article-generator :only [generate-article-pages]]
+        [bluecheese.ui :only [copy-ui]]
         [bluecheese.config :only [config]]))
 
 (def ops
-  {"article" (fn [env-config]
+  {"ui" (fn [env-config]
+          (copy-ui env-config))
+   "article" (fn [env-config]
                (generate-article-pages env-config))
    "static"  (fn [env-config]
                (generate-static-pages env-config))})

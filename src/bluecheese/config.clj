@@ -3,10 +3,12 @@
 (def dist-path "dist")
 
 (def common
-  {:kr-md-path                      "md/kr/blog"
-   :article-template-path           "web/template/article-template.html"
-   :common-head                     "web/template/common-head.html"
-   :kr-blog-path                    (str dist-path "/blog")})
+  {:kr-md-path            "md/kr/blog"
+   :web                   "web"
+   :article-template-path "web/template/article-template.html"
+   :common-head           "web/template/common-head.html"
+   :kr-blog-path          (str dist-path "/blog")
+   :dist                  dist-path})
 
 
 (def local {})

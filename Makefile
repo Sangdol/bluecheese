@@ -10,8 +10,8 @@ test:
 bluecheese:
 	lein run all local
 
-ui:
-	lein run ui local
+article:
+	lein run article local
 
 auto-ui:
 	lein auto run ui local
