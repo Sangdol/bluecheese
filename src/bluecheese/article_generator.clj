@@ -1,24 +1,11 @@
 (ns bluecheese.article-generator
   (:require [clojure.string :as str]
-            [markdown.core :as md])
+            [markdown.core :as md]
+            [clojure.java.io :as io]
+            [clostache.parser :as clo]
+            [stasis.core :as stasis]
+            [clojure.walk :as walk])
   (:use [bluecheese.config :only [config]]))
-
-(defn interpolate-variable [template variable data]
-  "interpolate single variable with single data"
-  (str/replace template
-               (str "{{" variable "}}")
-               data))
-
-
-(defn interpolate
-  "interpolate multiple variables with multiple data"
-  ([template variables data-list]
-   (interpolate template (zipmap variables data-list)))
-  ([template m]
-   (reduce (fn [[k v]]
-             (interpolate-variable template k v))
-           template
-           m)))
 
 
 (defn parse-variables [variables]
@@ -28,31 +15,60 @@
     (mapcat #(str/split % #"="))
     (map str/trim)
     (map #(str/replace % #"[\^\"\"$]" ""))
-    (apply hash-map)))
+    (apply hash-map))) ;; (into {}) ??
 
 
-; TODO add file path info
-(defn convert-md-to-map [md-file-content]
-  "read a markdown file and return a map with metadata variables and converted html"
+(defn url-path [vm]
+  "generate url path of an article including date and slug
+   e.g., 2019/08/26/blog-ab-test/
+
+  * date format: 2020-07-01 or 2017-09-08T04:53:40+02:00"
+  (let [date (first (str/split (vm "date") #"T"))
+        slug (vm "slug")]
+    (str (str/replace date "-" "/")
+         "/"
+         (str/replace slug " " "-"))))
+
+
+; TODO - exception handling for empty date or slug / mandatory variables
+;   add filepath for exception msg - is there any better way? catch late
+(defn md->map [md-file-content]
   (->>
     (str/split md-file-content #"(?m)^\+\+\+")
     (map str/trim)
     ((fn [[_, variables, md]]
-       (merge
-         (parse-variables variables)
-         {"html" (md/md-to-html-string md)})))))
+       (let [vm (parse-variables variables)]
+         (merge vm
+                {"body" (md/md-to-html-string md)}
+                {"url-path" (url-path vm)}))))))
 
 
-(defn read-md-files [md-path]
+(defn read-md-files [dir]
   "return a vector of article metadata and html from markdown files"
-  (->> md-path
-       clojure.java.io/file
-       file-seq
-       (map #((convert-md-to-map (slurp %))))))
+  (->>
+    dir
+    io/file
+    file-seq
+    (map (partial slurp))
+    (map md->map)))
 
 
 (defn generate-article-pages [env-config]
-  (->>
-    (read-md-files (:kr-md-path env-config))
-    (map (partial interpolate (:article-template-path env-config)))))
+  (let [article (:article-template-path env-config)
+        common-head (:common-head env-config)
+        dist (:dist-path env-config)]
+    (stasis/empty-directory! dist)
+    (->>
+      (read-md-files (:kr-md-path env-config))
+      (map walk/keywordize-keys)
+      ; v render template with map
+      ; v render template with common-head
+      ; v generate files
+      (map #(merge % {:html (clo/render-resource article %)}))
+      (map #(merge % {:html (clo/render {:html %} common-head)}))
+      (map #(stasis/export-page {:url-path %}
+                                {:html %}
+                                dist
+                                {})))))
+
 
