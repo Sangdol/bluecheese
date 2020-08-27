@@ -50,7 +50,7 @@
     io/file
     file-seq
     ((fn [xs]
-       (println xs (count xs) " md files.")
+       (println (count xs) " md files.")
        xs))
     (filter (fn [^java.io.File f] (. f (isFile))))
     (map slurp)
@@ -61,7 +61,7 @@
   (when-let [dist (io/resource dist-path)]
     (fs/delete-dir dist))
   (doseq [article articles]
-    (let [filepath (str dist-path "/" (:url-path article))]
+    (let [filepath (str dist-path "/" (:url-path article) "/index.html")]
       (println "Writing a file to " filepath article)
       (fs/mkdirs (fs/parent filepath))
       (spit filepath (:html article)))))
