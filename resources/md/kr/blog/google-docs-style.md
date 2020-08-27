@@ -23,7 +23,7 @@ Word의 기본적인 기능도 모르고 문서의 스타일을 유지하기 위
 ### 스타일 적용
 
 스타일 적용은 아래와 같이 할 수 있다.
-{{< img src="/img/google-docs/google-docs-style-0.png" title="구글독스 단락스타일" >}}
+<img src="/img/google-docs/google-docs-style-0.png" title="구글독스 단락스타일">
 
 단축키를 선호한다면 맥에서는 `Cmd`+`Option`+`숫자키`를 이용할 수 있다.
 
@@ -33,7 +33,7 @@ Word의 기본적인 기능도 모르고 문서의 스타일을 유지하기 위
 
 단락스타일 기능을 이용해 제목의 스타일을 설정하였을 경우 목차를 넣거나 아웃라인을 볼 수 있다는 장점이 있다.
 
-{{< img src="/img/google-docs/google-docs-outline.png" title="구글독스 아웃라인" >}}
+<img src="/img/google-docs/google-docs-outline.png" title="구글독스 아웃라인">
 
 ### 단락스타일 기능 사용의 장점
 

@@ -16,7 +16,7 @@ A/B 테스트에 대한 이해는 가지고 있지만 팀에서 일할 때에는
 
 약간의 조사를 통해 [구글 옵티마이즈](https://optimize.google.com)를 발견하였는데 사용법을 익히고 세팅을 거치고 나면 A/B 테스트를 실행하는데 10분도 걸리지 않으면서 다양한 기능을 제공하는 만족스러운 툴이었다.
 
-{{< img src="/img/google-optimize.png" title="구글옵티마이즈 UI" >}}
+<img src="/img/google-optimize.png" title="구글옵티마이즈 UI">
 
 내가 경험한 구글 옵티마이즈의 장점은 다음과 같다.
 
