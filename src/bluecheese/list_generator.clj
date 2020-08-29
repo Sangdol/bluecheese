@@ -31,6 +31,8 @@
       (read-md-files (io/resource md-path))
       (map #(merge % {:dateStr (formatted-date (:date %))}))
       (map #(merge % {:common-head (slurp (io/file (io/resource common-head)))}))
+      (sort-by :date)
+      (reverse)
       ((fn [articles] {:articles articles}))
       (clo/render-resource list)
       (write-list dist))))
