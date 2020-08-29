@@ -18,7 +18,7 @@
   (is (= {"date" "2018-10-10"
           "slug" "test-slug"
           "url-path" "2018/10/10/test-slug"
-          "html" "<h1>hello</h1>"}
+          "body" "<h1>hello</h1>"}
          (md->map (utils/multiline "+++"
                                    "date=2018-10-10"
                                    "slug=test-slug"
@@ -32,4 +32,8 @@
                     "slug" "hello world"})))
   (is (= "2020/08/27/hello-world"
          (url-path {"date" "2020-08-27T04:53:40+02:00\""
-                    "slug" "hello-world"}))))
+                    "slug" "hello-world"})))
+
+  (is (= "/hello-world"
+         (url-path {"date" ""
+                    "slug" "hello world"}))))

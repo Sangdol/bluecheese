@@ -1,6 +1,5 @@
 (ns bluecheese.core
-  (:use [bluecheese.static-generator :only [generate-static-pages]]
-        [bluecheese.article-generator :only [generate-article-pages]]
+  (:use [bluecheese.article-generator :only [generate-article-pages]]
         [bluecheese.list-generator :only [generate-list-page]]
         [bluecheese.ui :only [copy-ui]]
         [bluecheese.config :only [config]]))
@@ -11,9 +10,7 @@
    "article" (fn [env-config]
                (generate-article-pages env-config))
    "list" (fn [env-config]
-            (generate-list-page env-config))
-   "static"  (fn [env-config]
-               (generate-static-pages env-config))})
+            (generate-list-page env-config))})
 
 
 (defn run [op env-config]

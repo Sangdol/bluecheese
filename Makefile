@@ -1,4 +1,4 @@
-.PHONY: bluecheese test
+.PHONY: test
 
 #
 # local
@@ -7,12 +7,8 @@
 test:
 	lein test-refresh :changes-only
 
-bluecheese:
+all:
 	lein run all local
-
-
-list:
-	lein run list local
 
 article:
 	lein run article local

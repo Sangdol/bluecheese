@@ -24,7 +24,7 @@
 
 (defn generate-list-page [env-config]
   (let [md-path (:kr-md-path env-config)
-        list (:list-template-path env-config)
+        template (:list-template-path env-config)
         common-head (:common-head env-config)
         dist (:kr-blog-path env-config)]
     (->>
@@ -34,7 +34,7 @@
       (sort-by :date)
       (reverse)
       ((fn [articles] {:articles articles}))
-      (clo/render-resource list)
+      (clo/render-resource template)
       (write-list dist))))
 
 

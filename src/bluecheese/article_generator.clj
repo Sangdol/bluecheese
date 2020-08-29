@@ -43,8 +43,8 @@
     ((fn [[_, variables, md]]
        (let [vm (parse-variables variables)]
          (merge vm
-                {:body (md/md-to-html-string md)}
-                {:url-path (url-path vm)}))))))
+                {"body" (md/md-to-html-string md)}
+                {"url-path" (url-path vm)}))))))
 
 
 (defn read-md-files [dir]
@@ -62,10 +62,10 @@
     (map walk/keywordize-keys)))
 
 
-(defn write-article [dist-path articles]
+(defn write-pages [dist-path pages]
   (when-let [dist (io/resource dist-path)]
     (fs/delete-dir dist))
-  (doseq [article articles]
+  (doseq [article pages]
     (let [filepath (str dist-path "/" (:url-path article) "/index.html")]
       (println "Writing a file to " filepath article)
       (fs/mkdirs (fs/parent filepath))
@@ -74,13 +74,16 @@
 
 (defn generate-article-pages [env-config]
   (let [md-path (:kr-md-path env-config)
-        article (:article-template-path env-config)
+        template (:basic-template-path env-config)
         common-head (:common-head env-config)
         dist (:kr-blog-path env-config)]
     (->>
       (read-md-files (io/resource md-path))
+      ;; Adding one property by one in a map doesn't look very understandable.
+      ;; * title, description, body: for templating
+      ;; * date, slug, url-path: for path
+      ;; * html: for writing to a file
       (map #(merge % {:common-head (slurp (io/file (io/resource common-head)))}))
-      (map #(merge % {:html (clo/render-resource article %)}))
-      (write-article dist))))
-
+      (map #(merge % {:html (clo/render-resource template %)}))
+      (write-pages dist))))
 
