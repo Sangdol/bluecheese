@@ -5,8 +5,8 @@
         [bluecheese.config :only [config]]))
 
 (def ops
-  {"ui" (fn [env-config]
-          (copy-ui env-config))
+  {"copy-ui" (fn [env-config]
+               (copy-ui env-config))
    "article" (fn [env-config]
                (generate-article-pages env-config))
    "static"  (fn [env-config]

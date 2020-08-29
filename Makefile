@@ -14,7 +14,7 @@ article:
 	lein run article local
 
 auto-ui:
-	lein auto run ui local
+	lein auto run copy-ui local
 
 #
 # prod
