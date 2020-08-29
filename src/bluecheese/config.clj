@@ -3,7 +3,9 @@
 (def dist-path "dist")
 
 (def common
-  {:kr-md-path          "md/kr/blog"
+  {:blog-info {:kr-blog-title "이상현 IN 베를린"
+               :description   "베를린 사는 개발자 이야기"}
+   :kr-md-path          "md/kr/blog"
    :kr-fixed-md-path    "md/kr/fixed"
    :web                 "web"
    :basic-template-path "web/template/basic-template.html"

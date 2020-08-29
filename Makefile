@@ -13,6 +13,9 @@ all:
 article:
 	lein run article local
 
+list:
+	lein run list local
+
 auto-ui:
 	lein auto run copy-ui local
 

@@ -4,7 +4,8 @@
                  [markdown-clj "1.10.5"]
                  [de.ubercode.clostache/clostache "1.4.0"]
                  [me.raynes/fs "1.4.6"]
-                 [clojure.java-time "0.3.2"]]
+                 [clojure.java-time "0.3.2"]
+                 [clj-rss "0.2.5"]]
   ;; https://github.com/weavejester/lein-auto
   :plugins [ [lein-auto "0.1.3"]]
   ;; monitor contents directory to regenerate when some of them change

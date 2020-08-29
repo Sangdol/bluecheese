@@ -75,6 +75,7 @@
 (defn generate-article-pages [env-config]
   (let [md-path (:kr-md-path env-config)
         template (:basic-template-path env-config)
+        blog-info (:blog-info env-config)
         common-head (:common-head env-config)
         dist (:kr-blog-path env-config)]
     (->>
@@ -83,7 +84,7 @@
       ;; * title, description, body: for templating
       ;; * date, slug, url-path: for path
       ;; * html: for writing to a file
-      (map #(merge % {:common-head (slurp (io/file (io/resource common-head)))}))
+      (map #(merge blog-info % {:common-head (slurp (io/file (io/resource common-head)))}))
       (map #(merge % {:html (clo/render-resource template %)}))
       (write-pages dist))))
 

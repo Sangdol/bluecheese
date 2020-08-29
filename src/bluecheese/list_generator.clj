@@ -25,6 +25,7 @@
 (defn generate-list-page [env-config]
   (let [md-path (:kr-md-path env-config)
         template (:list-template-path env-config)
+        blog-info (:blog-info env-config)
         common-head (:common-head env-config)
         dist (:kr-blog-path env-config)]
     (->>
@@ -33,7 +34,8 @@
       (map #(merge % {:common-head (slurp (io/file (io/resource common-head)))}))
       (sort-by :date)
       (reverse)
-      ((fn [articles] {:articles articles}))
+      ((fn [articles]
+         (merge blog-info {:articles articles})))
       (clo/render-resource template)
       (write-list dist))))
 

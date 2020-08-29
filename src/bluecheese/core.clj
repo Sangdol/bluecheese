@@ -1,16 +1,20 @@
 (ns bluecheese.core
   (:use [bluecheese.article-generator :only [generate-article-pages]]
         [bluecheese.list-generator :only [generate-list-page]]
+        [bluecheese.rss-generator :only [generate-rss]]
         [bluecheese.ui :only [copy-ui]]
         [bluecheese.config :only [config]]))
+
 
 (def ops
   {"copy-ui" (fn [env-config]
                (copy-ui env-config))
    "article" (fn [env-config]
                (generate-article-pages env-config))
-   "list" (fn [env-config]
-            (generate-list-page env-config))})
+   "list"    (fn [env-config]
+               (generate-list-page env-config))
+   "rss"     (fn [env-config]
+               (generate-rss env-config))})
 
 
 (defn run [op env-config]
