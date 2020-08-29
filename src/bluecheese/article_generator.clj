@@ -81,6 +81,6 @@
       (read-md-files (io/resource md-path))
       (map #(merge % {:common-head (slurp (io/file (io/resource common-head)))}))
       (map #(merge % {:html (clo/render-resource article %)}))
-      ((partial write-article dist))))) ; remove partial
+      (write-article dist))))
 
 
