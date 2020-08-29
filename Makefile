@@ -10,6 +10,10 @@ test:
 bluecheese:
 	lein run all local
 
+
+list:
+	lein run list local
+
 article:
 	lein run article local
 

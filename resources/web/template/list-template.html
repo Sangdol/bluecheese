@@ -6,6 +6,19 @@
     {{&common-head}}
 </head>
 <body>
-    {{&body}}
+<div class="container">
+    <div class="content">
+        <ul class="no-margin-bottom">
+            {{#articles}}
+            <li class="post-item">
+                <a href="/blog/{{url-path}}" class="title"><span>{{title}}</span></a>
+                <span class="meta">
+                        <time>{{dateStr}}</time>
+                    </span>
+            </li>
+            {{/articles}}
+        </ul>
+    </div>
+</div>
 </body>
 </html>

@@ -18,12 +18,16 @@
     (apply hash-map))) ;; (into {}) ??
 
 
+(defn only-date [datetime]
+  (first (str/split datetime #"T")))
+
+
 (defn url-path [vm]
   "generate url path of an article including date and slug
    e.g., 2019/08/26/blog-ab-test/
 
   * date format: 2020-07-01 or 2017-09-08T04:53:40+02:00"
-  (let [date (first (str/split (vm "date") #"T"))
+  (let [date (only-date (vm "date"))
         slug (vm "slug")]
     (str (str/replace date "-" "/")
          "/"
@@ -39,8 +43,8 @@
     ((fn [[_, variables, md]]
        (let [vm (parse-variables variables)]
          (merge vm
-                {"body" (md/md-to-html-string md)}
-                {"url-path" (url-path vm)}))))))
+                {:body (md/md-to-html-string md)}
+                {:url-path (url-path vm)}))))))
 
 
 (defn read-md-files [dir]
@@ -54,7 +58,8 @@
        xs))
     (filter (fn [^java.io.File f] (. f (isFile))))
     (map slurp)
-    (map md->map)))
+    (map md->map)
+    (map walk/keywordize-keys)))
 
 
 (defn write-article [dist-path articles]
@@ -74,9 +79,8 @@
         dist (:kr-blog-path env-config)]
     (->>
       (read-md-files (io/resource md-path))
-      (map walk/keywordize-keys)
       (map #(merge % {:common-head (slurp (io/file (io/resource common-head)))}))
       (map #(merge % {:html (clo/render-resource article %)}))
-      ((partial write-article dist)))))
+      ((partial write-article dist))))) ; remove partial
 
 
