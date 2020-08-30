@@ -16,6 +16,9 @@ article:
 list:
 	lein run list local
 
+rss:
+	lein run rss local
+
 auto-ui:
 	lein auto run copy-ui local
 

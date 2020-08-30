@@ -6,7 +6,8 @@
             [clojure.walk :as walk]
             [me.raynes.fs :as fs]
             [java-time :as time])
-  (:use [bluecheese.config :only [config]]))
+  (:use [bluecheese.config :only [config]])
+  (:import (java.util Date)))
 
 
 (defn parse-variables [variables]
@@ -57,6 +58,13 @@
     (time/format "MMM d, yyyy")))
 
 
+(defn java-date [offset-date]
+  (Date.
+    (.toEpochMilli
+      (.toInstant
+        (time/offset-date-time offset-date)))))
+
+
 (defn read-md-files [dir]
   "return a vector of article metadata and html from markdown files"
   (->>
@@ -76,7 +84,7 @@
   "return a vector of articles with dates and being sorted"
   (->>
     (read-md-files dir)
-    (map #(merge % {:datetime (time/offset-date-time (:date %))
+    (map #(merge % {:datetime (java-date (:date %))
                     :dateStr (formatted-date (:date %))}))
     (sort-by :datetime)
     (reverse)

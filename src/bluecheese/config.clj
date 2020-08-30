@@ -1,5 +1,6 @@
 (ns bluecheese.config)
 
+(def base-url "https://iamsang.com")
 (def dist-path "dist")
 
 (def common
@@ -7,12 +8,14 @@
                          :description   "베를린 사는 개발자 이야기"}
    :kr-md-path          "md/kr/blog"
    :kr-fixed-md-path    "md/kr/fixed"
-   :kr-rss-path         "index.xml"
+   :kr-rss-path         (str dist-path "/index.xml")
    :web                 "web"
    :basic-template-path "web/template/basic-template.html"
    :list-template-path  "web/template/list-template.html"
    :common-head         "web/template/common-head.html"
    :kr-blog-path        (str dist-path "/blog")
+   :kr-blog-url         (str base-url "/blog")
+   :base-url            base-url
    :dist                dist-path})
 
 
