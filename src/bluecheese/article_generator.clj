@@ -4,7 +4,8 @@
             [clojure.java.io :as io]
             [clostache.parser :as clo]
             [clojure.walk :as walk]
-            [me.raynes.fs :as fs])
+            [me.raynes.fs :as fs]
+            [java-time :as time])
   (:use [bluecheese.config :only [config]]))
 
 
@@ -47,6 +48,15 @@
                 {"url-path" (url-path vm)}))))))
 
 
+(defn formatted-date [long-datetime]
+  "long datetime format 2019-02-04T20:17:00+01:00"
+  (->>
+    long-datetime
+    only-date
+    (time/local-date "yyyy-MM-dd")
+    (time/format "MMM d, yyyy")))
+
+
 (defn read-md-files [dir]
   "return a vector of article metadata and html from markdown files"
   (->>
@@ -60,6 +70,17 @@
     (map slurp)
     (map md->map)
     (map walk/keywordize-keys)))
+
+
+(defn read-posts [dir]
+  "return a vector of articles with dates and being sorted"
+  (->>
+    (read-md-files dir)
+    (map #(merge % {:datetime (time/offset-date-time (:date %))
+                    :dateStr (formatted-date (:date %))}))
+    (sort-by :datetime)
+    (reverse)
+    (filter #(not= "fixed" (:type %)))))
 
 
 (defn write-pages [dist-path pages]

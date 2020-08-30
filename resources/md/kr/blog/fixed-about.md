@@ -2,7 +2,8 @@
 draft = false
 title = "About"
 slug = "about"
-date = ""
+date = "2020-08-29T21:25+02:00"
+type = "fixed"
 
 +++
 

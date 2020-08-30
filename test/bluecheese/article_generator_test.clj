@@ -26,14 +26,22 @@
                                    "# hello")))))
 
 
+(deftest formatted-date-test
+  (is (= "Feb 4, 2019"
+         (formatted-date "2019-02-04T20:17:00+01:00"))))
+
+
 (deftest url-path-test
   (is (= "2020/08/27/hello-world"
          (url-path {"date" "2020-08-27"
                     "slug" "hello world"})))
+
   (is (= "2020/08/27/hello-world"
-         (url-path {"date" "2020-08-27T04:53:40+02:00\""
+         (url-path {"date" "2020-08-27T04:53:40+02:00"
                     "slug" "hello-world"})))
 
   (is (= "/hello-world"
          (url-path {"date" ""
                     "slug" "hello world"}))))
+
+
