@@ -16,8 +16,8 @@
     (str/split variables #"(?m)\n")
     (mapcat #(str/split % #"="))
     (map str/trim)
-    (map #(str/replace % #"[\^\"\"$\^\'\'$]" ""))  ; unquote
-    (apply hash-map))) ;; (into {}) ??
+    (map #(str/replace % #"[\^\"\"$\^\'\'$]" ""))           ; unquote
+    (apply hash-map)))                                      ;; (into {}) ??
 
 
 (defn only-date [datetime]
@@ -85,7 +85,7 @@
   (->>
     (read-md-files dir)
     (map #(merge % {:datetime (java-date (:date %))
-                    :dateStr (formatted-date (:date %))}))
+                    :dateStr  (formatted-date (:date %))}))
     (sort-by :datetime)
     (reverse)
     (filter #(not= "fixed" (:type %)))))
@@ -101,11 +101,18 @@
       (spit filepath (:html article)))))
 
 
+(defn common-htmls [env-config]
+  (->>
+    (for [key [:common-head :common-header :common-footer]]
+      [key (slurp (io/file (io/resource (key env-config))))])
+    (into {})))
+
+
 (defn generate-article-pages [env-config]
   (let [md-path (:kr-md-path env-config)
-        template (:basic-template-path env-config)
+        article-template (:article-template-path env-config)
+        fixed-template (:fixed-template-path env-config)
         blog-info (:blog-info env-config)
-        common-head (:common-head env-config)
         dist (:kr-blog-path env-config)]
     (->>
       (read-md-files (io/resource md-path))
@@ -113,7 +120,9 @@
       ;; * title, description, body: for templating
       ;; * date, slug, url-path: for path
       ;; * html: for writing to a file
-      (map #(merge blog-info % {:common-head (slurp (io/file (io/resource common-head)))}))
-      (map #(merge % {:html (clo/render-resource template %)}))
+      (map #(merge blog-info % (common-htmls env-config)))
+      (map #(merge % {:html (if (= (:type %) "fixed")
+                              (clo/render-resource fixed-template %)
+                              (clo/render-resource article-template %))}))
       (write-pages dist))))
 

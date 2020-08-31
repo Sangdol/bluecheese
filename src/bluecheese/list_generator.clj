@@ -1,7 +1,7 @@
 (ns bluecheese.list-generator
   (:require [clostache.parser :as clo]
             [clojure.java.io :as io])
-  (:use [bluecheese.article-generator :only [read-posts]]))
+  (:use [bluecheese.article-generator :only [read-posts common-htmls]]))
 
 
 ; /blog/index.html
@@ -15,13 +15,11 @@
   (let [md-path (:kr-md-path env-config)
         template (:list-template-path env-config)
         blog-info (:blog-info env-config)
-        common-head (:common-head env-config)
         dist (:kr-blog-path env-config)]
     (->>
       (read-posts (io/resource md-path))
-      (map #(merge % {:common-head (slurp (io/file (io/resource common-head)))}))
       ((fn [articles]
-         (merge blog-info {:articles articles})))
+         (merge blog-info (common-htmls env-config) {:articles articles})))
       (clo/render-resource template)
       (write-list dist))))
 
