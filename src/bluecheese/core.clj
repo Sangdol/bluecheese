@@ -7,14 +7,17 @@
 
 
 (def ops
-  {"copy-ui" (fn [env-config]
-               (copy-ui env-config))
-   "article" (fn [env-config]
-               (generate-article-pages env-config))
-   "list"    (fn [env-config]
-               (generate-list-page env-config))
-   "rss"     (fn [env-config]
-               (generate-rss env-config))})
+  (array-map
+    ; 'article' generates dist directory. It should run first.
+    "article" (fn [env-config]
+                (generate-article-pages env-config))
+    "copy-ui" (fn [env-config]
+                (copy-ui env-config))
+    "list" (fn [env-config]
+             (generate-list-page env-config))
+    "rss" (fn [env-config]
+            (generate-rss env-config))))
+
 
 
 (defn run [op env-config]
