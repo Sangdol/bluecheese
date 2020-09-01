@@ -1,13 +1,4 @@
 body {
-    font-family: Baskerville;
-}
-
-.content {
-    margin: 20px;
-}
-
-.content p {
-  margin-bottom: 1rem;
 }
 
 #container {
@@ -15,96 +6,16 @@ body {
     margin: 0 auto;
 }
 
-a.back-home {
-    color: inherit;
-}
-
-a.back-home img {
-    height: 20px;
-    width: 20px;
-}
-
-.back-home {
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-.table {
-    font-family: Roboto;
-}
-
 .header {
     margin-top: 3rem;
     text-align: center;
-}
-
-button {
-    height: 36px;
-    line-height: 36px;
-    padding: 0 20px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .header .button-wrap {
     margin-top: 15px;
 }
 
-.header .button-wrap .material-icons {
-    /* font-size: 20px; */
-    /* position: absolute; */
-    /* margin-top: 4px; */
-    font-size: inherit;
-    line-height: 0;
-    vertical-align: middle;
-}
-
-#credit {
-    padding: 0.5em 2em;
-    font-size: 80%;
-    color: #888;
-}
-
 a {
     text-decoration: none;
 }
 
-.sub-text {
-    font-size: 60%;
-    color: #888;
-    vertical-align: top;
-    position: absolute;
-    bottom: 3px;
-}
-
-/*
- * Cookie banner
- */
-#cookie-law {
-    position: fixed;
-    z-index: 99999;
-    background: #fafafa;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    text-align: center;
-    padding: 30px 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    font-size: 120%;
-}
-
-#cookie-law p {
-    margin: 0;
-}
-
-#cookie-law .close-x {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    right: 15px;
-    top: 10px;
-}
-
-#cookie-law button {
-    font-weight: bold;
-}
