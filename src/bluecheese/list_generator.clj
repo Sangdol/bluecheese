@@ -1,5 +1,5 @@
 (ns bluecheese.list-generator
-  (:require [clostache.parser :as clo]
+  (:require [cljstache.core :as clo]
             [clojure.java.io :as io])
   (:use [bluecheese.article-generator :only [read-posts common-htmls]]))
 

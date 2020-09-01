@@ -2,7 +2,7 @@
   :description "bluecheese"
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [markdown-clj "1.10.5"]
-                 [de.ubercode.clostache/clostache "1.4.0"]
+                 [cljstache "2.0.6"]
                  [me.raynes/fs "1.4.6"]
                  [clojure.java-time "0.3.2"]
                  [clj-rss "0.2.5"]]

@@ -2,7 +2,7 @@
   (:require [clojure.string :as str]
             [markdown.core :as md]
             [clojure.java.io :as io]
-            [clostache.parser :as clo]
+            [cljstache.core :as clo]
             [clojure.walk :as walk]
             [me.raynes.fs :as fs]
             [java-time :as time])
