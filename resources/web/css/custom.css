@@ -51,19 +51,6 @@ section {
   text-align: center;
 }
 
-pre {
-  background-color: white;
-  padding: 0.3em;
-}
-
-input[type], code {
-  background-color: var(--code-color);
-}
-
-pre > code.hljs {
-  background: var(--code-color);
-}
-
 #container {
   max-width: 736px;
   margin: 0 auto;
@@ -179,6 +166,18 @@ section.icons .content a .flag {
   float: right;
 }
 
+@media (max-width: 600px) {
+  /* mobile */
+  .container.list .content .post-item {
+    display: block;
+    margin-bottom: 1em;
+  }
+  .container.list .content .post-item .meta {
+    display: block;
+    float: none;
+  }
+}
+
 /* signup */
 
 section.signup input {
@@ -207,15 +206,16 @@ section.signup .subscribe.button:hover {
   border-color: var(--font-lighter-color);
 }
 
-.signup input {
+section.signup input {
   border: 1px solid #D1D1D1
 }
 
-.signup input[type="submit"] {
-  padding: 0 30px;
+section.icons {
+  padding-top: 20px;
 }
 
 @media (min-width: 600px) {
+  /* desktop */
   section.signup {
     padding-top: 40px;
 
@@ -228,7 +228,31 @@ section.signup .subscribe.button:hover {
   section.signup form, input {
     margin-bottom: 0;
   }
-  section.icons {
-    padding-top: 15px;
+
+  .signup input[type="submit"] {
+    padding: 0 30px;
   }
+}
+
+/* overriding sakura */
+pre {
+  background-color: white;
+  padding: 0.3em;
+}
+
+input[type], code {
+  background-color: var(--code-color);
+}
+
+pre > code.hljs {
+  background: var(--code-color);
+}
+
+blockquote {
+  border-left: 4px solid var(--font-color);
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: var(--font-heading-weight);
 }
