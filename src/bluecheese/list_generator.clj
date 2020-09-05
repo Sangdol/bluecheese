@@ -15,12 +15,14 @@
   (let [md-path (:kr-md-path env-config)
         template (:list-template-path env-config)
         blog-info (:blog-info env-config)
-        dist (:kr-blog-path env-config)]
+        dist (:dist env-config)
+        blog-dist (:kr-blog-path env-config)]
     (->>
       (read-posts (io/resource md-path))
       ((fn [articles]
          (merge blog-info (common-htmls env-config) {:articles articles})))
       (clo/render-resource template)
-      (write-list dist))))
+      (write-list dist)  ; writing here until I have an English blog.
+      (write-list blog-dist))))
 
 
