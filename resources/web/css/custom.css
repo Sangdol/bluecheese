@@ -17,7 +17,7 @@
   --font-header-size: 28px;
   --font-heading-size: 24px;
   --font-nav-size: 18px;
-  --font-date-size: 16px;
+  --font-date-size: 14px;
 
   --font-bolder-weight: 600;
   --font-bold-weight: 500;
@@ -80,10 +80,18 @@ pre > code.hljs {
   margin-top: 15px;
 }
 
-.article a {
-  text-decoration: none;
-  border-bottom: 2px solid var(--font-lighter-color);
+a {
   color: var(--font-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--font-color);
+  border: 0px;
+}
+
+.article a {
+  border-bottom: 2px solid var(--font-lighter-color);
   -webkit-transition: border-bottom-color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -moz-transition: border-bottom-color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -ms-transition: border-bottom-color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
@@ -91,7 +99,6 @@ pre > code.hljs {
 }
 
 .article a:hover {
-  color: var(--font-color);
   border-bottom-color: var(--font-color);
 }
 
@@ -156,6 +163,22 @@ section.icons .content a .flag {
   border-radius: 50%;
 }
 
+/* list */
+.container.list .content .post-item {
+  list-style: none;
+  line-height: 1.3em;
+}
+
+.container.list .content a:hover {
+  color: var(--font-light-color);
+}
+
+.container.list .content .post-item .meta {
+  color: var(--font-light-color);
+  font-size: var(--font-date-size);
+  float: right;
+}
+
 /* signup */
 
 section.signup input {
@@ -182,16 +205,19 @@ section.signup .subscribe.button {
 
 section.signup .subscribe.button:hover {
   border-color: var(--font-lighter-color);
-  /*border-left: 0;*/
 }
 
 .signup input {
   border: 1px solid #D1D1D1
 }
 
+.signup input[type="submit"] {
+  padding: 0 30px;
+}
+
 @media (min-width: 600px) {
   section.signup {
-    padding-top: 60px;
+    padding-top: 40px;
 
   }
   section.signup .email {
