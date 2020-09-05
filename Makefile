@@ -33,39 +33,17 @@ auto-all:
 # prod
 #
 
-fe-deploy: pull-bluecheese run-bluecheese generate-bleu-blog commit-push-bleu-blog clean-up
-	echo "Front-end deployed"
-
-deploy: prod-init pull-bluecheese run-bluecheese generate-bleu-blog commit-push-bleu-blog clean-up
+gorgonzola: all empty-gorgonzola serve-gorgonzola
 	echo "Deployed"
 
-prod-init:
-	mkdir -p data && mkdir -p bluecheese/resources/web/dist
+empty-gorgonzola:
+	-cd ../gorgonzola/ && \
+		git rm -rf .
 
-pull-bluecheese:
-	git checkout master && \
-		git branch -D deploy && \
-		git pull && \
-		git fetch origin deploy && \
-		git checkout deploy && \
-		echo "Git-pulled the deploy branch of bluecheese"
-
-# TODO log
-run-bluecheese:
-	lein run all prod
-
-generate-bleu-blog:
-	cp -r bluecheese/resources/web/* ../bleu-blog
-	echo "bleu-blog generated"
-
-commit-push-bleu-blog:
-	cd ../bleu-blog && \
+serve-gorgonzola:
+	cp -r dist/* ../gorgonzola/ && \
+		cd ../gorgonzola && \
 		git add . && \
 		git commit -m "publish" && \
 		git push && \
-		echo "bleu-blog pushed"
-
-clean-up:
-	# come back to master from deploy
-	git checkout .
-	git checkout master
+		echo "Gorgonzola is ready."

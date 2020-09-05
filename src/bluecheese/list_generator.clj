@@ -7,7 +7,7 @@
 ; /blog/index.html
 (defn write-list [dist-path page]
   (let [filepath (str dist-path "/index.html")]
-    (println "Writing a file to " filepath page)
+    (println "Writing a file to " filepath)
     (spit filepath page)))
 
 
