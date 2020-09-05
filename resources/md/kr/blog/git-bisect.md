@@ -18,12 +18,12 @@ slug = 'git-bisect'
 
 `git bisect`를 이용해 문제 위치를 찾아보자. 먼저 문제가 없던 지점을 대략적으로 찾는다. 커밋 0에서는 문제가 없다고 확인되었을 때 다음과 같이 명령을 날린다.
 
-<pre class="prettyprint">
+```
 $ git bisect start
 $ git bisect bad
 $ git bisect good 0
-Bisecting: 2 revisions left to test after this (roughly 2 steps)
-[3] <comment></comment></pre>
+Bisecting: 2 revisions left to test after this (roughly 2 steps) [3]
+```
 
 ```
 .. - 0 - 1 - 2 - (3) - 4* - 5 - HEAD
@@ -31,10 +31,11 @@ Bisecting: 2 revisions left to test after this (roughly 2 steps)
 
 `git bisect` 명령을 통해 현재 시점과 커밋 0의 중간 지점인 커밋 3 시점으로 이동되었다. 커밋 3에서는 문제가 재현되지 않을테니 다음과 같이 good 명령을 날린다.
 
-<pre class="prettyprint">
+```
 $ git bisect good
 Bisecting: 0 revisions left to test after this (roughly 1 step)
-[5] <comment></comment></pre>
+[5]
+```
 
 ```
 .. - 0 - 1 - 2 - 3 - 4* - (5) - HEAD
@@ -42,10 +43,11 @@ Bisecting: 0 revisions left to test after this (roughly 1 step)
 
 이번에는 커밋 5로 이동되었다. 여기서는 문제가 재현될테니 bad를 날린다.
 
-<pre class="prettyprint">
+```
 $ git bisect bad
 Bisecting: 0 revisions left to test after this (roughly 0 steps)
-[4] <comment></comment></pre>
+[4]
+```
 
 ```
 .. - 0 - 1 - 2 - 3 - (4*) - 5 - HEAD
@@ -53,18 +55,18 @@ Bisecting: 0 revisions left to test after this (roughly 0 steps)
 
 여전히 문제가 재현되니 다시 bad.
 
-<pre class="prettyprint">
+```
 $ git bisect bad
 [4] is the first bad commit
-</pre>
+```
 
 자, 이제 문제 발생 시점을 찾아냈다.
 
 작업이 완료된 후에는 다음과 같이 reset 명령어를 통해 HEAD가 원래 위치로 돌아갈 수 있게 해준다.
 
-<pre class="prettyprint">
+```
 $ git bisect reset
-</pre>
+```
 
 찾아야하는 커밋의 범위가 넓을 수록 해당 기능의 힘을 제대로 느낄 수 있다. N개의 커밋이 있을 때, <code>1 + log<sub>2</sub>N</code> 번 이하의 테스트만으로 문제 발생 커밋을 찾아내는 것이 가능하다.
 
