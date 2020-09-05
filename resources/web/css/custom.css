@@ -1,5 +1,6 @@
 :root {
   --font-color: #20303c;
+  --code-color: #f7f7f7;
 
   /*light grey*/
   --font-lighter-color: #a3b1ac;
@@ -43,6 +44,24 @@ body {
   font-weight: 400;
   font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: var(--font-size);
+  max-width: 658px;
+}
+
+section {
+  text-align: center;
+}
+
+pre {
+  background-color: white;
+  padding: 0.3em;
+}
+
+input[type], code {
+  background-color: var(--code-color);
+}
+
+pre > code.hljs {
+  background: var(--code-color);
 }
 
 #container {
@@ -61,7 +80,7 @@ body {
   margin-top: 15px;
 }
 
-a {
+.article a {
   text-decoration: none;
   border-bottom: 2px solid var(--font-lighter-color);
   color: var(--font-color);
@@ -71,7 +90,7 @@ a {
   -o-transition: border-bottom-color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
 
-a:hover {
+.article a:hover {
   color: var(--font-color);
   border-bottom-color: var(--font-color);
 }
@@ -91,4 +110,99 @@ section.header .name {
   font-weight: var(--font-heading-weight);
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
   margin-bottom: 16px;
+}
+
+/* icons */
+section.icons {
+  background-color: transparent;
+}
+section.icons .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.icons .content {
+  width: auto;
+}
+section.icons .content a {
+  border: 0px;
+  margin-left: 3px;
+  margin-right: 3px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.icons .content a:first-child {
+  margin-left: 0;
+}
+section.icons .content a:last-child {
+  margin-right: 0;
+}
+section.icons .content a:hover {
+  opacity: 0.8;
+}
+section.icons .content a .icon {
+  width: 18px;
+  height: 18px;
+}
+section.icons .content a .flag {
+  border-radius: 50%;
+}
+
+/* signup */
+
+section.signup input {
+  border-radius: 0;
+  height: 34px;
+  font-size: 14px;
+  line-height: 14px;
+  background-color: white;
+}
+section.signup .email {
+  transition: ease all .4s;
+}
+section.signup .email:focus {
+  border-color: var(--font-lighter-color);
+}
+
+section.signup .subscribe.button {
+  vertical-align: top;
+  font-weight: 400;
+  background-color: #fafafa;
+  color: var(--font-light-color);
+  border-left: 0;
+}
+
+section.signup .subscribe.button:hover {
+  border-color: var(--font-lighter-color);
+  /*border-left: 0;*/
+}
+
+.signup input {
+  border: 1px solid #D1D1D1
+}
+
+@media (min-width: 600px) {
+  section.signup {
+    padding-top: 60px;
+
+  }
+  section.signup .email {
+    font-size: 14px;
+    width: 200px;
+  }
+
+  section.signup form, input {
+    margin-bottom: 0;
+  }
+  section.icons {
+    padding-top: 15px;
+  }
 }
