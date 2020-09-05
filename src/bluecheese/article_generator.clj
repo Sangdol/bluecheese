@@ -31,9 +31,11 @@
   * date format: 2020-07-01 or 2017-09-08T04:53:40+02:00"
   (let [date (only-date (vm "date"))
         slug (vm "slug")]
-    (str (str/replace date "-" "/")
-         "/"
-         (str/replace slug " " "-"))))
+    (if (= (vm "type") "fixed")
+        (str/replace slug " " "-")
+        (str (str/replace date "-" "/")
+             "/"
+             (str/replace slug " " "-")))))
 
 
 ; TODO - exception handling for empty date or slug / mandatory variables
@@ -91,14 +93,18 @@
     (filter #(not= "fixed" (:type %)))))
 
 
-(defn write-pages [dist-path pages]
-  (when-let [dist (io/resource dist-path)]
-    (fs/delete-dir dist))
+(defn write-page [dist article]
+  (let [filepath (str dist "/" (:url-path article) "/index.html")]
+    (println "Writing a file to " filepath)
+    (fs/mkdirs (fs/parent filepath))
+    (spit filepath (:html article))))
+
+
+(defn write-pages [dist blog-dist pages]
   (doseq [article pages]
-    (let [filepath (str dist-path "/" (:url-path article) "/index.html")]
-      (println "Writing a file to " filepath)
-      (fs/mkdirs (fs/parent filepath))
-      (spit filepath (:html article)))))
+    (if (= (:type article) "fixed")
+      (write-page dist article)
+      (write-page blog-dist article))))
 
 
 (defn common-htmls [env-config]
@@ -113,7 +119,8 @@
         article-template (:article-template-path env-config)
         fixed-template (:fixed-template-path env-config)
         blog-info (:blog-info env-config)
-        dist (:kr-blog-path env-config)]
+        dist (:dist env-config)
+        blog-dist (:kr-blog-path env-config)]
     (->>
       (read-md-files (io/resource md-path))
       ;; Adding one property by one in a map doesn't look very understandable.
@@ -124,5 +131,4 @@
       (map #(merge % {:html (if (= (:type %) "fixed")
                               (clo/render-resource fixed-template %)
                               (clo/render-resource article-template %))}))
-      (write-pages dist))))
-
+      (write-pages dist blog-dist))))

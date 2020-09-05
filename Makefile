@@ -4,10 +4,13 @@
 # local
 #
 
+clean:
+	rm -rf dist
+
 test:
 	lein test-refresh :changes-only
 
-all:
+all: clean
 	lein run all local
 
 article:
@@ -24,6 +27,7 @@ auto-ui:
 
 auto-all:
 	lein auto run all local
+
 
 #
 # prod
