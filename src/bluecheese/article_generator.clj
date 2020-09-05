@@ -96,7 +96,7 @@
     (fs/delete-dir dist))
   (doseq [article pages]
     (let [filepath (str dist-path "/" (:url-path article) "/index.html")]
-      (println "Writing a file to " filepath article)
+      (println "Writing a file to " filepath)
       (fs/mkdirs (fs/parent filepath))
       (spit filepath (:html article)))))
 

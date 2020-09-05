@@ -1,21 +1,94 @@
+:root {
+  --font-color: #20303c;
+
+  /*light grey*/
+  --font-lighter-color: #a3b1ac;
+
+  /*grey*/
+  --font-light-color: #43515c;
+
+  /*blue*/
+  --font-colored-color: #4aa1ea;
+
+  --font-size: 16px;
+  --font-code-size: 16px;
+  --font-small-size: 14px;
+  --font-header-size: 28px;
+  --font-heading-size: 24px;
+  --font-nav-size: 18px;
+  --font-date-size: 16px;
+
+  --font-bolder-weight: 600;
+  --font-bold-weight: 500;
+  --font-heading-weight: 400;
+}
+
+.colored {
+  color: var(--font-colored-color) !important;
+}
+.dark {
+  color: var(--font-color) !important;
+}
+.light {
+  color: var(--font-light-color) !important;
+}
+.lighter {
+  color: var(--font-lighter-color) !important;
+}
+
 body {
+  background-color: white;
+  color: var(--font-color);
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: var(--font-size);
 }
 
 #container {
-    max-width: 736px;
-    margin: 0 auto;
+  max-width: 736px;
+  margin: 0 auto;
 }
 
 .header {
-    margin-top: 3rem;
-    text-align: center;
+  margin-top: 3rem;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
 }
 
 .header .button-wrap {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  border-bottom: 2px solid var(--font-lighter-color);
+  color: var(--font-color);
+  -webkit-transition: border-bottom-color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: border-bottom-color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: border-bottom-color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: border-bottom-color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
 
+a:hover {
+  color: var(--font-color);
+  border-bottom-color: var(--font-color);
+}
+
+section.header .name {
+  font-size: 28px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  font-weight: var(--font-bold-weight);
+  font-smoothing: antialiased;
+  color: var(--font-color);
+  text-transform: uppercase;
+}
+
+.container .page-heading {
+  font-size: var(--font-heading-size);
+  font-weight: var(--font-heading-weight);
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  margin-bottom: 16px;
+}

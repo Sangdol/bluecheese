@@ -22,6 +22,9 @@ rss:
 auto-ui:
 	lein auto run copy-ui local
 
+auto-all:
+	lein auto run all local
+
 #
 # prod
 #

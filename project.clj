@@ -10,8 +10,7 @@
   :plugins [ [lein-auto "0.1.3"]]
   ;; monitor contents directory to regenerate when some of them change
   ;; e.g., lein auto run all ui
-  :auto {"run" {:file-pattern #"\.(html|js)$"
-                :paths ["resources/web/contents",
-                        "resources/web/template"]}}
+  :auto {"run" {:file-pattern #"\.(html|js|css)$"
+                :paths ["resources/web"]}}
   :repl-options {:init-ns bluecheese.core}
   :main bluecheese.core)
