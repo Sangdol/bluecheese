@@ -150,6 +150,12 @@ section.icons .content a .flag {
   border-radius: 50%;
 }
 
+/* nav */
+section.header nav {
+  font-size: var(--font-nav-size);
+  font-weight: var(--font-bold-weight);
+}
+
 /* list */
 .container.list .content .post-item {
   list-style: none;
