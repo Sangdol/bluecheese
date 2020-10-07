@@ -240,6 +240,10 @@ section.icons {
   }
 }
 
+input {
+    -webkit-appearance: none;
+}
+
 /* overriding sakura */
 pre {
   background-color: white;
