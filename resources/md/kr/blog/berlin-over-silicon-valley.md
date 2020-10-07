@@ -80,6 +80,6 @@ title = "실리콘밸리보다 베를린인 이유"
 
 ### 참고자료
 
-* [Europe’s new Silicon Valley [infographic]](https://en.99designs.de/blog/business/berlin-silicon-allee-vs-silicon-valley-infographic/)
+* [Europe’s new Silicon Valley (infographic)](https://en.99designs.de/blog/business/berlin-silicon-allee-vs-silicon-valley-infographic/)
 * [37 percent of Silicon Valley foreign-born](http://www.washingtonexaminer.com/37-percent-of-silicon-valley-foreign-born/article/2583195)
 * [A look behind, and beyond, Berlin's startup scene](http://www.dw.com/en/a-look-behind-and-beyond-berlins-startup-scene/a-40365808)
