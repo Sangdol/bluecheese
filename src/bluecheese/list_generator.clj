@@ -16,9 +16,10 @@
         template (:list-template-path env-config)
         blog-info (:blog-info env-config)
         dist (:dist env-config)
-        blog-dist (:kr-blog-path env-config)]
+        blog-dist (:kr-blog-path env-config)
+        base-url (:base-url env-config)]
     (->>
-      (read-posts (io/resource md-path))
+      (read-posts (io/resource md-path) base-url)
       ((fn [articles]
          (merge blog-info (common-htmls env-config) {:articles articles})))
       (clo/render-resource template)

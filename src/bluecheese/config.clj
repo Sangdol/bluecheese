@@ -22,7 +22,8 @@
    :dist                  dist-path})
 
 
-(def local {})
+(def local {:base-url "http://localhost:8080"})
+
 
 (def prod {})
 

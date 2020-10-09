@@ -1,5 +1,5 @@
 +++
-date = "2020-10-08T22:19:24+02:00"
+date = "2020-10-09T22:19:24+02:00"
 draft = false
 slug = "custom-static-site-generator"
 description = "Hugo를 떠나 Clojure를 이용해 커스텀 정적사이트생성툴 개발한 이야기"

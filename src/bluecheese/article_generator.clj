@@ -67,7 +67,13 @@
         (time/offset-date-time offset-date)))))
 
 
-(defn read-md-files [dir]
+(defn replace-relative-to-absolute-img-url [base-url md-file-content]
+  (str/replace md-file-content
+               #"<img src=\"/"
+               (str "<img src=\"" base-url "/")))
+
+
+(defn read-md-files [dir base-url]
   "return a vector of article metadata and html from markdown files"
   (->>
     dir
@@ -78,14 +84,15 @@
        xs))
     (filter (fn [^java.io.File f] (. f (isFile))))
     (map slurp)
+    (map #(replace-relative-to-absolute-img-url base-url %))
     (map md->map)
     (map walk/keywordize-keys)))
 
 
-(defn read-posts [dir]
+(defn read-posts [dir base-url]
   "return a vector of articles with dates and being sorted"
   (->>
-    (read-md-files dir)
+    (read-md-files dir base-url)
     (map #(merge % {:datetime (java-date (:date %))
                     :dateStr  (formatted-date (:date %))}))
     (sort-by :datetime)
@@ -120,9 +127,10 @@
         fixed-template (:fixed-template-path env-config)
         blog-info (:blog-info env-config)
         dist (:dist env-config)
-        blog-dist (:kr-blog-path env-config)]
+        blog-dist (:kr-blog-path env-config)
+        base-url (:base-url env-config)]
     (->>
-      (read-md-files (io/resource md-path))
+      (read-md-files (io/resource md-path) base-url)
       ;; Adding one property by one in a map doesn't look very understandable.
       ;; * title, description, body: for templating
       ;; * date, slug, url-path: for path

@@ -45,3 +45,17 @@
                     "slug" "hello world"}))))
 
 
+(deftest replace-relative-to-absolute-img-url-test
+  (is (= "abc <img src=\"http://localhost:8080/img/path\"> def"
+         (replace-relative-to-absolute-img-url
+           "http://localhost:8080"
+           "abc <img src=\"/img/path\"> def")))
+
+
+  (is (= "images = [\"img/bye-square.jpg\"]"
+         (replace-relative-to-absolute-img-url
+           "hello"
+           "images = [\"img/bye-square.jpg\"]"))))
+
+
+
