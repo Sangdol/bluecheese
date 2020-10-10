@@ -33,8 +33,11 @@ auto-all:
 # prod
 #
 
-gorgonzola: all empty-gorgonzola serve-gorgonzola
+gorgonzola: prod empty-gorgonzola serve-gorgonzola
 	echo "Deployed"
+
+prod: clean
+	lein run all prod
 
 empty-gorgonzola:
 	-cd ../gorgonzola/ && \
