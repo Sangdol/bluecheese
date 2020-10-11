@@ -1,7 +1,6 @@
 # To fix the broken link due to a rss generator bug
 [[redirects]]
-    from = "/blog2020/10/10/custom-static-site-generator"
-    to = "/blog/2020/10/10/custom-static-site-generator"
-    status = 301
-    force = true
-    query = {path = ":path"}
+from = "/blog2020/10/10/custom-static-site-generator"
+to = "/blog/2020/10/10/custom-static-site-generator"
+status = 301
+force = true
