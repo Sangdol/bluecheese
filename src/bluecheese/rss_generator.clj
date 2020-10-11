@@ -11,7 +11,7 @@
   (->>
     (read-posts (io/resource md-path) base-url)
     (map (fn [article] {:title       (:title article)
-                        :link        (str blog-url (:url-path article))
+                        :link        (str blog-url "/" (:url-path article))
                         :pubDate     (:datetime article)
                         :description (:body article)}))))
 
