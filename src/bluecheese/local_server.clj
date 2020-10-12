@@ -1,11 +1,11 @@
 (ns bluecheese.local-server
   (:require [clojure.string :as str]
             [cljstache.core :as clo]
-            [ring.util.response :as response]
             [clojure.walk :as walk]
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.content-type :refer [wrap-content-type]])
   (:use [bluecheese.article-generator :only [md->map common-htmls]]
+        [bluecheese.list-generator :only [list-html]]
         [bluecheese.config :only [config]]))
 
 
@@ -14,15 +14,17 @@
 (def article-template (:article-template-path env-config))
 (def fixed-template (:fixed-template-path env-config))
 (def md-path (:kr-md-path env-config))
+(def base-url (:base-url env-config))
+(def list-template (:list-template-path env-config))
 
-;
-; Translate the url to a file path
-;
-; /blog/2020/10/10/custom-static-site-generator ->
-;   md/kr/blog/custom-static-site-generator.md
-;
-; /about -> md/kr/blog/fixed-about.md
-;
+;;
+;; Translate the url to a file path
+;;
+;; /blog/2020/10/10/custom-static-site-generator ->
+;;   md/kr/blog/custom-static-site-generator.md
+;;
+;; /about -> md/kr/blog/fixed-about.md
+;;
 (defn uri->path [uri]
   (if (str/starts-with? uri "/blog") ;;
     (str "resources/" md-path "/" (last (str/split uri #"/")) ".md")
@@ -47,11 +49,13 @@
          (clo/render-resource article-template article))))))
 
 
-;; TODO list (main page)
 (defn handler [request]
   (->>
-    (uri->path (:uri request))
-    read-md-as-html
+    (:uri request)
+    ((fn [uri]
+       (if (= uri "/")
+          (list-html md-path base-url blog-info env-config list-template)
+          (read-md-as-html (uri->path uri)))))
     ((fn [html]
        {:status 200
         :headers {"content-type" "text/html; charset=UTF-8"}
