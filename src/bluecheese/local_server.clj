@@ -1,9 +1,6 @@
 (ns bluecheese.local-server
   (:require [clojure.string :as str]
             [cljstache.core :as clo]
-            [clojure.java.io :as io]
-            [markdown.core :as md]
-            [me.raynes.fs :as fs]
             [ring.util.response :as response]
             [clojure.walk :as walk])
   (:use [ring.middleware.resource :only [wrap-resource]]
@@ -17,13 +14,25 @@
 (def fixed-template (:fixed-template-path env-config))
 (def md-path (:kr-md-path env-config))
 
-;* translate the url
-; /blog/2020/10/10/custom-static-site-generator -> md/kr/blog/{filename}
-;; TODO fixed path
+;;
+;; Translate the url to a file path
+;;
+;; /blog/2020/10/10/custom-static-site-generator ->
+;;   md/kr/blog/custom-static-site-generator.md
+;;
+;; /about -> md/kr/blog/fixed-about.md
+;;
 (defn uri->path [uri]
-  (str "resources/" md-path "/" (last (str/split uri #"/")) ".md"))
+  (if (str/starts-with? uri "/blog") ;;
+    (str "resources/" md-path "/" (last (str/split uri #"/")) ".md")
+    (str "resources/" md-path "/fixed-" (last (str/split uri #"/")) ".md")))
 
 
+;; This finds md files based on the slug in the uri
+;; which doesn't always work since some articles have a different
+;; slug from its filename.
+;; I could make a filename to slug map for a search but this approach
+;; is simple works well enough.
 (defn read-md-as-html [path]
   (->>
     path
@@ -37,9 +46,7 @@
          (clo/render-resource article-template article))))))
 
 
-;* take path: :uri
-;* take markdown file
-;* turn it to html
+;; TODO list (main page)
 (defn handler [request]
   (->>
     (uri->path (:uri request))

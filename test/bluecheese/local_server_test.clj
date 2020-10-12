@@ -10,6 +10,9 @@
 
 
 (deftest uri->path-test
-  (is (= (str "resources/md/kr/blog/custom-static-site-generator.md")
-         (uri->path "/blog/2020/10/10/custom-static-site-generator"))))
+  (is (= "resources/md/kr/blog/custom-static-site-generator.md"
+         (uri->path "/blog/2020/10/10/custom-static-site-generator")))
+
+  (is (= "resources/md/kr/blog/fixed-about.md"
+         (uri->path "/about"))))
 
