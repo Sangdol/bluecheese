@@ -7,31 +7,11 @@
             [ring.util.response :as response]
             [clojure.walk :as walk])
   (:use [ring.middleware.resource :only [wrap-resource]]
-        [bluecheese.article-generator :only [articles md->map common-htmls]]
+        [bluecheese.article-generator :only [md->map common-htmls]]
         [bluecheese.config :only [config]]))
 
 
 (def env-config (config "local"))
-
-;(defn articles->pages [articles]
-;  (->> articles
-;       (map (fn [article] [(str "/blog/" (article :url-path) "/index.html")
-;                           (article :html)]))
-;       (into {})))
-
-
-;(defn get-pages []
-;  (let [md-path (:kr-md-path env-config)
-;        blog-info (:blog-info env-config)
-;        base-url (:base-url env-config)]
-;    (->>
-;      ;; TODO index.html / fixed
-;      (articles md-path base-url blog-info env-config fixed-template article-template)
-;      (articles->pages)))
-
-
-;(def pages (get-pages))
-
 (def blog-info (:blog-info env-config))
 (def article-template (:article-template-path env-config))
 (def fixed-template (:fixed-template-path env-config))
@@ -66,6 +46,8 @@
     read-md-as-html
     response/response))
 
+
+;; This is used by Ring.
 (def app
   (->
     handler
