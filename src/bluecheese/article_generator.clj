@@ -121,6 +121,22 @@
     (into {})))
 
 
+;; okay this is too many.
+(defn articles [md-path base-url
+                blog-info env-config
+                fixed-template article-template]
+  (->>
+    (read-md-files (io/resource md-path) base-url)
+    ;; Adding one property by one in a map doesn't look very understandable.
+    ;; * title, description, body: for templating
+    ;; * date, slug, url-path: for path
+    ;; * html: for writing to a file
+    (map #(merge blog-info % (common-htmls env-config)))
+    (map #(merge % {:html (if (= (:type %) "fixed")
+                            (clo/render-resource fixed-template %)
+                            (clo/render-resource article-template %))}))))
+
+
 (defn generate-article-pages [env-config]
   (let [md-path (:kr-md-path env-config)
         article-template (:article-template-path env-config)
@@ -130,13 +146,5 @@
         blog-dist (:kr-blog-path env-config)
         base-url (:base-url env-config)]
     (->>
-      (read-md-files (io/resource md-path) base-url)
-      ;; Adding one property by one in a map doesn't look very understandable.
-      ;; * title, description, body: for templating
-      ;; * date, slug, url-path: for path
-      ;; * html: for writing to a file
-      (map #(merge blog-info % (common-htmls env-config)))
-      (map #(merge % {:html (if (= (:type %) "fixed")
-                              (clo/render-resource fixed-template %)
-                              (clo/render-resource article-template %))}))
+      (articles md-path base-url blog-info env-config fixed-template article-template)
       (write-pages dist blog-dist))))
