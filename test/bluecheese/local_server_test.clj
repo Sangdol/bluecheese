@@ -3,14 +3,10 @@
   (:require [bluecheese.local-server :refer :all]))
 
 
-;(deftest articles->pages-test
-;  (is (= {"abc" "<b>hello</b>"}
-;         (articles->pages [{:url-path "abc" :html "<b>hello</b>"}]))))
-
-(deftest handler-test
-  (is (= ""
-         (handler {:uri "/blog/2020/10/10/test-article"}))))
-
+(deftest read-md-as-html-test
+  (is (= "<!DOCTYPE html>\n<html lang=\"ko"
+         (subs (read-md-as-html "resources/md/kr/test/test-article.md")
+               0 30))))
 
 
 (deftest uri->path-test

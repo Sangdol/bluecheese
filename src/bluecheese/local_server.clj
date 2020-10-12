@@ -43,27 +43,27 @@
 (defn uri->path [uri]
   (str "resources/" md-path "/" (last (str/split uri #"/")) ".md"))
 
-;* take path: :uri
-;* take markdown file
-;* turn it to html
-(defn handler [request]
-  (println request)
-  (println (uri->path (:uri request)))
+
+(defn read-md-as-html [path]
   (->>
-    (uri->path (:uri request))
+    path
     slurp
     md->map
     walk/keywordize-keys
     (merge blog-info (common-htmls env-config))
-    (clo/render-resource article-template)
-    ;(fn [article] ;; why doesn't this work?
-    ;  (if (= (:type article) "fixed")
-    ;    (clo/render-resource fixed-template article)
-    ;    (clo/render-resource article-template article))
-    ;:html))
-    ;(fn [html] ;; why doesn't this print anything?
-    ;  (println "html" html)
-    ;  html)
+    ((fn [article]
+       (if (= (:type article) "fixed")
+         (clo/render-resource fixed-template article)
+         (clo/render-resource article-template article))))))
+
+
+;* take path: :uri
+;* take markdown file
+;* turn it to html
+(defn handler [request]
+  (->>
+    (uri->path (:uri request))
+    read-md-as-html
     response/response))
 
 (def app
