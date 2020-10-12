@@ -23,7 +23,7 @@
       ((fn [articles]
          (merge blog-info (common-htmls env-config) {:articles articles})))
       (clo/render-resource template)
-      (write-list dist)  ; writing here until I have an English blog.
+      (write-list dist)  ; (main page) writing here until I have an English blog.
       (write-list blog-dist))))
 
 

@@ -2,9 +2,10 @@
   (:require [clojure.string :as str]
             [cljstache.core :as clo]
             [ring.util.response :as response]
-            [clojure.walk :as walk])
-  (:use [ring.middleware.resource :only [wrap-resource]]
-        [bluecheese.article-generator :only [md->map common-htmls]]
+            [clojure.walk :as walk]
+            [ring.middleware.resource :refer [wrap-resource]]
+            [ring.middleware.content-type :refer [wrap-content-type]])
+  (:use [bluecheese.article-generator :only [md->map common-htmls]]
         [bluecheese.config :only [config]]))
 
 
@@ -14,14 +15,14 @@
 (def fixed-template (:fixed-template-path env-config))
 (def md-path (:kr-md-path env-config))
 
-;;
-;; Translate the url to a file path
-;;
-;; /blog/2020/10/10/custom-static-site-generator ->
-;;   md/kr/blog/custom-static-site-generator.md
-;;
-;; /about -> md/kr/blog/fixed-about.md
-;;
+;
+; Translate the url to a file path
+;
+; /blog/2020/10/10/custom-static-site-generator ->
+;   md/kr/blog/custom-static-site-generator.md
+;
+; /about -> md/kr/blog/fixed-about.md
+;
 (defn uri->path [uri]
   (if (str/starts-with? uri "/blog") ;;
     (str "resources/" md-path "/" (last (str/split uri #"/")) ".md")
@@ -51,13 +52,17 @@
   (->>
     (uri->path (:uri request))
     read-md-as-html
-    response/response))
+    ((fn [html]
+       {:status 200
+        :headers {"content-type" "text/html; charset=UTF-8"}
+        :body html}))))
 
 
 ;; This is used by Ring.
 (def app
   (->
     handler
-    (wrap-resource "web")))
+    (wrap-resource "web")
+    (wrap-content-type)))
 
 
