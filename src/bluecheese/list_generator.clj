@@ -5,10 +5,20 @@
 
 
 ; /blog/index.html
-(defn write-list [dist-path page]
+(defn write-list
+  [dist-path page]
   (let [filepath (str dist-path "/index.html")]
     (println "Writing a file to " filepath)
     (spit filepath page)))
+
+
+(defn list-html
+  [md-path base-url blog-info env-config template]
+  (->>
+    (read-posts (io/resource md-path) base-url)
+    ((fn [articles]
+       (merge blog-info (common-htmls env-config) {:articles articles})))
+    (clo/render-resource template)))
 
 
 (defn generate-list-page [env-config]
@@ -19,11 +29,8 @@
         blog-dist (:kr-blog-path env-config)
         base-url (:base-url env-config)]
     (->>
-      (read-posts (io/resource md-path) base-url)
-      ((fn [articles]
-         (merge blog-info (common-htmls env-config) {:articles articles})))
-      (clo/render-resource template)
-      (write-list dist)  ; writing here until I have an English blog.
+      (list-html md-path base-url blog-info env-config template)
+      (write-list dist)  ; (main page) writing here until I have an English blog.
       (write-list blog-dist))))
 
 

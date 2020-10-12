@@ -4,6 +4,9 @@
 # local
 #
 
+local-server:
+	lein ring server-headless 8080
+
 clean:
 	rm -rf dist
 
