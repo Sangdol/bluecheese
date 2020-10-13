@@ -5,7 +5,8 @@
                  [cljstache "2.0.6"]
                  [me.raynes/fs "1.4.6"]
                  [clojure.java-time "0.3.2"]
-                 [clj-rss "0.2.5"]
+                 ^{:voom {:repo "https://github.com/yogthos/clj-rss" :branch "img-tag-support"}}
+                 [clj-rss "0.2.5-20201012_205312-g6fb78c6"]
                  [ring "1.8.2"]]
   :ring {:handler bluecheese.local-server/app}
   ;; https://github.com/weavejester/lein-auto

@@ -18,6 +18,7 @@
    :common-footer         "web/template/common-footer.html"
    :kr-blog-path          (str dist-path "/blog")
    :kr-blog-url           (str base-url "/blog")
+   :kr-blog-image-url     (str base-url "/ogimage.png")
    :base-url              base-url
    :dist                  dist-path})
 
