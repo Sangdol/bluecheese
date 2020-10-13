@@ -37,7 +37,7 @@
                        {:type  :image
                         :url   blog-image-url
                         :title (cdata blog-title)
-                        :link  blog-url}
+                        :link  base-url}
                        (take max-item-count items))
       (spit rss-path))))
 
