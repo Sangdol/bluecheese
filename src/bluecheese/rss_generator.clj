@@ -32,7 +32,7 @@
         items (items md-path blog-url base-url)]
     (->>
       (rss/channel-xml {:title       blog-title
-                        :link        (cdata base-url)
+                        :link        base-url
                         :description description}
                        {:type  :image
                         :url   blog-image-url
