@@ -16,10 +16,6 @@
                         :description (:body article)}))))
 
 
-(defn cdata [content]
-  (str "<![CDATA[ " content " ]]>"))
-
-
 (defn generate-rss [env-config]
   (let [blog-info (:blog-info env-config)
         blog-title (:kr-blog-title blog-info)
@@ -36,7 +32,7 @@
                         :description description}
                        {:type  :image
                         :url   blog-image-url
-                        :title (cdata blog-title)
+                        :title blog-title
                         :link  base-url}
                        (take max-item-count items))
       (spit rss-path))))
