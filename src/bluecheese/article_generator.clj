@@ -114,6 +114,7 @@
       (write-page blog-dist article))))
 
 
+;; TODO these htmls cannot have dynamic values
 (defn common-htmls [env-config]
   (->>
     (for [key [:common-head :common-header :common-footer]]
