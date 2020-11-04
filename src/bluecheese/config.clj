@@ -5,7 +5,7 @@
 
 (def common
   {:blog-info             {:kr-blog-title "이상현 IN 베를린"
-                           :description   "베를린 사는 소프토웨어 엔지니어 이야기"}
+                           :description   "베를린 사는 소프트웨어 엔지니어 이야기"}
    :kr-md-path            "md/kr/blog"
    :kr-fixed-md-path      "md/kr/fixed"
    :kr-rss-path           (str dist-path "/index.xml")
