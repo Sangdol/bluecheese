@@ -1,11 +1,22 @@
-bluecheese
+Bluecheese
 ===
 
 Aren't you hungry?
 
-Glossary
-===
+Usage
+---
 
-* Article: post + fixed pages
-* Post: blog post
-* List: A blog main page with a list of posts
+See [`Makefile`](https://github.com/Sangdol/bluecheese/blob/master/Makefile)
+
+Generated static site files
+---
+
+See [Gorgonzola](https://github.com/Sangdol/gorgonzola)
+
+Glossary
+---
+
+* Posts: blog posts
+* Fixed pages: descriptive pages like the about page and the thanks page
+* Articles: posts + fixed pages
+* Lists: Blog main pages with a list of posts
