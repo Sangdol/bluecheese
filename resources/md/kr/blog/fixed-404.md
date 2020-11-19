@@ -11,4 +11,6 @@ type = "fixed"
  
 Sorry if you couldn't find what you want. Take a look at my cat instead.
 
+If you think there's something wrong with this site, please report to hammerha@gmail.com.
+
 ![My cat](/img/yang.jpg)
