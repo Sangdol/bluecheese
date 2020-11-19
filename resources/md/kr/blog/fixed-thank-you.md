@@ -1,7 +1,7 @@
 +++
 draft = false
 title = "Thank You"
-slug = "thankyou"
+slug = "thank-you"
 date = "2019-01-13T00:00+02:00"
 type = "fixed"
 
