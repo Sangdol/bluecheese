@@ -4,7 +4,7 @@
 # local
 #
 
-local-server:
+local:
 	lein ring server-headless 8080
 
 clean:
