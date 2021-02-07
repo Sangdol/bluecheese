@@ -7,4 +7,4 @@ type = "fixed"
 
 +++
 
-아래 양식을 통해 이메일 구독 가능합니다.
+<img src="/img/subscribe.jpg" alt="Subscribe" />
