@@ -22,5 +22,6 @@ type = "fixed"
 ### 개발, 기술
 
 * [스택오버플로 활용하기](http://iamsang.com/blog/2012/05/30/using-stack-overflow-effectively)
+* [(구글 논문) “모두 모델링을 하고 싶어하고 데이터 작업은 피해요” 데이터에 소홀한 AI 업계](http://iamsang.com/blog/2021/02/07/techneedle-google-paper-ai-and-data)
 * [AI로 대체된 250명의 마케터](http://iamsang.com/blog/2018/05/27/ai-and-marketers)
 * [자바 바이트코드 소개](http://iamsang.com/blog/2012/08/19/introduction-to-java-bytecode)
