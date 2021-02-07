@@ -16,7 +16,7 @@
   --font-small-size: 14px;
   --font-header-size: 28px;
   --font-heading-size: 24px;
-  --font-nav-size: 18px;
+  --font-nav-size: 14px;
   --font-date-size: 14px;
 
   --font-bolder-weight: 600;
@@ -45,6 +45,29 @@ body {
   font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: var(--font-size);
   max-width: 658px;
+}
+
+/* nav */
+section.top nav {
+  color: black;
+  font-size: var(--font-nav-size);
+  font-weight: var(--font-bolder-weight);
+}
+
+section.top nav span {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+hr.top-line {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid var(--font-lighter-color);
+    margin: 13px 0;
+    padding: 0;
+    width: 300%;
+    margin-left: -100%;
 }
 
 section {
@@ -148,17 +171,6 @@ section.icons .content a .icon {
 }
 section.icons .content a .flag {
   border-radius: 50%;
-}
-
-/* nav */
-section.header nav {
-  font-size: var(--font-nav-size);
-  font-weight: var(--font-bold-weight);
-}
-
-section.header nav span {
-  display: inline-block;
-  margin: 0 5px;
 }
 
 /* list */
