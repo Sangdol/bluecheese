@@ -156,6 +156,11 @@ section.header nav {
   font-weight: var(--font-bold-weight);
 }
 
+section.header nav span {
+  display: inline-block;
+  margin: 0 5px;
+}
+
 /* list */
 .container.list .content .post-item {
   list-style: none;
