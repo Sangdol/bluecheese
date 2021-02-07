@@ -49,7 +49,7 @@ body {
 
 /* nav */
 section.top nav {
-  color: black;
+  color: var(--font-color);
   font-size: var(--font-nav-size);
   font-weight: var(--font-bolder-weight);
 }
