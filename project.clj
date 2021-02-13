@@ -7,7 +7,8 @@
                  [clojure.java-time "0.3.2"]
                  ^{:voom {:repo "https://github.com/yogthos/clj-rss" :branch "img-tag-support"}}
                  [clj-rss "0.2.5-20201012_205312-g6fb78c6"]
-                 [ring "1.8.2"]]
+                 [ring "1.8.2"]
+                 [cheshire "5.10.0"]]
   :ring {:handler bluecheese.local-server/app}
   ;; https://github.com/weavejester/lein-auto
   :plugins [[lein-auto "0.1.3"]

@@ -4,6 +4,8 @@
             [bluecheese.utils :as utils]))
 
 (deftest parse-variables-test
+  (is (= {"abc" ["d" "e"]}
+         (parse-variables "abc = [\"d\", \"e\"]")))
   (is (= {"abc" "def"}
          (parse-variables "abc = def")))
   (is (= {"abc" "def g"}

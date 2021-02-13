@@ -17,7 +17,7 @@
   (->>
     (read-posts (io/resource md-path) base-url)
     ((fn [articles]
-       (merge blog-info (common-htmls env-config) {:articles articles})))
+       (merge blog-info (common-htmls env-config blog-info) {:articles articles})))
     (clo/render-resource template)))
 
 

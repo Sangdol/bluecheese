@@ -5,7 +5,8 @@
             [cljstache.core :as clo]
             [clojure.walk :as walk]
             [me.raynes.fs :as fs]
-            [java-time :as time])
+            [java-time :as time]
+            [cheshire.core :as che])
   (:use [bluecheese.config :only [config]])
   (:import (java.util Date)))
 
@@ -13,10 +14,16 @@
 (defn parse-variables [variables]
   "parse `key = value` style text"
   (->>
-    (str/split variables #"(?m)\n")
+    (str/split variables #"(?m)\n") ;; m: multiline mode
     (mapcat #(str/split % #"="))
     (map str/trim)
-    (map #(str/replace % #"[\^\"\"$\^\'\'$]" ""))           ; unquote
+    (map #(str/replace % #"^[\"']" ""))           ; unquote
+    (map #(str/replace % #"[\"']$" ""))           ; unquote
+    (map #(if (str/starts-with? % "[")
+            (do
+              (print %)
+              (che/parse-string %))
+            %))
     (apply hash-map)))                                      ;; (into {}) ??
 
 
