@@ -3,6 +3,7 @@ draft = false
 slug = "2020-retro"
 date = "2021-01-04T21:36:00+01:00"
 title = "2020년 개발자 11년 회고"
+images = ["img/slamdunk.png"]
 
 +++
 

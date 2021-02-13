@@ -3,6 +3,7 @@ date = "2021-02-10T20:20+01:00"
 draft = false
 title = "넷플릭스 전 최고마케팅책임자 켈리 베넷과의 대담"
 slug = "netflix-kelly-bennett"
+images = ["img/netflix-kelly-bennett.jpg"]
 
 +++
 

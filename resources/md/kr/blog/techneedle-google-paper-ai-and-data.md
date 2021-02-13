@@ -3,6 +3,7 @@ date = "2021-02-07T20:18:05+01:00"
 draft = false
 slug = "techneedle-google-paper-ai-and-data"
 title = "(구글 논문) “모두 모델링을 하고 싶어하고 데이터 작업은 피해요” 데이터에 소홀한 AI 업계"
+images = ["img/ai-and-data.jpg"]
 
 +++
 
