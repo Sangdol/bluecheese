@@ -42,7 +42,8 @@
     slurp
     md->map
     walk/keywordize-keys
-    (merge blog-info (common-htmls env-config))
+    (merge blog-info)
+    (#(merge (common-htmls env-config %) %))
     ((fn [article]
        (if (= (:type article) "fixed")
          (clo/render-resource fixed-template article)

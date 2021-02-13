@@ -73,6 +73,8 @@
                (str "<img src=\"" base-url "/")))
 
 
+;; What is the data structure of the return value?
+;; See md->map
 (defn read-md-files [dir base-url]
   "return a vector of article metadata and html from markdown files"
   (->>
@@ -114,11 +116,16 @@
       (write-page blog-dist article))))
 
 
-;; TODO these htmls cannot have dynamic values
-(defn common-htmls [env-config]
+(defn common-htmls [env-config page-info]
+  "returns rendered common htmls"
   (->>
     (for [key [:common-head :common-header :common-footer]]
-      [key (slurp (io/file (io/resource (key env-config))))])
+      [key (->>
+             (key env-config)
+             io/resource
+             io/file
+             slurp
+             (#(clo/render % page-info)))])
     (into {})))
 
 
@@ -136,7 +143,8 @@
       ;; * title, description, body: for templating
       ;; * date, slug, url-path: for path
       ;; * html: for writing to a file
-      (map #(merge blog-info % (common-htmls env-config)))
+      (map #(merge blog-info %))
+      (map #(merge % (common-htmls env-config %)))
       (map #(merge % {:html (if (= (:type %) "fixed")
                               (clo/render-resource fixed-template %)
                               (clo/render-resource article-template %))}))

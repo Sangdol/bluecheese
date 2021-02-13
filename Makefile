@@ -4,6 +4,8 @@
 # local
 #
 
+# If you want to run a static local server,
+# create articles (make article) and run a server in the `dist` directory.
 local:
 	lein ring server-headless 8080
 
