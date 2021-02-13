@@ -75,9 +75,10 @@
 
 
 (defn replace-relative-to-absolute-img-url [base-url md-file-content]
-  (str/replace md-file-content
-               #"<img src=\"/"
-               (str "<img src=\"" base-url "/")))
+  (->
+    md-file-content
+    (str/replace "<img src=\"/" (str "<img src=\"" base-url "/")) ;; html
+    (str/replace "](/" (str "](" base-url "/")))) ;; markdown
 
 
 ;; What is the data structure of the return value?
