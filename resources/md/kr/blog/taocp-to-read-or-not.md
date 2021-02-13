@@ -12,8 +12,6 @@ slug = 'taocp-to-read-or-not'
 
 그중 나를 가장 난감하게 했던 도서 중 하나가 바로 TAOCP(The Art of Computer Programming)였다. 단 한 권의 분량도 만만치 않은데 지금까지 나와 있는 것만으로 4권. 감히 엄두도 내기 힘든 분량의 책이었다.
 
-![The Art of Computer Programming (출처: Amazon)](http://ecx.images-amazon.com/images/I/41gCSRxxVeL.jpg)
-
 워낙 유명한 책이다 보니 읽어보고 싶은 욕심은 나지만 분량에 압도되어 엄두는 나지 않고, 그래서 좀 더 검색을 해보았다.
 
 다행히 이런 게으른 고민을 한 사람이 나뿐만은 아니었다. [TAOCP 읽을 것인가 말 것인가?](http://programmers.stackexchange.com/questions/17214/the-art-of-computer-programming-to-read-or-not-to-read)라는 질문이 Stack Exchange에 올라있었다.
