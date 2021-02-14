@@ -3,7 +3,7 @@ date = "2020-10-10T22:19:24+02:00"
 draft = false
 slug = "custom-static-site-generator"
 description = "블로그 개편을 위해 Hugo를 떠나 Clojure를 이용해 커스텀 정적사이트생성기 개발기"
-images = []
+images = ["img/blog-deployment.png"]
 title = "블로그 개편: 커스텀 정적사이트생성기 개발기"
 
 +++
