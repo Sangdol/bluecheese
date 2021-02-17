@@ -4,6 +4,7 @@ draft = false
 title = "독일에서의 재택근무"
 slug = "wfh"
 description = "지난 3월 독일에도 코로나바이러스가 퍼지며 집에서 근무가 가능한 직원들은 모두 재택근무에 들어갔고 11월인 지금까지도 계속되고 있다."
+images = ["img/wfh.jpg"]
 
 +++
 
