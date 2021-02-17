@@ -1,7 +1,7 @@
 +++
 date = "2021-02-13T17:45:42+01:00"
 draft = false
-title = "(구글 논문) 유튜브 추천 알고리즘"
+title = "(구글 논문) 유튜브는 어떻게 내가 좋아할 다음 영상을 추천해주는 것일까?"
 slug = "techneedle-google-paper-youtube-algorithm"
 
 +++
