@@ -21,7 +21,7 @@
     (map #(str/replace % #"[\"']$" ""))           ; unquote
     (map #(if (str/starts-with? % "[")
             (do
-              (print %)
+              (print %) ;; TODO remove this and introduce proper logging
               (che/parse-string %))
             %))
     (apply hash-map)))                                      ;; (into {}) ??
