@@ -16,7 +16,7 @@ AngularJS 개발자들의 예측이 이렇게 심각하게 빗나간 이유는 �
 
 개발일정 산정은 왜 이렇게 어려운 것일까. Quora에 소프트웨어 개발은 왜 항상 예상보다 2~3배 이상의 시간이 걸리는가에 대한 질문이 있는데, 해당 스레드에는 [압도적으로 많은 수의 추천을 받은 답변](http://www.quora.com/Engineering-Management/Why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/answer/Michael-Wolfe?srid=24b&share=1)이 있다. 해당 글에서는 프로젝트 진행을 도보 여행에 비유하여 설명하는데, 전국지도와 같이 축적이 작은 지도를 보고 "단순거리 / 하루 걸을 수 있는 양"으로 계산한 예상 일정과 실제 걸으면서 만나는 예상치 못한 상황을 지나면서 걸리는 일정은 상당히 차이가 날 수밖에 없다는 것이 핵심 내용이다.
 
-[Reddit Programming에도 Quora의 해당 글이 올라](http://www.reddit.com/r/programming/comments/1i1vlc/an_absolutely_brilliant_analogy_as_to_why/) 큰 호응을 얻었었는데, 여기에 달린 댓글들을 보면 일정산정의 어려움에 대한 개발자들의 수많은 개드립을 감상할 수 있다.
+[Reddit Programming에도 Quora의 해당 글이 올라](http://www.reddit.com/r/programming/comments/1i1vlc/an_absolutely_brilliant_analogy_as_to_why/) 큰 호응을 얻었었는데, 여기에 달린 댓글들을 보면 일정산정의 어려움에 대한 개발자들의 수많은 유머를 감상할 수 있다.
 
 Programmers Stack Exchange에는 ["개발일정에 대해 질문받았을 때에 어떻게 답변해야 하는가?"](http://programmers.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)에 대한 질답이 있다. 그에 대해 가장 많은 추천을 받은 답변은 실용주의 프로그래머의 추정(Estimating) 챕터를 그대로 요약한 글이다. 해당 답변을 번역하여 옮겨본다면 아래와 같다.
 
