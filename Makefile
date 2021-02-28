@@ -38,8 +38,11 @@ auto-all:
 # prod
 #
 
-gorgonzola: prod empty-gorgonzola serve-gorgonzola
+gorgonzola: push prod empty-gorgonzola serve-gorgonzola
 	echo "Deployed"
+
+push:
+	git push
 
 prod: clean
 	lein run all prod
