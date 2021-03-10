@@ -4,7 +4,7 @@ slug = "blog-ab-test"
 description = "구글 옵티마이즈를 이용해서 블로그에서 A/B 테스트를 진행한 경험을 공유한다."
 images = ["img/google-optimize.png"]
 date = "2019-08-26T00:20:23+02:00"
-title = "블로그 A/B 테스트 후 배운 점들"
+title = "블로그 A/B 테스트를 통해 배운 점들"
 
 +++
 
