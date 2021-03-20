@@ -8,6 +8,7 @@
 # create articles (make article) and run a server in the `dist` directory.
 local:
 	lein ring server-headless 8080
+	open http://localhost:8080
 
 clean:
 	rm -rf dist
