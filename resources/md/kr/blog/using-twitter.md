@@ -7,11 +7,11 @@ title = "트위터 활동 2달 간의 기록 그리고 배운점"
 
 +++
 
-블로그를 글을 공유하는 용도로 사용해오던 트위터를 지난 12월부터 글이나 정보를 나누는 목적으로 사용하기 시작하였다. 약 두달간 190명대의 팔로워에서 250명대가 되었으 굉장하진 않지만 나로썬 꽤 괜찮은 결과였다.
+블로그를 글을 공유하는 용도로 사용해오던 트위터를 지난 12월부터 작은 글이나 정보를 나누는 목적으로 사용하기 시작하였다. 약 두달간 190명대의 팔로워에서 250명대가 되었으니 굉장하진 않지만 나로썬 꽤 괜찮은 결과였다.
 
-처음 글을 쓰기 시작했을 때는 "이런 사람을 내가 언제 팔로우 하고 있었지?"라는 생각을 했는지 팔로워 수가 오히려 줄기 시작했었다. 팔로워 수에 목슴걸 필요는 없지만 내가 애써서 쓴 글이 더 많은 사람에게 전달할 수 있다는 면에서 의미가 있다고 생각하였다.
+처음 글을 쓰기 시작했을 때는 "내가 이런 사람을 내가 언제 팔로우 하고 있었지?"라는 생각을 했는지 팔로워 수가 오히려 줄기 시작했다. 팔로워 수가 전부는 아니지만 내가 애써서 쓴 글이 더 많은 사람에게 전달할 수 있다는 면에서 의미가 있다고 생각하였다.
 
-트위터 활동 시작은 The Zen of Python에 대해 알게된 사실을 공유하면서였다.
+이번 트위터 활동 시작은 The Zen of Python에 대해 알게된 사실을 공유하면서였다.
 
 <blockquote class="twitter-tweet"><p lang="ko" dir="ltr">Python에서 import this를 치면 나오는 The Zen of Python의 저자가 Python과 Java의 기본 정렬 알고리즘인 Timsort를 만든 Tim Peters였다. <a href="https://t.co/E4pKJXJYTa">pic.twitter.com/E4pKJXJYTa</a></p>&mdash; 이상현 (@sangdolha) <a href="https://twitter.com/sangdolha/status/1334239335512727556?ref_src=twsrc%5Etfw">December 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
