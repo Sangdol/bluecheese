@@ -1,7 +1,7 @@
 Bluecheese
 ===
 
-Aren't you hungry?
+A custom static site generator only for me.
 
 Usage
 ---
