@@ -1,7 +1,7 @@
 Bluecheese
 ===
 
-A custom static site generator only for me.
+A custom static site generator for [my blog](https://iamsang.com/).
 
 Usage
 ---
