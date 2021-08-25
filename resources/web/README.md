@@ -1,3 +1,3 @@
 # Gorgonzola
 
-Make some gorgonzola out of [bluecheese](https://github.com/Sangdol/bluecheese) 🧀
+Gorgonzola made with [bluecheese](https://github.com/Sangdol/bluecheese) 🧀
