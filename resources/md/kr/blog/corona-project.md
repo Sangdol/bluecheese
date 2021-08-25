@@ -3,7 +3,7 @@ draft = false
 slug = "corona-project"
 date = "2021-08-25T22:20:00+02:00"
 title = "유럽 코로나 확진자 수 프로젝트 개발/실패기"
-images = ["/img/corona-project-stat.png"]
+images = ["img/corona-project-stat.png"]
 
 +++
 
