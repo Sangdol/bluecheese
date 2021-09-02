@@ -1,7 +1,7 @@
 +++
 draft = false
 slug = "git-blame"
-date = "2021-08-30T21:36:00+02:00"
+date = "2021-09-02T22:23:00+02:00"
 title = "(웹툰) git blame"
 images = ["img/git-blame.png"]
 
