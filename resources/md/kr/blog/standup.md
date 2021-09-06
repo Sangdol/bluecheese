@@ -1,7 +1,7 @@
 +++
 draft = false
 slug = "standup"
-date = "2021-09-06T22:23:00+02:00"
+date = "2021-09-06T21:51:00+02:00"
 title = "(웹툰) 영어 스탠드업"
 images = ["img/standup.png"]
 
