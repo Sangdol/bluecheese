@@ -11,7 +11,7 @@ type = "fixed"
 
 독일 베를린에 살며 이커머스 기업 [잘란도(Zalando)](https://tech.zalando.com)에서 소프트웨어 엔지니어로 일하고 있습니다.
 
-웹개발을 주로 하였으며 현재는 AI, 데이터와 관련한 일을 주로 하고 있습니다. [테크니들](http://techneedle.com/)을 통해 가끔 [글을 쓰고](http://techneedle.com/archives/author/sanghyun) 있습니다.
+웹개발을 주로 하였으며 현재는 분산 시스템, 데이터와 관련한 일을 주로 하고 있습니다. [테크니들](http://techneedle.com/)을 통해 가끔 [글을 쓰고](http://techneedle.com/archives/author/sanghyun) 있습니다.
 
 글에 대한 의견이나 궁금한 사항은 이메일(hammerha@gmail.com)을 통해 알려주시면 답변 드리겠습니다.
 
