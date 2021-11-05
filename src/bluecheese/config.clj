@@ -4,7 +4,11 @@
 (def dist-path "dist")
 
 (def common
-  {:blog-info             {:kr-blog-title "이상현 IN 베를린"
+  {
+   ;; 'title' is needed to set a title on list pages.
+   ;; 'kr-blog-title' is needed to prefix titles on article pages.
+   :blog-info             {:title "이상현 IN 베를린"
+                           :kr-blog-title "이상현 IN 베를린"
                            :description   "베를린 사는 소프트웨어 엔지니어 이야기"}
    :kr-md-path            "md/kr/blog"
    :kr-fixed-md-path      "md/kr/fixed"
