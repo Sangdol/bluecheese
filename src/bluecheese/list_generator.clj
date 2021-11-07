@@ -34,3 +34,8 @@
       (write-list blog-dist))))
 
 
+(defn main [env-configs]
+  (doseq [env-config env-configs]
+    (generate-list-page env-config)))
+
+

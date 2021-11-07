@@ -1,40 +1,40 @@
 (ns bluecheese.core
-  (:use [bluecheese.article-generator :only [generate-article-pages]]
-        [bluecheese.list-generator :only [generate-list-page]]
-        [bluecheese.rss-generator :only [generate-rss]]
-        [bluecheese.ui :only [copy-ui]]
-        [bluecheese.config :only [config]]))
+  (:require [bluecheese.article-generator :as article-generator]
+            [bluecheese.list-generator :as list-generator]
+            [bluecheese.rss-generator :as rss-generator]
+            [bluecheese.ui :as ui])
+  (:use [bluecheese.config :only [config]]))
 
 
 (def ops
   (array-map
     ; 'article' generates dist directory. It should run first.
-    "article" (fn [env-config]
-                (generate-article-pages env-config))
-    "copy-ui" (fn [env-config]
-                (copy-ui env-config))
-    "list" (fn [env-config]
-             (generate-list-page env-config))
-    "rss" (fn [env-config]
-            (generate-rss env-config))))
+    "article" (fn [env-configs]
+                (article-generator/main env-configs))
+    "copy-ui" (fn [env-configs]
+                (ui/main env-configs))
+    "list" (fn [env-configs]
+             (list-generator/main env-configs))
+    "rss" (fn [env-configs]
+            (rss-generator/main env-configs))))
 
 
 
-(defn run [op env-config]
-  ((ops op) env-config))
+(defn run [op env-configs]
+  ((ops op) env-configs))
 
 
-(defn run-all [env-config]
+(defn run-all [env-configs]
   (doseq [op (keys ops)]
-    (run op env-config)))
+    (run op env-configs)))
 
 
 (defn -main [& args]
   (if (= (count args) 2)
     (let [op (nth args 0)
           env (nth args 1)
-          env-config (config env)]
+          env-configs (config env)]
       (cond
-        (= op "all") (run-all env-config)
-        :else (run op env-config)))
+        (= op "all") (run-all env-configs)
+        :else (run op env-configs)))
     (throw (Exception. "Op and Env is needed e.g., lein run all local"))))

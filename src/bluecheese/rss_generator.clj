@@ -38,5 +38,6 @@
       (spit rss-path))))
 
 
-
-
+(defn main [env-configs]
+  (doseq [env-config env-configs]
+    (generate-rss env-config)))

@@ -137,6 +137,7 @@
     (into {})))
 
 
+;; It might be better if there's a separate generator for 'fixed' pages.
 (defn generate-article-pages [env-config]
   (let [md-path (:md-path env-config)
         article-template (:article-template-path env-config)
@@ -157,3 +158,8 @@
                               (clo/render-resource fixed-template %)
                               (clo/render-resource article-template %))}))
       (write-pages dist blog-dist))))
+
+
+(defn main [env-configs]
+  (doseq [env-config env-configs]
+    (generate-article-pages env-config)))
