@@ -18,13 +18,13 @@
 
 (defn generate-rss [env-config]
   (let [blog-info (:blog-info env-config)
-        blog-title (:kr-blog-title blog-info)
+        blog-title (:blog-title blog-info)
         description (:description blog-info)
-        md-path (:kr-md-path env-config)
+        md-path (:md-path env-config)
         base-url (:base-url env-config)
-        blog-url (:kr-blog-url env-config)
-        rss-path (:kr-rss-path env-config)
-        blog-image-url (:kr-blog-image-url env-config)
+        blog-url (:blog-url env-config)
+        rss-path (:rss-path env-config)
+        blog-image-url (:blog-image-url env-config)
         items (items md-path blog-url base-url)]
     (->>
       (rss/channel-xml {:title       blog-title

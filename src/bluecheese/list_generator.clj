@@ -22,11 +22,11 @@
 
 
 (defn generate-list-page [env-config]
-  (let [md-path (:kr-md-path env-config)
+  (let [md-path (:md-path env-config)
         template (:list-template-path env-config)
         blog-info (:blog-info env-config)
         dist (:dist env-config)
-        blog-dist (:kr-blog-path env-config)
+        blog-dist (:blog-path env-config)
         base-url (:base-url env-config)]
     (->>
       (list-html md-path base-url blog-info env-config template)

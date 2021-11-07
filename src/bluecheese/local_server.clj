@@ -13,7 +13,7 @@
 (def blog-info (:blog-info env-config))
 (def article-template (:article-template-path env-config))
 (def fixed-template (:fixed-template-path env-config))
-(def md-path (:kr-md-path env-config))
+(def md-path (:md-path env-config))
 (def base-url (:base-url env-config))
 (def list-template (:list-template-path env-config))
 

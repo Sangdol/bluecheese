@@ -138,12 +138,12 @@
 
 
 (defn generate-article-pages [env-config]
-  (let [md-path (:kr-md-path env-config)
+  (let [md-path (:md-path env-config)
         article-template (:article-template-path env-config)
         fixed-template (:fixed-template-path env-config)
         blog-info (:blog-info env-config)
         dist (:dist env-config)
-        blog-dist (:kr-blog-path env-config)
+        blog-dist (:blog-path env-config)
         base-url (:base-url env-config)]
     (->>
       (read-md-files (io/resource md-path) base-url)
