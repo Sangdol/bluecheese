@@ -9,26 +9,33 @@
         [bluecheese.config :only [config]]))
 
 
-(def env-config (config "local"))
-(def blog-info (:blog-info env-config))
-(def article-template (:article-template-path env-config))
-(def fixed-template (:fixed-template-path env-config))
-(def md-path (:md-path env-config))
-(def base-url (:base-url env-config))
-(def list-template (:list-template-path env-config))
+(def env-configs (config "local"))
+
+
+(defn md-file-path
+  ([uri md-path] (md-file-path uri md-path ""))
+  ([uri md-path prefix] (str "resources/"
+                             md-path
+                             "/"
+                             prefix
+                             (last (str/split uri #"/"))
+                             ".md")))
 
 ;;
 ;; Translate the url to a file path
+;;
+;; /blog/2020/10/10/custom-static-site-generator ->
+;;   md/en/blog/custom-static-site-generator.md
 ;;
 ;; /blog/2020/10/10/custom-static-site-generator ->
 ;;   md/kr/blog/custom-static-site-generator.md
 ;;
 ;; /about -> md/kr/blog/fixed-about.md
 ;;
-(defn uri->path [uri]
-  (if (str/starts-with? uri "/blog") ;;
-    (str "resources/" md-path "/" (last (str/split uri #"/")) ".md")
-    (str "resources/" md-path "/fixed-" (last (str/split uri #"/")) ".md")))
+(defn uri->path [uri env-config]
+  (if (or (str/starts-with? uri "/en") (str/starts-with? uri "/blog"))
+    (md-file-path uri (:md-path env-config))
+    (md-file-path uri (:md-path env-config) "fixed-")))
 
 
 ;; This finds md files based on the slug in the uri
@@ -36,7 +43,7 @@
 ;; slug from its filename.
 ;; I could make a filename to slug map for a search but this approach
 ;; is simple works well enough.
-(defn read-md-as-html [path]
+(defn read-md-as-html [path env-config blog-info fixed-template article-template]
   (->>
     path
     slurp
@@ -50,13 +57,27 @@
          (clo/render-resource article-template article))))))
 
 
+(defn env-config-for [uri]
+  (if (str/starts-with? uri "/en")
+    (second env-configs)
+    (first env-configs)))
+
+
 (defn handler [request]
   (->>
     (:uri request)
     ((fn [uri]
-       (if (= uri "/")
-          (list-html md-path base-url blog-info env-config list-template)
-          (read-md-as-html (uri->path uri)))))
+       (let [env-config (env-config-for uri)
+             md-path (:md-path env-config)
+             base-url (:base-url env-config)
+             blog-info (:blog-info env-config)
+             list-template (:list-template-path env-config)
+             fixed-template (:fixed-template-path env-config)
+             article-template (:article-template-path env-config)]
+         (if (or (= uri  "/") (= uri "/blog") (= uri "/en"))
+            (list-html md-path base-url blog-info env-config list-template)
+            (read-md-as-html (uri->path uri env-config) env-config blog-info
+                             fixed-template article-template)))))
     ((fn [html]
        {:status 200
         :headers {"content-type" "text/html; charset=UTF-8"}
@@ -69,5 +90,3 @@
     handler
     (wrap-resource "web")
     (wrap-content-type)))
-
-

@@ -19,15 +19,14 @@
    :common-head           "web/template/kr/common-head.html"
    :common-header         "web/template/kr/common-header.html"
    :common-footer         "web/template/kr/common-footer.html"
-   :blog-path          (str dist-path "/blog")
+   :blog-path          (str dist-path "/blog") ;; it's not '/kr' due to a historical reason (aka hugo)
    :blog-url           (str base-url "/blog")})
 
-;; TODO
 (def en
   {
    ;; 'title' is needed to set a title on list pages.
    ;; 'blog-title' is needed to prefix titles on article pages.
-   ;; TODO
+   ;; TODO Update info
    :blog-info             {:title "Sanghyun Lee"
                            :blog-title "Sanghyun Lee"
                            :description   "Software engineer"}
@@ -58,7 +57,3 @@
   ({:local [(merge kr common local) (merge en common local)]
     :prod  [(merge kr common prod) (merge en common prod)]}
    (keyword env)))
-
-
-
-
