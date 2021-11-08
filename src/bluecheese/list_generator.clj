@@ -30,8 +30,8 @@
         base-url (:base-url env-config)]
     (->>
       (list-html md-path base-url blog-info env-config template)
-      (write-list dist)  ; (main page) writing here until I have an English blog.
-      (write-list blog-dist))))
+      ;(write-list dist)  ; (main page) writing here until I have an English blog.
+      (write-list blog-dist)))) ;; TODO
 
 
 (defn main [env-configs]

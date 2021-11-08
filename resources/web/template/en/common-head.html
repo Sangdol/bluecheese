@@ -1,0 +1,43 @@
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="{{description}}">
+    <meta name="twitter:title" content="{{title}}" />
+    <meta name="twitter:description" content="{{description}}" />
+    <meta name="twitter:creator" content="@sangdolha" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    {{#images}}
+    <meta name="twitter:image" content="https://iamsang.com/{{.}}" />
+    {{/images}}
+    {{^images}}
+    <meta name="twitter:image" content="https://iamsang.com/social-logo.png" />
+    {{/images}}
+
+    {{#images}}
+    <meta property="og:image" content="https://iamsang.com/{{.}}" />
+    {{/images}}
+    {{^images}}
+    <meta property="og:image" content="https://iamsang.com/social-logo.png" />
+    {{/images}}
+
+
+    <link rel="shortcut icon" type="image/png" href="/icon-192x192.png">
+    <link rel="shortcut icon" sizes="192x192" href="/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/sakura.css">
+    <link href="/css/custom.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
