@@ -19,6 +19,9 @@ test:
 all: clean
 	lein run all local
 
+home:
+	lein run home local
+
 article:
 	lein run article local
 

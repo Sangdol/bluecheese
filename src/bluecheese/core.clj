@@ -1,6 +1,7 @@
 (ns bluecheese.core
   (:require [bluecheese.article-generator :as article-generator]
             [bluecheese.list-generator :as list-generator]
+            [bluecheese.home-generator :as home-generator]
             [bluecheese.rss-generator :as rss-generator]
             [bluecheese.ui :as ui])
   (:use [bluecheese.config :only [config]]))
@@ -13,6 +14,8 @@
                 (article-generator/main env-configs))
     "copy-ui" (fn [env-configs]
                 (ui/main env-configs))
+    "home" (fn [env-configs]
+             (home-generator/main env-configs))
     "list" (fn [env-configs]
              (list-generator/main env-configs))
     "rss" (fn [env-configs]

@@ -25,13 +25,11 @@
   (let [md-path (:md-path env-config)
         template (:list-template-path env-config)
         blog-info (:blog-info env-config)
-        dist (:dist env-config)
         blog-dist (:blog-path env-config)
         base-url (:base-url env-config)]
     (->>
       (list-html md-path base-url blog-info env-config template)
-      ;(write-list dist)  ; (main page) writing here until I have an English blog.
-      (write-list blog-dist)))) ;; TODO
+      (write-list blog-dist))))
 
 
 (defn main [env-configs]
