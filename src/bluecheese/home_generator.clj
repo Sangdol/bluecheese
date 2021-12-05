@@ -3,13 +3,17 @@
             [cljstache.core :as clo]))
 
 
-;; template placeholders: blog-title, common-head
-(defn generate-main-page [env-config]
+(defn home-html [env-config]
   (let [home-template (:home-template-path env-config)
         blog-info (:blog-info env-config)
         commons (ag/common-htmls env-config {}) ;; no contents needed
-        template-contents (merge blog-info commons)
-        html (clo/render-resource home-template template-contents)
+        template-contents (merge blog-info commons)]
+    (clo/render-resource home-template template-contents)))
+
+
+;; template placeholders: blog-title, common-head
+(defn generate-main-page [env-config]
+  (let [html (home-html env-config)
         filepath (str (:dist env-config) "/index.html")]
     (println "Writing a file to " filepath)
     (spit filepath html)))

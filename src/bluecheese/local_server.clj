@@ -4,7 +4,8 @@
             [clojure.walk :as walk]
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.content-type :refer [wrap-content-type]])
-  (:use [bluecheese.article-generator :only [md->map common-htmls]]
+  (:use [bluecheese.home-generator :only [home-html]]
+        [bluecheese.article-generator :only [md->map common-htmls]]
         [bluecheese.list-generator :only [list-html]]
         [bluecheese.config :only [config]]))
 
@@ -58,9 +59,9 @@
 
 
 (defn env-config-for [uri]
-  (if (str/starts-with? uri "/en")
-    (second env-configs)
-    (first env-configs)))
+  (if (str/starts-with? uri "/blog")
+    (first env-configs)
+    (second env-configs)))
 
 
 (defn handler [request]
@@ -74,10 +75,16 @@
              list-template (:list-template-path env-config)
              fixed-template (:fixed-template-path env-config)
              article-template (:article-template-path env-config)]
-         (if (or (= uri  "/") (= uri "/blog") (= uri "/en"))
-            (list-html md-path base-url blog-info env-config list-template)
-            (read-md-as-html (uri->path uri env-config) env-config blog-info
-                             fixed-template article-template)))))
+         (cond
+           (= uri "/")
+           (home-html env-config)
+
+           (or (= uri "/blog") (= uri "/en"))
+           (list-html md-path base-url blog-info env-config list-template)
+
+           :else
+           (read-md-as-html (uri->path uri env-config)
+                            env-config blog-info fixed-template article-template)))))
     ((fn [html]
        {:status 200
         :headers {"content-type" "text/html; charset=UTF-8"}
