@@ -59,9 +59,11 @@
 
 
 (defn env-config-for [uri]
-  (if (str/starts-with? uri "/blog")
-    (first env-configs)
-    (second env-configs)))
+  ;; Only home and /en/** are english.
+  ;; Might need to change this if some en fixed pages are added.
+  (if (or (= uri "/") (str/starts-with? uri "/en"))
+    (second env-configs)
+    (first env-configs)))
 
 
 (defn handler [request]
