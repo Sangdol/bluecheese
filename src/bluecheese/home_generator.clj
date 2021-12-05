@@ -1,11 +1,20 @@
 (ns bluecheese.home-generator
-  (:require [bluecheese.list-generator :as list-generator]))
+  (:require [bluecheese.article-generator :as ag]
+            [cljstache.core :as clo]))
 
 
+;; template placeholders: blog-title, common-head
 (defn generate-main-page [env-config]
-  (list-generator/main [env-config]))
+  (let [home-template (:home-template-path env-config)
+        blog-info (:blog-info env-config)
+        commons (ag/common-htmls env-config {}) ;; no contents needed
+        template-contents (merge blog-info commons)
+        html (clo/render-resource home-template template-contents)
+        filepath (str (:dist env-config) "/index.html")]
+    (println "Writing a file to " filepath)
+    (spit filepath html)))
 
 
 (defn main [env-configs]
-  (let [env-config (first env-configs)]
-    (generate-main-page (merge env-config {:blog-path (:dist env-config)}))))
+  (let [env-config (second env-configs)]
+    (generate-main-page env-config)))

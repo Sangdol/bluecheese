@@ -33,6 +33,7 @@
    :md-path            "md/en/blog"
    :rss-path           (str dist-path "/rss.xml")
    :web                   "web"
+   :home-template-path    "web/template/en/home-template.html"
    :article-template-path "web/template/en/article-template.html"
    :fixed-template-path   "web/template/en/fixed-template.html"
    :list-template-path    "web/template/en/list-template.html"
