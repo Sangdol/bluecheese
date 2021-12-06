@@ -6,7 +6,7 @@
 (defn home-html [env-config]
   (let [home-template (:home-template-path env-config)
         blog-info (:blog-info env-config)
-        commons (ag/common-htmls env-config {}) ;; no contents needed
+        commons (ag/common-htmls env-config blog-info)
         template-contents (merge blog-info commons)]
     (clo/render-resource home-template template-contents)))
 
