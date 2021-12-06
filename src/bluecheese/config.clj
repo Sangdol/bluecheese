@@ -26,10 +26,9 @@
   {
    ;; 'title' is needed to set a title on list pages.
    ;; 'blog-title' is needed to prefix titles on article pages.
-   ;; TODO Update info
    :blog-info             {:title "Sanghyun Lee"
                            :blog-title "Sanghyun Lee"
-                           :description   "Software engineer"}
+                           :description   "Sanghyun Lee"}
    :md-path            "md/en/blog"
    :rss-path           (str dist-path "/rss.xml")
    :web                   "web"
