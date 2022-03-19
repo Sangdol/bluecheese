@@ -34,7 +34,7 @@
 ;; /about -> md/kr/blog/fixed-about.md
 ;;
 (defn uri->path [uri env-config]
-  (if (or (str/starts-with? uri "/en") (str/starts-with? uri "/blog"))
+  (if (or (str/starts-with? uri "/en/") (str/starts-with? uri "/blog/"))
     (md-file-path uri (:md-path env-config))
     (md-file-path uri (:md-path env-config) "fixed-")))
 

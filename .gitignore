@@ -6,3 +6,5 @@ target
 .nrepl-port
 dist
 .lein-failures
+.clj-kondo
+.lsp

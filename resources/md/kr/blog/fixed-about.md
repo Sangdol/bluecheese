@@ -11,7 +11,7 @@ type = "fixed"
 
 [독일 베를린](https://iamsang.com/blog/2017/10/30/berlin-over-silicon-valley/)에 살며 이커머스 기업 [잘란도(Zalando)](https://tech.zalando.com)에서 소프트웨어 엔지니어로 일하고 있습니다.
 
-[웹서비스 개발을 주로 해왔으며](https://iamsang.com/blog/2021/01/04/2020-retro/) 현재는 백엔드, 분산 시스템, 데이터와 관련한 일을 하고 있습니다.
+[웹개발을 주로 해왔으며](https://iamsang.com/blog/2021/01/04/2020-retro/) 현재는 백엔드, 분산 시스템, 데이터와 관련한 일을 하고 있습니다.
 
 ### 글
 
