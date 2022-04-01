@@ -14,7 +14,6 @@
   --font-size: 16px;
   --font-code-size: 16px;
   --font-small-size: 14px;
-  --font-header-size: 28px;
   --font-heading-size: 24px;
   --font-nav-size: 14px;
   --font-date-size: 14px;
@@ -315,4 +314,9 @@ blockquote {
 h3 {
   font-size: 1.3em;
   font-weight: var(--font-heading-weight);
+}
+
+h4 {
+  font-size: 1.1em;
+  font-weight: var(--font-bold-weight);
 }
