@@ -47,7 +47,6 @@ body {
   font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: var(--font-size);
   max-width: 658px;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* nav */
