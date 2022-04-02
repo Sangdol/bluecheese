@@ -302,6 +302,11 @@ input[type], code {
   background-color: var(--code-color);
 }
 
+code {
+  padding: 0 0.3em;
+  font-size: 1.0em;
+}
+
 pre > code.hljs {
   background: var(--code-color);
 }
