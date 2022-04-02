@@ -319,3 +319,8 @@ h4 {
   font-size: 1.1em;
   font-weight: var(--font-bold-weight);
 }
+
+h3 code, h4 code {
+  padding: 0;
+  background-color: transparent;
+}
