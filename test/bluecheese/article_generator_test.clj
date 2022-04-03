@@ -15,23 +15,20 @@
          (parse-variables (utils/multiline "abc = \"def g\""
                                            "c=1")))))
 
-
 (deftest md->map-test
   (is (= {"date" "2018-10-10"
           "slug" "test-slug"
           "url-path" "2018/10/10/test-slug"
-          "body" "<h1>hello</h1>"}
+          "body" "<h1 id=\"hello\">hello</h1>"}
          (md->map (utils/multiline "+++"
                                    "date=2018-10-10"
                                    "slug=test-slug"
                                    "+++"
                                    "# hello")))))
 
-
 (deftest formatted-date-test
   (is (= "Feb 4, 2019"
          (formatted-date "2019-02-04T20:17:00+01:00"))))
-
 
 (deftest url-path-test
   (is (= "2020/08/27/hello-world"
@@ -46,18 +43,16 @@
          (url-path {"date" ""
                     "slug" "hello world"}))))
 
-
 (deftest replace-relative-to-absolute-img-url-test
   (is (= "abc <img src=\"http://localhost:8080/img/path\"> def"
          (replace-relative-to-absolute-img-url
-           "http://localhost:8080"
-           "abc <img src=\"/img/path\"> def")))
-
+          "http://localhost:8080"
+          "abc <img src=\"/img/path\"> def")))
 
   (is (= "images = [\"img/bye-square.jpg\"]"
          (replace-relative-to-absolute-img-url
-           "hello"
-           "images = [\"img/bye-square.jpg\"]"))))
+          "hello"
+          "images = [\"img/bye-square.jpg\"]"))))
 
 
 

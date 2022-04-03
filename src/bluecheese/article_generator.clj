@@ -51,7 +51,7 @@
    ((fn [[_, variables, md]]
       (let [vm (parse-variables variables)]
         (merge vm
-               {"body" (md/md-to-html-string md)}
+               {"body" (md/md-to-html-string md :heading-anchors true)}
                {"url-path" (url-path vm)}))))))
 
 (defn formatted-date
