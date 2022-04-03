@@ -326,12 +326,13 @@ blockquote {
 }
 
 h3 {
-  font-size: 1.3em;
-  font-weight: var(--font-heading-weight);
+  font-size: 1.4em;
+  font-weight: var(--font-bold-weight);
 }
 
 h4 {
   font-size: 1.1em;
+  color: var(--font-light-color);
   font-weight: var(--font-bold-weight);
 }
 
