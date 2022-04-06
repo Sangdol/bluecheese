@@ -7,11 +7,11 @@ images = ["img/vimrc.png"]
 
 +++
 
-Last winter on a Saturday, I decided to tweak my vimrc. I've been putting it off for a long time since I felt spending time on improving and cleaning up vimrc too luxurious. I thought it's fun but it wouldn't pay back the time that I invest.
+Last winter on a Saturday, I decided to tweak [my vimrc](https://github.com/Sangdol/vimrc/). I've been putting it off for a long time since I felt spending time on improving and cleaning up vimrc too luxurious. I thought it's fun but it wouldn't pay back the time that I invest.
 
 <img src="/img/vimrc.png" alt="vimrc comic" />
 
-But, I determined to do me a favor and enjoy spending a day or two working on [my vimrc](https://github.com/Sangdol/vimrc/). I ended up spending more than three months making around 500 commits to my vimrc and I still work on it from time to time.
+But, I determined to do me a favor and enjoy spending a day or two working on my vimrc. I ended up spending more than three months making around 500 commits to my vimrc and I still work on it from time to time.
 
 It was a fun and frustrating journey and I'd like to share what I've learned along the way and how happy I am now.
 
