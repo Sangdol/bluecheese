@@ -67,19 +67,19 @@ I feel much more powerful after learning vimscript.
 
 ### How to troubleshoot vim and plugins
 
-I learned that knowing how to troubleshoot vim is key to utilize vim to the full power. I used to keep my plugin list lean to avoid randomly happening errors and slowness. I often didn't know where I should start to troubleshoot a problem.
+I used to spend hours and days or even weeks to find out the reason of an issue but now It takes no more than 30 minutes after I learned the things that I'll introduce here.
 
-I tried using tens of plugins and faced loads of issues. It sometimes took weeks to find out the root cause of an issue. Some plugins conflict each other so I had to choose one over another.
+Knowing how to fix vim issues is the key to utilize vim to the full power. I used to keep my plugin list lean to avoid randomly happening errors and slowness. I often didn't know where I should start to troubleshoot a problem.
 
-Vim plugins are powerful since it can directly control the behavior of the editor within having to reside in a sandbox but due to this it could be incredible hard to debug an issue since it often doesn't tell any clue of the issue.
+For the past few months, I've tried tens of plugins and faced loads of issues. It sometimes took a few week to resolve an issue.
 
-I learned a few tricks and I now can spot and fix issues quickly with these methods.
+Vim plugins are powerful since it can directly control vim without having to reside in a sandbox or a container but due to this it could be incredibly hard to debug an issue since a problem often doesn't provide any clue.
 
 #### Showing error messages with `:message`
 
-The first thing we should do when we face an issue is to read error messages carefully. An error message quickly disappears when you do some actions. You can use the `:message` to bring the message back.
+The first thing you should do when you face an issue is to read error messages carefully. But an error message could quickly disappear when you do some actions. You can use the `:message` command to bring the message back.
 
-But it's not possible to copy it or have the message window open. To make it better, you can open a buffer with an output message using this function and command that I got from [this vim wiki page](https://vim.fandom.com/wiki/Append_output_of_an_external_command).
+But, it's not possible to easily copy the message or have it open while troubleshooting. With this function, you can load messages into a buffer ([source wiki](https://vim.fandom.com/wiki/Append_output_of_an_external_command)).
 
 ```vim
 function! TabMessage(cmd)
@@ -111,55 +111,66 @@ or simply
 
 #### Binary search to find a problematic plugin or code
 
-It's usually not easy to understand the root cause of an issue by just reading the error message.
+You can try manual binary search when it's not possible to find the root cause by just reading error messages which is usually the case.
 
-When you don't have a clue you can do brute-force search by commenting out plugins, functions, or options. In which case, you can also do binary search which is drastically faster.
+With this approach you search problematic code by commenting out plugins, functions, or options. In the process, you can comment out half of the code at a time to make it efficient.
 
-To make this task easier, I've modularized it and put together codes that do related tasks ([code link](https://github.com/Sangdol/vimrc/blob/master/vimrc)).
+To make this task even more easier, I've modularized my vimrc ([code link](https://github.com/Sangdol/vimrc/blob/master/vimrc)).
 
 <img src="/img/vimrc-diagram.png" alt="vimrc diagram" />
 
 With this structure, I can easily turn on and off a specific module.
 
-You need to follow this steps which could be annoying:
+This would be steps to debug:
 
-1. Disable modules or codes.
+1. Disable modules or codes by deleting or commenting them.
 2. Run vim (in a separate terminal or window).
 3. See if it's fixed.
 4. Go to Step 1 if it's not fixed.
 
-In the process, you can comment out half of the code at a time to effectively search the issue.
-
-This approach can be taken whenever we don't have any clue for an issue which is often the case with CSS.
+You can take this approach whenever there's no clue which is often the case with CSS.
 
 <img src="/img/binary-search-in-practice-en.png" alt="binary search in practice comic" />
 
 #### `git bisect` to find a problematic commit
 
-`git bisect` is another way to do binary search to pinpoint an issue.
+`git bisect` is another way to do binary search to pinpoint the cause of an issue.
 
 It works like this:
 
-1. Start `git bisect`: `$ git bisect start`
-2. Mark the current commit is bad: `$ git bisect bad`
-3. Mark the good commit, say 100 commits ago it was good: `$ git bisect good HEAD~100`
-4. Git starts bisecting. Run vim and see if the current commit it good.
-5. Mark if the commit is good or bad: `$ git bisect (good|bad)`
-6. Go to 4 until git pinpoints the problematic commit.
-7. Finish `git bisect`: `$ git bisect reset`
+```sh
+# Start `git bisect`
+$ git bisect start
 
-It'll take up to 7 trials with over 100 commits (`math.log(100, 2) ≈ 6.65`).
+# Mark the current commit is bad
+$ git bisect bad
+
+# Say 100 commits ago it was good
+$ git bisect good HEAD~100
+
+# Git starts bisecting.
+# Run vim and see if the current commit it good.
+$ git bisect good
+
+# Run this until git pinpoints the problematic commit.
+$ git bisect bad
+
+# Finish `git bisect`:
+$ git bisect reset
+```
+
+It takes only 7 trials for 100 commits (`math.log(100, 2) ≈ 6.65`).
 
 #### Reading plugin documentation
 
-You found out the plugin that has an issue but want to know why.
+You found out the plugin that is causing an issue but want to know why.
 
 You can first try:
 
 1. Check out the vim help document of the plugin and see if it has relevant information. But, not all plugins have a help document.
-2. Visit the GitHub page of the plugin and see if there's any related open or closed issues.
+2. Visit the GitHub page of the plugin and see if there's any related issues.
 
-If you're using Plug, you can easily open a plugin GitHub page with these functions. This will find a URL or a Plug command on the cursor line and open it in a browser.
+I use these functions to easily open a GitHub page of a Plug line.
 
 ```vim
 function! s:open_url(url)
@@ -194,6 +205,11 @@ endfunction
 nnoremap <Leader>b :call <SID>browser()<CR><CR>
 ```
 
+For example, if you run the `s:browser()` function on this line, it'll open the GitHub page of the plugin in the browser.
+```vim
+Plug 'junegunn/fzf.vim'
+```
+
 #### (Advanced) customizing plugin code
 
 If you can't find any meaningful information from documentation, you can check out the plugin code. A vim package manager downloads plugin files into your machine so it's easy to explorer the files.
@@ -204,52 +220,61 @@ I do this often so I have a mapping to find installed plugin files quickly with 
 nnoremap <leader>fpl :FZF ~/.vim/plugged<CR>
 ```
 
-You can fix the issue directly with the downloaded files. I sometimes had to fix issues only for my environment. For example, I found out that the [vim-bbye](https://github.com/moll/vim-bbye) plugin and the [close-buffer](https://github.com/Asheq/close-buffers.vim) plugin conflict each other but I wanted to use both. I [forked vim-bbye](https://github.com/Sangdol/vim-bbye) and just deleted the conflicting code.
+You can try fixing the issue directly in the downloaded files and see if it's fixed by reloading plugins or rerunning vim.
+
+I sometimes had to fix issues only for my environment. For example, I found out that the [vim-bbye](https://github.com/moll/vim-bbye) plugin and the [close-buffer](https://github.com/Asheq/close-buffers.vim) plugin conflict each other but I wanted to use both. I [forked vim-bbye](https://github.com/Sangdol/vim-bbye) and just deleted the conflicting code.
 
 #### Searching for help
 
-Lastly, you can look for help in a few places.
+Lastly, you can look for help in a few places such as
 
-You can create a ticket or a discussion thread in the plugin repository. I once struggled with an issue with [Conjure](https://github.com/Olical/conjure). I thought asking and waiting for an answer would take too long but it turned out that it's a quicker way to solve the issue. Sometimes I find out the answer while writing a question.
+* GitHub
+* Discord
+* Gitter
+* Stack Overflow
 
-Looking for a Discord community is another way. I use [coc-metals](https://github.com/scalameta/coc-metals) to write Scala and was able to get help from [the Discord server](https://discord.gg/mZkhURPznE).
+I once struggled with an issue with [Conjure](https://github.com/Olical/conjure). I thought asking and waiting for an answer would take too long but it turned out that it's a quicker way to solve the issue.
+
+Looking for a Discord community is another way. I use [coc-metals](https://github.com/scalameta/coc-metals) to write Scala and was able to get help from [the Discord server](https://discord.gg/mZkhURPznE). I don't
 
 There are awesome plugin maintainers out there.
 
+Stack Overflow can be helpful as well. Once I even found out the answer to my issue while writing a question.
+
 ### Improved Productivity
 
-I made a joke saying that I'll probably be able to reach a break-even point if I write code until 80 with the productivity gain given the time investment that I made. Probably that's not true but it's okay anyway since 1) I'll probably write code even after 80 and 2) I feel advanced as a software engineer.
+I once made a joke saying that I'll probably be able to reach a break-even point for the time investment that I made if I write code until 80.
 
-I was able to experience improved productivity especially with these things.
+Probably that's not true but it's okay in any case since 1) I'll probably write code even after 80 and 2) I already feel advanced as a software engineer.
 
-#### File Manager with `fzf` and `nvim-tree`
+#### Using vim as a File Manager with `fzf` and `nvim-tree`
 
-I've tried file managers like [ranger](https://github.com/ranger/ranger) and [lf](https://github.com/gokcehan/lf) but I ended up not using them.
+I've tried file managers like [ranger](https://github.com/ranger/ranger) and [lf](https://github.com/gokcehan/lf) but I ended up not using them due to small issues.
 
-I started using vim as a file manager with [fzf](https://github.com/junegunn/fzf.vim) and [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua). This it the file manager that I've been looking for. I can move around tens of projects easily and searching for code quickly also by using fzf.
-
-Fzf is so quick and efficient even when I run it against the whole project folders. I even accidentally found some files that I didn’t realize that I still have in my laptop.
+After I started using vim as a file manager with [fzf](https://github.com/junegunn/fzf.vim) and [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), I realized that this it the file manager that I've been looking for. I can move around and search tens of projects easily.
 
 <iframe id="reddit-embed" src="https://www.redditmedia.com/r/neovim/comments/ph7l41/such_a_powerful_tool/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="413" width="640" scrolling="no"></iframe>
 
 #### nvim terminal as `tmux`
 
-I'm obsessed with keyboard shortcuts. I've never seen anyone who uses more shortcuts than me (you can see how I manage my keyboard shortcuts in [my vimrc readme](https://github.com/Sangdol/vimrc/#mapping-tree)). When I need to split a window and open a new session I could do it with iTerm2 shortcuts. This has downsides but worked okay for me.
+I haven't been using `tmux` or `screen` since they have conflicting keyboard shortcuts with command line keyboard shortcuts.
 
-I haven't been using `tmux` or `screen` since they have conflicting keyboard shortcuts with command line keyboard shortcuts. With nvim you can use terminals and I was able to customize mappings so that I can use all the keyboard shortcuts. Also, it's much easier to search, move around, and copy terminal outputs with nvim terminals.
+When I needed to split a window and open a new session I could do it with iTerm2 shortcuts. This has downsides but worked okay for me.
+
+With nvim you can use terminals with customized mappings. Also, it's much easier to search, move around, and copy terminal outputs with within nvim terminals.
 
 #### Git
 
-I used to use [tig](https://github.com/jonas/tig) and the command line git client with lots of shell aliases and functions.
+I've been using [tig](https://github.com/jonas/tig) and the command line git client with lots of shell aliases and functions.
 
-I tried using [vim-fugitive](https://github.com/tpope/vim-fugitive) with [vim-rhubarb](https://github.com/tpope/vim-rhubarb), [git-messenger](https://github.com/rhysd/git-messenger.vim), [gv](https://github.com/junegunn/gv.vim), fzf (again), and [vim-signify](https://github.com/mhinz/vim-signify). It took a long time to set things up and get used to them but the old ways feel ancient now.
+This time I tried using [vim-fugitive](https://github.com/tpope/vim-fugitive) with [vim-rhubarb](https://github.com/tpope/vim-rhubarb), [git-messenger](https://github.com/rhysd/git-messenger.vim), [gv](https://github.com/junegunn/gv.vim), fzf (again), and [vim-signify](https://github.com/mhinz/vim-signify). It took a long time to set things up and get used to them but now the old ways feel ancient.
 
 ### Next Steps
 
-A long time ago I tried using vim as my IDE for Java but was frustrated. I don't write Java these days but I use nvim for Scala, Clojure, Python, Lua, and vimscript. I'm a fan of IntelliJ but it feels too slow after getting used to nvim.
+A long time ago I tried using vim as an IDE for Java but was failed due to a lack of features. I don't write Java these days but I use nvim for Scala, Clojure, Python, Lua, and vimscript. I'm a fan of IntelliJ but it feels too slow after getting used to nvim.
 
-A few months ago I found [tree-sitter](https://github.com/tree-sitter/tree-sitter) but didn’t use it since it was at the development stage and I had to build it myself to use it. When I checked it out again a few weeks ago, it was ready to be used and more plugins are developed using it such as [dim](https://github.com/narutoxy/dim.lua).
+A few months ago I found [tree-sitter](https://github.com/tree-sitter/tree-sitter) but didn’t use it since it was at the development stage and I had to build it myself to use it. When I checked it out again a few weeks ago, it was ready to be used and plugins are developed using tree-sitter such as [dim](https://github.com/narutoxy/dim.lua).
 
-I had used vim for around 10 years and I thought I was using it quite effectively but the vim (and nvim) ecosystem had been grown a lot. It was very different from years ago. Things are being developed rapidly and awesome plugins show up every week.
+Things are being developed rapidly and awesome plugins continuously show up.
 
-[Truning vim into an IDE is not a goal of Neovim](https://neovim.io/charter/) but it is quickly evolving into the best IDE for vim users.
+[Truning vim into an IDE is not the goal of Neovim](https://neovim.io/charter/) but it is quickly evolving into the best IDE for vim users.
