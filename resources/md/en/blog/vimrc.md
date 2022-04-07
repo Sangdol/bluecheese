@@ -260,9 +260,9 @@ Stack Overflow can be helpful as well. Once I even found out the answer to my is
 
 ### Improved Productivity
 
-I once made a joke saying that I'll probably be able to reach a break-even point for the time investment that I made if I write code until 80.
+I once made a joke saying that I'll reach a break-even point for the time investment that I made if I write code until 80. That's an exaggeration but it'll take a long time if I only calculate the saved seconds to recover the time investment.
 
-Probably that's not true but it's okay in any case since 1) I'll probably write code even after 80 and 2) I already feel advanced as a software engineer.
+But, it's important to understand that [we automate things not to save time but to save mental energy](https://www.johndcook.com/blog/2015/12/22/automate-to-save-mental-energy-not-time/). I can try many more things with the same time and energy, and that significantly reduces problem-solving time.
 
 #### Using vim as a File Manager with `fzf` and `nvim-tree`
 
@@ -285,6 +285,8 @@ With nvim you can use terminals with customized mappings. Also, it's much easier
 I've been using [tig](https://github.com/jonas/tig) and the command-line git client with lots of shell aliases and functions.
 
 This time I tried using [vim-fugitive](https://github.com/tpope/vim-fugitive) with [vim-rhubarb](https://github.com/tpope/vim-rhubarb), [git-messenger](https://github.com/rhysd/git-messenger.vim), [gv](https://github.com/junegunn/gv.vim), fzf (again), and [vim-signify](https://github.com/mhinz/vim-signify). It took a long time to set things up and get used to them but now the old ways feel ancient.
+
+
 
 ### Next Steps
 
