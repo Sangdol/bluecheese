@@ -144,6 +144,15 @@ a:hover {
   border-bottom-color: var(--font-color);
 }
 
+/*overriding sakura.css <ul> margin-bottom*/
+.article ul {
+  margin-bottom: 0;
+}
+
+.article > ul {
+  margin-bottom: 2.5rem;
+}
+
 section.header .name {
   font-size: 28px;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
