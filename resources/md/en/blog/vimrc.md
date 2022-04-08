@@ -7,11 +7,13 @@ images = ["img/vimrc.png"]
 
 +++
 
-Last winter on a Saturday, I decided to tweak [my vimrc](https://github.com/Sangdol/vimrc/). I've been putting it off for a long time since I felt spending time on improving and cleaning up vimrc was too luxurious. I thought it's fun but it wouldn't pay back the time that I invest.
+Last winter on a Saturday, I decided to tweak [my vimrc](https://github.com/Sangdol/vimrc/). I've been putting it off for a long time since I felt spending time on improving and cleaning up vimrc was too luxurious. I thought it'd be fun but it wouldn't pay back the time that I'd invest.
 
 <img src="/img/vimrc.png" alt="vimrc comic" />
 
-But, I determined to do myself a favor and enjoy spending a day or two working on my vimrc. I ended up spending more than three months making around 500 commits to my vimrc and I still work on it from time to time.
+This time I determined to do myself a favor and enjoy spending a day or two working on my vimrc.
+
+I ended up spending more than three months and making around 500 commits to my vimrc. I still work on it from time to time.
 
 It was a fun and frustrating journey and I'd like to share what I've learned along the way and how happy I am now.
 
@@ -36,13 +38,11 @@ It was a fun and frustrating journey and I'd like to share what I've learned alo
 
 ### What I have done
 
-I started by deleting unused plugins and configuration. I didn't mean to spend so much time on this.
-
-But, once I got started I couldn't stop. Understanding how things work and improving my daily workflows with new knowledge was so fun and exciting.
+I started by deleting unused plugins and configuration. I didn't mean to spend so much time on this but once I got started I couldn't stop. Understanding how things work and improving my daily workflows with new knowledge was so fun and exciting.
 
 #### Books
 
-I decided to fix and improve a few things that were bothering me so I looked for plugins. Then I wanted to understand help pages and plugin READMEs so I started checking out books like
+I looked for plugins to fix and improve a few things that were bothering me. Then I wanted to understand help pages and plugin READMEs so I started checking out books:
 
 * [Learning the vi and Vim Editors, 8th Edition](https://www.oreilly.com/library/view/learning-the-vi/9781492078791/),
 * [Practical Vim, 2nd Edition](https://learning.oreilly.com/library/view/practical-vim-2nd/9781680501629/),
@@ -52,7 +52,9 @@ I decided to fix and improve a few things that were bothering me so I looked for
 
 _Learning the vi and Vim Editors, 8th Edition_ was good to brush up on my vim skills and _The VimL Primer_ was easy and nice to read to learn vimscript.
 
-I was able to access all the books freely thanks to the [O'Reilly membership](https://www.oreilly.com/) that [my employer](https://jobs.zalando.com/de/) provided me. I read chapters that explain what I want to learn instead of reading them from the beginning. Reading books with the membership is so awesome that it feels like using a music streaming service instead of buying CDs.
+I was able to access all the books freely thanks to the [O'Reilly membership](https://www.oreilly.com/) that [my employer](https://jobs.zalando.com/de/) provided me.
+
+I read needed chapters instead of reading the books cover to cover. Reading books with the membership feels like using a music streaming service instead of buying CDs.
 
 #### vimrcs
 
@@ -61,26 +63,26 @@ I read a few awesome guys' vimrcs such as
 * [Junegunn](https://github.com/junegunn/dotfiles/blob/master/vimrc), who wrote [Plug](https://github.com/junegunn/vim-plug) and [fzf](https://github.com/junegunn/fzf.vim), and
 * [wookayin](https://github.com/wookayin/dotfiles/), who wrote [gpustat](https://github.com/wookayin/gpustat) and happens to be my former co-worker.
 
-I learned enormous amount of things from books and vimrcs but I still often had to read lots of help pages and SO threads to achieve what I want.
+I learned enormous amount of things from the books and vimrcs but I often had to read lots of help pages and Stack Overflow threads to achieve what I want.
 
 #### vimscript
 
-I realized that vimscript is not that hard once you're good with vim.
+Vimscript is not that hard once you're good with vim.
 
 When I learn a new programming language I start writing tests with it. This is called Test-Driven Learning.
 
-Writing test codes is a good way to learn a programming language because
-1. You learn the testing framework of the language in the early stage.
+Writing test code is a good way to learn a programming language because
+1. You learn the testing framework of a language in the early stage.
 2. You learn by writing working code.
 3. You have working documentation.
 
-[Vader](https://github.com/junegunn/vader.vim) is a vimscript testing framework that is written by Junegunn (again). This is my learning project using Vader ([Github project](https://github.com/Sangdol/vimscript-test-driven-learning)).
+[Vader](https://github.com/junegunn/vader.vim) is a vimscript testing framework that is written by Junegunn. This is my Test-Driven Learning project using Vader ([Github project](https://github.com/Sangdol/vimscript-test-driven-learning)).
 
 With this knowledge I wrote [functions for my vimrc](https://github.com/Sangdol/vimrc/blob/master/vim/rc/functions.vim) and customized plugins.
 
-I also wrote a vim plugin [Mintabline](https://github.com/Sangdol/mintabline.vim/) to solve my problem that neovim doesn't show the tabline properly for terminal buffers.
+I also wrote a vim plugin [Mintabline](https://github.com/Sangdol/mintabline.vim/) to solve a problem that neovim doesn't show the tabline properly for terminal buffers.
 
-I feel much more powerful after learning vimscript.
+I feel powerful after learning vimscript.
 
 ### How to troubleshoot vim and plugins
 
