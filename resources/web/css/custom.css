@@ -98,6 +98,7 @@ section {
 
 #home .logo {
   float: right;
+  margin-top: -21px;
 }
 
 #container {
@@ -227,7 +228,6 @@ section.icons .content a .flag {
   }
 
   #home .logo {
-    margin-top: -21px;
     margin-right: -20px;
     margin-left: -30px;
   }
