@@ -262,7 +262,9 @@ Stack Overflow can be helpful as well. Once I even found out the answer to my is
 
 I once made a joke saying that I'll reach a break-even point for the time investment that I made if I write code until 80. That's an exaggeration but it'll take a long time if I only calculate the saved seconds to recover the time investment.
 
-But, it's important to understand that [we automate things not to save time but to save mental energy](https://www.johndcook.com/blog/2015/12/22/automate-to-save-mental-energy-not-time/). I can try many more things with the same time and energy, and that significantly reduces problem-solving time.
+But, [we automate things not to save time but to save mental energy](https://www.johndcook.com/blog/2015/12/22/automate-to-save-mental-energy-not-time/). I can try many more things with the same time and energy, and that significantly reduces problem-solving time.
+
+And, I'm going to write code until after 80 anyway.
 
 #### Using vim as a File Manager with `fzf` and `nvim-tree`
 
