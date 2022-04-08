@@ -98,13 +98,6 @@ section {
 
 #home .logo {
   float: right;
-  margin-top: -21px;
-  margin-right: -20px;
-  margin-left: -30px;
-}
-
-#home .text {
-  margin: 0 20px;
 }
 
 #container {
@@ -231,6 +224,16 @@ section.icons .content a .flag {
   .container.list .content .post-item .meta {
     display: block;
     float: none;
+  }
+
+  #home .logo {
+    margin-top: -21px;
+    margin-right: -20px;
+    margin-left: -30px;
+  }
+
+  #home .text {
+    margin: 0 20px;
   }
 }
 
