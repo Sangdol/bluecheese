@@ -197,51 +197,31 @@ You can try these when you found the plugin that is causing an issue but don't k
 1. Check out the vim help document of the plugin and see if it has relevant information if the plugin has a help document.
 2. Visit the GitHub page of the plugin and see if there are any related issues.
 
-To open the GitHub page of a Plug line easily I use these functions.
+To easily open the GitHub page of a Plug line you can use a function and command such as this:
 
 ```vim
-function! s:open_url(url)
-  echom 'Opening "' .. a:url .. '"'
-  if !empty(a:url)
-    if has("mac")
-      exec "!open '"..a:url.."'"
-    elseif has("unix")
-      exec "!google-chrome '"..a:url.."'"
-    endif
-  else
-    echom "No URL found"
-  endif
-endfunction
-
-function! s:browser()
+function! s:open_plug_gh()
   let line = getline('.')
   let line = trim(line)
-  let is_plug = StartsWith(line, 'Plug')
-  if is_plug
-    let path = substitute(line, '\vPlug [''"](.{-})[''"].*', '\1', '')
-    let url = 'https://github.com/' .. path
-    call s:open_url(url)
-  else
-    " The regex for URLs is customized for my use cases. "
-    let line = matchstr(line, "http[^ `)]*")
-    let url = escape(line, "#;|%")
-    call s:open_url(url)
-  endif
+  let plug_regex = '\vPlug [''"](.{-})[''"].*'
+  let path = substitute(line, plug_regex, '\1', '')
+  let url = 'https://github.com/' .. path
+  exec "!open '"..url.."'"
 endfunction
 
-nnoremap <Leader>b :call <SID>browser()<CR><CR>
+nnoremap <Leader>op :call <SID>open_plug_gh()<CR><CR>
 ```
 
-For example, if you run the `s:browser()` function on this line, it'll open the GitHub page of the plugin in the browser.
+For example, if you run the this on the line below, it'll open the GitHub page of `fzf` in the browser.
 ```vim
 Plug 'junegunn/fzf.vim'
 ```
 
 #### (Advanced) customizing plugin code
 
-If you can't find any meaningful information from documentation, you can check out the plugin code. A vim package manager downloads plugin files into your machine so it's easy to explore the files.
+If you can't find any meaningful information from documentation, you can check out the code of the plugin. A vim package manager downloads plugin files into your machine so it's easy to explore the files.
 
-I do this often so I have a mapping to find installed plugin files quickly with fzf:
+I do this often so I have a mapping to find installed plugin files quickly with `fzf`.
 
 ```vim
 nnoremap <leader>fpl :FZF ~/.vim/plugged<CR>
@@ -249,11 +229,11 @@ nnoremap <leader>fpl :FZF ~/.vim/plugged<CR>
 
 You can try fixing the issue directly in the downloaded files and see if it's fixed by reloading plugins or rerunning vim.
 
-I sometimes had to fix issues only for my environment. For example, I found out that the [vim-bbye](https://github.com/moll/vim-bbye) plugin and the [close-buffer](https://github.com/Asheq/close-buffers.vim) plugin conflict with each other but I wanted to use both. I [forked vim-bbye](https://github.com/Sangdol/vim-bbye) and just deleted the conflicting code.
+Sometimes I had to fix issues only for my environment. For example, the [vim-bbye](https://github.com/moll/vim-bbye) plugin and the [close-buffer](https://github.com/Asheq/close-buffers.vim) plugin conflict with each other but I wanted to use both. I [forked vim-bbye](https://github.com/Sangdol/vim-bbye) and deleted the conflicting code.
 
 #### Searching for help
 
-Lastly, you can look for help in a few places such as
+Lastly, you can look for help in a few places.
 
 * GitHub
 * Discord
@@ -262,7 +242,7 @@ Lastly, you can look for help in a few places such as
 
 I once struggled with an issue with [Conjure](https://github.com/Olical/conjure). I thought asking and waiting for an answer would take too long but it turned out that it's a quicker way to solve the issue.
 
-Looking for a Discord community is another way. I use [coc-metals](https://github.com/scalameta/coc-metals) to write Scala and was able to get help from [the Discord server](https://discord.gg/mZkhURPznE). I don't
+Looking for a Discord community is another way. I use [coc-metals](https://github.com/scalameta/coc-metals) to write Scala and was able to get help from [the Discord server](https://discord.gg/mZkhURPznE).
 
 There are awesome plugin maintainers out there.
 
@@ -272,13 +252,13 @@ Stack Overflow can be helpful as well. Once I even found out the answer to my is
 
 I once made a joke saying that I'll reach a break-even point for the time investment that I made if I write code until 80. That's an exaggeration but it'll take a long time if I only calculate the saved seconds to recover the time investment.
 
-But, [we automate things not to save time but to save mental energy](https://www.johndcook.com/blog/2015/12/22/automate-to-save-mental-energy-not-time/). I can try many more things with the same time and energy, and that significantly reduces problem-solving time.
+The point is that [we automate things not to save time but to save mental energy](https://www.johndcook.com/blog/2015/12/22/automate-to-save-mental-energy-not-time/); I can try more things with the same time and energy, which reduces problem-solving time.
 
 And, I'm going to write code until after 80 anyway.
 
 #### Using vim as a File Manager with `fzf` and `nvim-tree`
 
-I've tried file managers like [ranger](https://github.com/ranger/ranger) and [lf](https://github.com/gokcehan/lf) but I ended up not using them due to small issues.
+I've tried file managers like [ranger](https://github.com/ranger/ranger) and [lf](https://github.com/gokcehan/lf) but I ended up not using them due to a few issues.
 
 After I started using vim as a file manager with [fzf](https://github.com/junegunn/fzf.vim) and [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), I realized that this is the file manager that I've been looking for. I can move around and search for tens of projects easily.
 
@@ -299,14 +279,27 @@ I've been using [tig](https://github.com/jonas/tig) and the command-line git cli
 
 This time I tried using [vim-fugitive](https://github.com/tpope/vim-fugitive) with [vim-rhubarb](https://github.com/tpope/vim-rhubarb), [git-messenger](https://github.com/rhysd/git-messenger.vim), [gv](https://github.com/junegunn/gv.vim), fzf (again), and [vim-signify](https://github.com/mhinz/vim-signify). It took a long time to set things up and get used to them but now the old ways feel ancient.
 
+#### Coding
+
+These are plugins that I use to write code.
+
+* [coc-metals](https://github.com/scalameta/coc-metals) for Scala
+* [coc-lua](https://github.com/josa42/coc-lua) for Lua
+* [conjure](https://github.com/Olical/conjure) for Clojure
+* [semshi](https://github.com/numirias/semshi) for Python
+
+These are additional plugins that I use for coding.
+
+* [coc](https://github.com/neoclide/coc.nvim) for language servers
+* [tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) for code highlights
+
+It isn't always easy to set things up. I had to spend lots of time in learning, custmoizing, and troubleshooting when I started using `coc-metals` and `conjure`. I've faced a Lua version issue when I tried using `coc-lua`. Nothing was free but they were worth it.
 
 
 ### Next Steps
 
-A long time ago I tried using vim as an IDE for Java but was failed due to a lack of features. I don't write Java these days but I use nvim for Scala, Clojure, Python, Lua, and vimscript. I'm a fan of IntelliJ but it feels too slow after getting used to nvim.
+A long time ago, I tried using vim as an IDE for Java but failed due to a lack of features. I don't write Java these days, but I use nvim for Scala, Clojure, Python, Lua, and vimscript. I'm a fan of IntelliJ but it feels too slow after getting used to nvim.
 
-A few months ago I found [tree-sitter](https://github.com/tree-sitter/tree-sitter) but didn’t use it since it was in the development stage and I had to build it myself to use it. When I checked it out again a few weeks ago, it was ready to be used and plugins are developed using tree-sitter such as [dim](https://github.com/narutoxy/dim.lua).
+A few months ago, I found [tree-sitter](https://github.com/tree-sitter/tree-sitter) but didn’t use it since it was in the development stage and I had to build it myself to use it. When I checked it out again a few weeks ago, it was ready and plugins were being developed using `tree-sitter` such as [dim](https://github.com/narutoxy/dim.lua).
 
-Things are being developed rapidly and awesome plugins continuously show up.
-
-[Turning vim into an IDE is not the goal of Neovim](https://neovim.io/charter/) but it is quickly evolving into the best IDE for vim users.
+[Turning vim into an IDE is not the goal of Neovim](https://neovim.io/charter/), but it's quickly evolving into the best IDE for vim users.
