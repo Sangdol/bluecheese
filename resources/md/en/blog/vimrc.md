@@ -7,15 +7,15 @@ images = ["img/vimrc.png"]
 
 +++
 
-Last winter on a Saturday, I decided to tweak [my vimrc](https://github.com/Sangdol/vimrc/). I've been putting it off for a long time since I felt spending time on improving and cleaning up vimrc was too luxurious. I thought it'd be fun but it wouldn't pay back the time that I'd invest.
+Last winter on a Saturday, I decided to tweak [my vimrc](https://github.com/Sangdol/vimrc/). I'd been putting it off for a long time since I felt spending time on improving and cleaning up vimrc was too luxurious; it'd be fun but it wouldn't pay back the invested time.
 
 <img src="/img/vimrc.png" alt="vimrc comic" />
 
 This time I determined to do myself a favor and enjoy spending a day or two working on my vimrc.
 
-I ended up spending more than three months and making around 500 commits to my vimrc. I still work on it from time to time.
+I ended up spending more than three months and making around 500 commits to my vimrc; I still work on it from time to time. During the time, I've learned more than I'd learned for the past 10 years using vim.
 
-It was a fun and frustrating journey and I'd like to share what I've learned along the way and how happy I am now.
+It was a fun and frustrating journey. I'd like to share what I've learned along the way and how happy I am now.
 
 ### Table of Contents
 
@@ -39,11 +39,13 @@ It was a fun and frustrating journey and I'd like to share what I've learned alo
 
 ### What I have done
 
-I started by deleting unused plugins and configuration. I didn't mean to spend so much time on this but once I got started I couldn't stop. Understanding how things work and improving my daily workflows with new knowledge was so fun and exciting.
+I started by deleting unused plugins and configuration, then I looked for plugins to fix and improve a few things that were bothering me.
+
+Once I got started I couldn't stop. Learning how things work and improving my daily workflows with new knowledge was so fun and exciting.
 
 #### Books
 
-I looked for plugins to fix and improve a few things that were bothering me. Then I wanted to understand help pages and plugin READMEs so I started checking out books:
+To understand vim help pages and plugin READMEs I started checking out books.
 
 * [Learning the vi and Vim Editors, 8th Edition](https://www.oreilly.com/library/view/learning-the-vi/9781492078791/),
 * [Practical Vim, 2nd Edition](https://learning.oreilly.com/library/view/practical-vim-2nd/9781680501629/),
@@ -51,11 +53,11 @@ I looked for plugins to fix and improve a few things that were bothering me. The
 * [Mastering Vim](https://learning.oreilly.com/library/view/mastering-vim/9781789341096/), and
 * [The VimL Primer](https://learning.oreilly.com/library/view/the-viml-primer/9781680500585/).
 
-_Learning the vi and Vim Editors, 8th Edition_ was good to brush up on my vim skills and _The VimL Primer_ was easy and nice to read to learn vimscript.
+_Learning the vi and Vim Editors_ was good to brush up on my vim skills, and _The VimL Primer_ was easy to read to learn vimscript.
 
-I was able to access all the books freely thanks to the [O'Reilly membership](https://www.oreilly.com/) that [my employer](https://jobs.zalando.com/de/) provided me.
+I was able to access all the books freely thanks to the [O'Reilly membership](https://www.oreilly.com/) that [my employer](https://jobs.zalando.com/de/) provides me.
 
-I read needed chapters instead of reading the books cover to cover. Reading books with the membership feels like using a music streaming service instead of buying CDs.
+I checked out chapters that interested me instead of reading cover to cover. Reading books with the membership feels like using a music streaming service instead of buying CDs.
 
 #### vimrcs
 
@@ -64,11 +66,11 @@ I read a few awesome guys' vimrcs such as
 * [Junegunn](https://github.com/junegunn/dotfiles/blob/master/vimrc), who wrote [Plug](https://github.com/junegunn/vim-plug) and [fzf](https://github.com/junegunn/fzf.vim), and
 * [wookayin](https://github.com/wookayin/dotfiles/), who wrote [gpustat](https://github.com/wookayin/gpustat) and happens to be my former co-worker.
 
-I learned enormous amount of things from the books and vimrcs but I often had to read lots of help pages and Stack Overflow threads to achieve what I want.
+I learned enormous amount of things from the books and vimrcs but I often had to read help pages and Stack Overflow threads to achieve what I want.
 
 #### vimscript
 
-Vimscript is not that hard once you're good with vim.
+I learned that Vimscript is not that hard once you're good with vim.
 
 When I learn a new programming language I start writing tests with it. This is called Test-Driven Learning.
 
@@ -79,27 +81,29 @@ Writing test code is a good way to learn a programming language because
 
 [Vader](https://github.com/junegunn/vader.vim) is a vimscript testing framework that is written by Junegunn. This is my Test-Driven Learning project using Vader ([Github project](https://github.com/Sangdol/vimscript-test-driven-learning)).
 
-With this knowledge I wrote [functions for my vimrc](https://github.com/Sangdol/vimrc/blob/master/vim/rc/functions.vim) and customized plugins.
+I wrote a vim plugin called [Mintabline](https://github.com/Sangdol/mintabline.vim/) to solve a problem that neovim doesn't show the tabline properly for terminal buffers.
 
-I also wrote a vim plugin [Mintabline](https://github.com/Sangdol/mintabline.vim/) to solve a problem that neovim doesn't show the tabline properly for terminal buffers.
+<img src="/img/mintablinev2.png" alt="mintabline screenshot" />
 
 I feel powerful after learning vimscript.
 
 ### How to troubleshoot vim and plugins
 
-I used to spend hours and days to find out the reason for an issue but now It usually takes no more than 30 minutes after I learned the things that I'll introduce here.
+I used to spend hours and days to find out the reason for a vim issue, but now It usually takes no more than 30 minutes after I learned the things that I'll introduce here.
 
-Knowing how to fix issues is the key to utilizing vim to its full power, which can be applied to any other technologies. I used to keep my plugin list lean to avoid randomly happening errors and slowness; I often didn't know where I should start to troubleshoot a problem.
+Knowing how to fix issues is the key to utilizing vim to its full power -- which is true for any other technologies.
 
-For the past few months, I've tried tens of plugins and faced loads of issues. It sometimes took a few weeks to resolve.
+I used to keep my plugin list lean to avoid randomly happening errors and slowness; I often didn't know where I should start to troubleshoot a problem.
+
+For the past few months, I've tried tens of plugins and faced loads of issues; it sometimes took a few weeks to resolve.
 
 Vim plugins are powerful since they can control vim without having to reside in a sandbox or container, but this makes it harder to debug an issue.
 
 #### Showing error messages with `:message`
 
-The first thing you should do when you face an issue is to read error messages carefully, but an error message could quickly disappear when you do some actions. You can use the `:message` command to bring the message back.
+The first thing you should do when you face an issue is to read error messages carefully, but an error message could quickly disappear when you do some actions in vim. In this case, you can use the `:message` command to bring the message back.
 
-However, it's not possible to easily copy the message or have it open while troubleshooting. With this function, you can load messages into a buffer ([source wiki](https://vim.fandom.com/wiki/Append_output_of_an_external_command)).
+However, it's not possible to easily copy the message or have the result window open while troubleshooting. To solve this problem, you can load messages into a buffer using this function ([source wiki](https://vim.fandom.com/wiki/Append_output_of_an_external_command)).
 
 ```vim
 function! TabMessage(cmd)
@@ -129,7 +133,7 @@ or simply
 :TabMessage mes
 ```
 
-You can use this function not only for taking messages but also for any other commands. For example, you will get buffer lists in a new buffer when you run this:
+You can use this function not only for messages but also for any other commands. For example, you will get a buffer list in a new buffer when you run this:
 
 ```vim
 :TabMessage ls
@@ -193,12 +197,11 @@ I prefer this approach to the previous one since it requires less manual work.
 
 #### Reading plugin documentation
 
-You can try these when you found the plugin that is causing an issue but don't know why.
+Surprisingly, reading documentation often works. You can first check out the vim help document of the plugin and see if it has relevant information.
 
-1. Check out the vim help document of the plugin and see if it has relevant information if the plugin has a help document.
-2. Visit the GitHub page of the plugin and see if there are any related issues.
+If the plugin doesn't have a help document, visit the GitHub page of the plugin and see if there are any related issues.
 
-To easily open the GitHub page of a Plug line you can use a function and command such as this:
+To easily open the GitHub page of a Plug line in vimrc, I use a function and command similar to this:
 
 ```vim
 function! s:open_plug_gh()
@@ -213,7 +216,7 @@ endfunction
 nnoremap <Leader>op :call <SID>open_plug_gh()<CR><CR>
 ```
 
-For example, if you run the this on the line below, it'll open the GitHub page of `fzf` in the browser.
+For example, if you run the function on the line below, vim will open the GitHub page of `fzf.vim` in the browser.
 ```vim
 Plug 'junegunn/fzf.vim'
 ```
@@ -230,7 +233,7 @@ nnoremap <leader>fpl :FZF ~/.vim/plugged<CR>
 
 You can try fixing the issue directly in the downloaded files and see if it's fixed by reloading plugins or rerunning vim.
 
-Sometimes I had to fix issues only for my environment. For example, the [vim-bbye](https://github.com/moll/vim-bbye) plugin and the [close-buffer](https://github.com/Asheq/close-buffers.vim) plugin conflict with each other but I wanted to use both. I [forked vim-bbye](https://github.com/Sangdol/vim-bbye) and deleted the conflicting code.
+Sometimes I had to fix issues only for my environment. For example, the [vim-bbye](https://github.com/moll/vim-bbye) plugin and the [close-buffer](https://github.com/Asheq/close-buffers.vim) plugin conflict with each other but I wanted to use both. I just [forked vim-bbye](https://github.com/Sangdol/vim-bbye) and deleted the conflicting code.
 
 #### Searching for help
 
@@ -241,9 +244,9 @@ Lastly, you can look for help in a few places.
 * Gitter
 * Stack Overflow
 
-I once struggled with an issue with [Conjure](https://github.com/Olical/conjure). I thought asking and waiting for an answer would take too long but it turned out that it's a quicker way to solve the issue.
+I once struggled with an issue with [Conjure](https://github.com/Olical/conjure). I thought asking and waiting for an answer would take too long, but it turned out that it's a quicker way to solve the issue.
 
-Looking for a Discord community is another way. I use [coc-metals](https://github.com/scalameta/coc-metals) to write Scala and was able to get help from [the Discord server](https://discord.gg/mZkhURPznE).
+Looking for a Discord community is another way. I use [coc-metals](https://github.com/scalameta/coc-metals) for Scala and was able to get help from [the Discord server](https://discord.gg/mZkhURPznE).
 
 There are awesome plugin maintainers out there.
 
@@ -284,18 +287,16 @@ This time I tried using [vim-fugitive](https://github.com/tpope/vim-fugitive) wi
 
 These are plugins that I use to write code.
 
+* [coc](https://github.com/neoclide/coc.nvim) for language servers
 * [coc-metals](https://github.com/scalameta/coc-metals) for Scala
 * [coc-lua](https://github.com/josa42/coc-lua) for Lua
 * [conjure](https://github.com/Olical/conjure) for Clojure
 * [semshi](https://github.com/numirias/semshi) for Python
-
-These are additional plugins that I use for coding.
-
-* [coc](https://github.com/neoclide/coc.nvim) for language servers
 * [tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) for code highlights
 
-It isn't always easy to set things up. I had to spend lots of time in learning, custmoizing, and troubleshooting when I started using `coc-metals` and `conjure`. I've faced a Lua version issue when I tried using `coc-lua`. Nothing was free but they were worth it.
+It isn't always easy to set things up. I spent weeks to learn, custmoize, and troubleshoot when I started using `coc-metals` and `conjure`. I've faced a Lua version issue when I tried using `coc-lua`. Nothing was free but they were worth it.
 
+I've put the plugins for coding in a separate vimrc module ([devplugins.vim](https://github.com/Sangdol/vimrc/blob/master/vim/rc/devplugins.vim)) so that I can exclude it in the server environment.
 
 ### Next Steps
 
@@ -303,4 +304,4 @@ A long time ago, I tried using vim as an IDE for Java but failed due to a lack o
 
 A few months ago, I found [tree-sitter](https://github.com/tree-sitter/tree-sitter) but didn’t use it since it was in the development stage and I had to build it myself to use it. When I checked it out again a few weeks ago, it was ready and plugins were being developed using `tree-sitter` such as [dim](https://github.com/narutoxy/dim.lua).
 
-[Turning vim into an IDE is not the goal of Neovim](https://neovim.io/charter/), but it's quickly evolving into the best IDE for vim users.
+[To turn vim into an IDE is not the goal of Neovim](https://neovim.io/charter/), but Neovim is quickly evolving into the best IDE for vim users.
