@@ -88,6 +88,7 @@ section {
 }
 
 #home {
+  max-width: 500px;
   margin-top: 50px;
   line-height: 30px;
 }
@@ -99,6 +100,10 @@ section {
 #home .logo {
   float: right;
   margin-top: -21px;
+}
+
+#home .text {
+  margin: 0 20px;
 }
 
 #container {
@@ -230,10 +235,6 @@ section.icons .content a .flag {
   #home .logo {
     margin-right: -20px;
     margin-left: -30px;
-  }
-
-  #home .text {
-    margin: 0 20px;
   }
 }
 
