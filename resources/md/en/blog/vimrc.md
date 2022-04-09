@@ -86,19 +86,19 @@ I feel powerful after learning vimscript.
 
 ### How to troubleshoot vim and plugins
 
-I used to spend hours and days or even weeks to find out the reason of an issue but now It takes no more than 30 minutes after I learned the things that I'll introduce here.
+I used to spend hours and days to find out the reason for an issue but now It usually takes no more than 30 minutes after I learned the things that I'll introduce here.
 
-Knowing how to fix vim issues is the key to utilizing vim to its full power. I used to keep my plugin list lean to avoid randomly happening errors and slowness. I often didn't know where I should start to troubleshoot a problem.
+Knowing how to fix issues is the key to utilizing vim to its full power, which can be applied to any other technologies. I used to keep my plugin list lean to avoid randomly happening errors and slowness; I often didn't know where I should start to troubleshoot a problem.
 
-For the past few months, I've tried tens of plugins and faced loads of issues. It sometimes took a few weeks to resolve an issue.
+For the past few months, I've tried tens of plugins and faced loads of issues. It sometimes took a few weeks to resolve.
 
-Vim plugins are powerful since they can directly control vim without having to reside in a sandbox or a container but due to this, it could be incredibly hard to debug an issue since a problem often doesn't provide any clue.
+Vim plugins are powerful since they can control vim without having to reside in a sandbox or container, but this makes it harder to debug an issue.
 
 #### Showing error messages with `:message`
 
-The first thing you should do when you face an issue is to read error messages carefully. But an error message could quickly disappear when you do some actions. You can use the `:message` command to bring the message back.
+The first thing you should do when you face an issue is to read error messages carefully, but an error message could quickly disappear when you do some actions. You can use the `:message` command to bring the message back.
 
-But, it's not possible to easily copy the message or have it open while troubleshooting. With this function, you can load messages into a buffer ([source wiki](https://vim.fandom.com/wiki/Append_output_of_an_external_command)).
+However, it's not possible to easily copy the message or have it open while troubleshooting. With this function, you can load messages into a buffer ([source wiki](https://vim.fandom.com/wiki/Append_output_of_an_external_command)).
 
 ```vim
 function! TabMessage(cmd)
@@ -128,11 +128,17 @@ or simply
 :TabMessage mes
 ```
 
+You can use this function not only for taking messages but also for any other commands. For example, you will get buffer lists in a new buffer when you run this:
+
+```vim
+:TabMessage ls
+```
+
 #### Binary search to find a problematic plugin or code
 
-You can try a manual binary search when it's not possible to find the root cause by just reading error messages which is usually the case.
+You can try a manual binary search when it's not possible to find the root cause by just reading error messages, which is usually the case.
 
-With this approach, you search for problematic code by commenting out plugins, functions, or options. In the process, you can comment out half of the code at a time to make it efficient.
+With this approach, you can search for problematic code by commenting out plugins, functions, or options -- half of the code at a time to make it efficient.
 
 To make this task even easier, I've modularized my vimrc ([code link](https://github.com/Sangdol/vimrc/blob/master/vimrc)).
 
@@ -142,52 +148,54 @@ With this structure, I can easily turn on and off a specific module.
 
 These would be steps to debug:
 
-1. Disable modules or codes by deleting or commenting them out.
+1. Disable modules or codes by deleting or commenting out.
 2. Run vim (in a separate terminal or window).
 3. See if it's fixed.
 4. Go to Step 1 if it's not fixed.
 
-You can take this approach whenever there's no clue which is often the case with CSS.
+This approach can be applied to any issues when there's no clue.
 
 <img src="/img/binary-search-in-practice-en.png" alt="binary search in practice comic" />
 
 #### `git bisect` to find a problematic commit
 
-`git bisect` is another way to do a binary search to pinpoint the cause of an issue.
+`git bisect` is another way to perform a binary search to pinpoint the cause of an issue.
 
 It works like this:
 
 ```sh
-# Start `git bisect`
+# Start git bisect
 $ git bisect start
 
-# Mark the current commit is bad
+# Tell Git that the current commit is bad
 $ git bisect bad
 
-# Say 100 commits ago it was good
+# Say, 100 commits ago it was good
 $ git bisect good HEAD~100
 
 # Git starts bisecting.
-# Run vim and see if the current commit it good.
+# Run vim and see if the current commit is good
+# and tell Git.
 $ git bisect good
 
-# Run this until git pinpoints the problematic commit.
+# Run this until git pinpoints
+# the problematic commit.
 $ git bisect bad
 
-# Finish `git bisect`:
+# Finish git bisect:
 $ git bisect reset
 ```
 
 It takes only 7 trials for 100 commits (`math.log(100, 2) ≈ 6.65`).
 
+I prefer this approach to the previous one since it requires less manual work.
+
 #### Reading plugin documentation
 
-You found out the plugin that is causing an issue but don't know why.
+You can try these when you found the plugin that is causing an issue but don't know why.
 
-You can first try:
-
-1. Checking out the vim help document of the plugin and see if it has relevant information. But, not all plugins have a help document.
-2. Visiting the GitHub page of the plugin and see if there are any related issues.
+1. Check out the vim help document of the plugin and see if it has relevant information if the plugin has a help document.
+2. Visit the GitHub page of the plugin and see if there are any related issues.
 
 To open the GitHub page of a Plug line easily I use these functions.
 
@@ -274,7 +282,8 @@ I've tried file managers like [ranger](https://github.com/ranger/ranger) and [lf
 
 After I started using vim as a file manager with [fzf](https://github.com/junegunn/fzf.vim) and [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), I realized that this is the file manager that I've been looking for. I can move around and search for tens of projects easily.
 
-<iframe id="reddit-embed" src="https://www.redditmedia.com/r/neovim/comments/ph7l41/such_a_powerful_tool/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="413" width="640" scrolling="no"></iframe>
+TODO comment it for now
+<!--<iframe id="reddit-embed" src="https://www.redditmedia.com/r/neovim/comments/ph7l41/such_a_powerful_tool/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="413" width="640" scrolling="no"></iframe>-->
 
 #### nvim terminal as `tmux`
 
