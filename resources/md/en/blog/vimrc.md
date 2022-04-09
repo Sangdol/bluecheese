@@ -19,22 +19,23 @@ It was a fun and frustrating journey and I'd like to share what I've learned alo
 
 ### Table of Contents
 
-* [What I have done](#what_i_have_done)
+* [What I have done](#what-i-have-done)
   * [Books](#books)
   * [vimrcs](#vimrcs)
   * [vimscript](#vimscript)
-* [How to troubleshoot vim and plugins](#how_to_troubleshoot_vim_and_plugins)
-  * [Showing error messages with `:message`](#showing_error_messages_with_message)
-  * [Binary search to find a problematic plugin or code](#binary_search_to_find_a_problematic_plugin_or_code)
-  * [`git bisect` to find a problematic commit](#git_bisect_to_find_a_problematic_commit)
-  * [Reading plugin documentation](#reading_plugin_documentation)
-  * [(Advanced) customizing plugin code](#advanced_customizing_plugin_code)
-  * [Searching for help](#searching_for_help)
-* [Improved Productivity](#improved_productivity)
-  * [Using vim as a File Manager with `fzf` and `nvim_tree`](#using_vim_as_a_file_manager_with_fzf_and_nvim_tree)
-  * [nvim terminal as `tmux`](#nvim_terminal_as_tmux)
+* [How to troubleshoot vim and plugins](#how-to-troubleshoot-vim-and-plugins)
+  * [Showing error messages with `:message`](#showing-error-messages-with-message)
+  * [Binary search to find a problematic plugin or code](#binary-search-to-find-a-problematic-plugin-or-code)
+  * [`git bisect` to find a problematic commit](#git-bisect-to-find-a-problematic-commit)
+  * [Reading plugin documentation](#reading-plugin-documentation)
+  * [(Advanced) customizing plugin code](#advanced-customizing-plugin-code)
+  * [Searching for help](#searching-for-help)
+* [Improved Productivity](#improved-productivity)
+  * [Using vim as a File Manager with `fzf` and `nvim-tree`](#using-vim-as-a-file-manager-with-fzf-and-nvim-tree)
+  * [nvim terminal as `tmux`](#nvim-terminal-as-tmux)
   * [Git](#git)
-* [Next Steps](#next_steps)
+  * [Coding](#coding)
+* [Next Steps](#next-steps)
 
 ### What I have done
 

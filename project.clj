@@ -1,7 +1,8 @@
 (defproject bluecheese "0.1.0-SNAPSHOT"
   :description "bluecheese"
   :dependencies [[org.clojure/clojure "1.10.0"]
-                 [markdown-clj "1.10.5"]
+                 ^{:voom {:repo "https://github.com/sangdol/markdown-clj" :branch "improve-heading-anchors"}}
+                 [markdown-clj "1.11.0-20220409_171002-gbc58c78"]
                  [cljstache "2.0.6"]
                  [me.raynes/fs "1.4.6"]
                  [clojure.java-time "0.3.2"]
