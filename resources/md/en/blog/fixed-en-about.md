@@ -21,4 +21,4 @@ I enjoy spending hours automating things with [Vimscript](https://github.com/San
 
 To write code, I use [nvim](https://github.com/Sangdol/vimrc), IntelliJ, and iTerm2 with a MacBook.
 
-Drop me an email at hammerha@gmail.com if you have any question or feedback.
+Drop me an email at hammerha@gmail.com if you have any questions or feedback.
