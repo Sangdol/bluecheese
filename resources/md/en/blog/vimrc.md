@@ -1,5 +1,5 @@
 +++
-date = "2022-04-03T17:20:06+02:00"
+date = "2022-04-10T19:20:06+02:00"
 draft = false
 title = "Learnings after 500 commits to my vimrc"
 slug = 'vimrc'
@@ -35,6 +35,7 @@ It was a fun and frustrating journey. I'd like to share what I've learned along 
   * [nvim terminal as `tmux`](#nvim-terminal-as-tmux)
   * [Git](#git)
   * [Coding](#coding)
+* [Reflection](#reflection)
 * [Next Steps](#next-steps)
 
 ### What I have done
@@ -193,7 +194,7 @@ $ git bisect reset
 
 It takes only 7 trials for 100 commits (`math.log(100, 2) ≈ 6.65`).
 
-I prefer this approach to the previous one since it requires less manual work.
+I prefer this approach to the previous one since it requires less manual work, although I have to check out my Korean blog post about `git bisect` whenever I run it to recall the commands for each step.
 
 #### Reading plugin documentation
 
@@ -297,6 +298,14 @@ These are plugins that I use to write code.
 It isn't always easy to set things up. I spent weeks to learn, custmoize, and troubleshoot when I started using `coc-metals` and `conjure`. I've faced a Lua version issue when I tried using `coc-lua`. Nothing was free but they were worth it.
 
 I've put the plugins for coding in a separate vimrc module ([devplugins.vim](https://github.com/Sangdol/vimrc/blob/master/vim/rc/devplugins.vim)) so that I can exclude it in the server environment.
+
+### Reflection
+
+The most productive or successful people are not the one who has the most productive development environment.
+
+Once I got started working on this I didn't want to do anything else. Sometimes I was obsessed by small improvements that wouldn't affect my productivity after all.
+
+I learned a lot even from an effort that didn't work out, but it's important to be aware of the cost that we spend on improving productivity to be actually productive.
 
 ### Next Steps
 
