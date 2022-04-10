@@ -4,8 +4,7 @@
 (def dist-path "dist")
 
 (def kr
-  {
-   ;; 'title' is needed to set a title on list pages.
+  {;; 'title' is needed to set a title on list pages.
    ;; 'blog-title' is needed to prefix titles on article pages.
    :blog-info             {:title "이상현 IN 베를린"
                            :blog-title "이상현 IN 베를린"
@@ -23,20 +22,19 @@
    :blog-url           (str base-url "/blog")})
 
 (def en
-  {
-   ;; 'title' is needed to set a title on list pages.
+  {;; 'title' is needed to set a title on list pages.
    ;; 'blog-title' is needed to prefix titles on article pages.
-   :blog-info             {:title "Sanghyun Lee"
-                           :blog-title "Sanghyun Lee"
-                           :description   "I am Sang"}
+   :blog-info             {:title "I am Sang"
+                           :blog-title "I am Sang"
+                           :description   "I'm a software engineer from South Korea and currently live in Berlin. I write articles and draw comics in Korean and English"}
    :md-path            "md/en/blog"
    :rss-path           (str dist-path "/rss.xml")
    :web                   "web"
    :home-template-path    "web/template/en/home-template.html"
    :article-template-path "web/template/en/article-template.html"
    :fixed-template-path   "web/template/en/fixed-template.html"
-   :list-template-path    "web/template/en/list-template.html"
    :common-head           "web/template/en/common-head.html"
+   :list-template-path    "web/template/en/list-template.html"
    :common-header         "web/template/en/common-header.html"
    :common-footer         "web/template/en/common-footer.html"
    :blog-path          (str dist-path "/en")
@@ -47,9 +45,7 @@
    :base-url              base-url
    :dist                  dist-path})
 
-
 (def local {:base-url "http://localhost:8080"})
-
 
 (def prod {})
 
