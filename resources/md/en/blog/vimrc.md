@@ -13,7 +13,7 @@ Last winter on a Saturday, I decided to tweak [my vimrc](https://github.com/Sang
 
 This time I determined to do myself a favor and enjoy spending a day or two working on my vimrc.
 
-I ended up spending more than three months and making around 500 commits to my vimrc; I still work on it from time to time. During the time, I've learned more than I'd learned for the past 10 years using vim.
+I ended up spending more than three months and making around 500 commits to my vimrc; I still work on it from time to time. During the time, I've learned more than I'd learned for the past 10 years.
 
 It was a fun and frustrating journey. I'd like to share what I've learned along the way and how happy I am now.
 
@@ -42,11 +42,11 @@ It was a fun and frustrating journey. I'd like to share what I've learned along 
 
 I started by deleting unused plugins and configuration, then I looked for plugins to fix and improve a few things that were bothering me.
 
-Once I got started I couldn't stop. Learning how things work and improving my daily workflows with new knowledge was so fun and exciting.
+Once I got started working on it I couldn't stop. Learning how things work and improving my daily workflows with new knowledge were so fun and exciting.
 
 #### Books
 
-To understand vim help pages and plugin READMEs I started checking out books.
+To understand vim help pages and plugin documents, I started checking out books.
 
 * [Learning the vi and Vim Editors, 8th Edition](https://www.oreilly.com/library/view/learning-the-vi/9781492078791/),
 * [Practical Vim, 2nd Edition](https://learning.oreilly.com/library/view/practical-vim-2nd/9781680501629/),
@@ -54,7 +54,7 @@ To understand vim help pages and plugin READMEs I started checking out books.
 * [Mastering Vim](https://learning.oreilly.com/library/view/mastering-vim/9781789341096/), and
 * [The VimL Primer](https://learning.oreilly.com/library/view/the-viml-primer/9781680500585/).
 
-_Learning the vi and Vim Editors_ was good to brush up on my vim skills, and _The VimL Primer_ was easy to read to learn vimscript.
+Especially, _Learning the vi and Vim Editors_ was good to brush up on my vim skills, and _The VimL Primer_ was helpful to learn vimscript.
 
 I was able to access all the books freely thanks to the [O'Reilly membership](https://www.oreilly.com/) that [my employer](https://jobs.zalando.com/de/) provides me.
 
@@ -67,7 +67,7 @@ I read a few awesome guys' vimrcs such as
 * [Junegunn](https://github.com/junegunn/dotfiles/blob/master/vimrc), who wrote [Plug](https://github.com/junegunn/vim-plug) and [fzf](https://github.com/junegunn/fzf.vim), and
 * [wookayin](https://github.com/wookayin/dotfiles/), who wrote [gpustat](https://github.com/wookayin/gpustat) and happens to be my former co-worker.
 
-I learned enormous amount of things from the books and vimrcs but I often had to read help pages and Stack Overflow threads to achieve what I want.
+I learned enormous amount of things from the books and vimrcs, but I still often had to read help pages and Stack Overflow threads to achieve what I want.
 
 #### vimscript
 
@@ -80,9 +80,9 @@ Writing test code is a good way to learn a programming language because
 2. You learn by writing working code.
 3. You have working documentation.
 
-[Vader](https://github.com/junegunn/vader.vim) is a vimscript testing framework that is written by Junegunn. This is my Test-Driven Learning project using Vader ([Github project](https://github.com/Sangdol/vimscript-test-driven-learning)).
+[Vader](https://github.com/junegunn/vader.vim) is a vimscript testing framework that is written by Junegunn. This is my Test-Driven Learning project using Vader: [Github project](https://github.com/Sangdol/vimscript-test-driven-learning).
 
-I wrote a vim plugin called [Mintabline](https://github.com/Sangdol/mintabline.vim/) to solve a problem that neovim doesn't show the tabline properly for terminal buffers.
+I wrote a vim plugin [Mintabline](https://github.com/Sangdol/mintabline.vim/) to solve a problem that Neovim doesn't show the tabline properly for terminal buffers.
 
 <img src="/img/mintablinev2.png" alt="mintabline screenshot" />
 
@@ -154,7 +154,7 @@ With this structure, I can easily turn on and off a specific module.
 
 These would be steps to debug:
 
-1. Disable modules or codes by deleting or commenting out.
+1. Disable modules or code by deleting or commenting out.
 2. Run vim (in a separate terminal or window).
 3. See if it's fixed.
 4. Go to Step 1 if it's not fixed.
@@ -194,7 +194,7 @@ $ git bisect reset
 
 It takes only 7 trials for 100 commits (`math.log(100, 2) ≈ 6.65`).
 
-I prefer this approach to the previous one since it requires less manual work, although I have to check out my Korean blog post about `git bisect` whenever I run it to recall the commands for each step.
+I prefer this approach to the previous one since it requires less manual work, although I have to check out [my Korean blog post about `git bisect`](https://iamsang.com/blog/2014/03/02/git-bisect/) whenever I run it to recall the commands for each step.
 
 #### Reading plugin documentation
 
@@ -295,22 +295,18 @@ These are plugins that I use to write code.
 * [semshi](https://github.com/numirias/semshi) for Python
 * [tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) for code highlights
 
-It isn't always easy to set things up. I spent weeks to learn, custmoize, and troubleshoot when I started using `coc-metals` and `conjure`. I've faced a Lua version issue when I tried using `coc-lua`. Nothing was free but they were worth it.
+I didn't have chances to write a large amount of code using vim after I set up these but they are at least very useful for writing scripts and navigating codebases.
+
+It wasn't always easy to set things up. I spent weeks to learn, custmoize, and troubleshoot when I started using `coc-metals` and `conjure`. I've faced a Lua version issue when I tried using `coc-lua`. Nothing was free but they were worth it.
 
 I've put the plugins for coding in a separate vimrc module ([devplugins.vim](https://github.com/Sangdol/vimrc/blob/master/vim/rc/devplugins.vim)) so that I can exclude it in the server environment.
 
 ### Reflection
 
-The most productive or successful people are not the one who has the most productive development environment.
+The most productive or successful people are not the one who have the most productive development environment.
 
-Once I got started working on this I didn't want to do anything else. Sometimes I was obsessed by small improvements that wouldn't affect my productivity after all.
+Once I got started working on this I didn't want to do anything else. Sometimes I was obsessed by small improvements that wouldn't affect my productivity after all. I still think I'm far from mastering vim and there are unlimited things that I can try to tweak my productivity.
 
-I learned a lot even from an effort that didn't work out, but it's important to be aware of the cost that we spend on improving productivity to be actually productive.
+I learned a lot even from the effort that didn't work out, but it's important to be aware of the cost that we spend on improving productivity -- if we want to be productive.
 
-### Next Steps
-
-A long time ago, I tried using vim as an IDE for Java but failed due to a lack of features. I don't write Java these days, but I use nvim for Scala, Clojure, Python, Lua, and vimscript. I'm a fan of IntelliJ but it feels too slow after getting used to nvim.
-
-A few months ago, I found [tree-sitter](https://github.com/tree-sitter/tree-sitter) but didn’t use it since it was in the development stage and I had to build it myself to use it. When I checked it out again a few weeks ago, it was ready and plugins were being developed using `tree-sitter` such as [dim](https://github.com/narutoxy/dim.lua).
-
-[To turn vim into an IDE is not the goal of Neovim](https://neovim.io/charter/), but Neovim is quickly evolving into the best IDE for vim users.
+<img src="/img/vimrc-40.png" alt="40 years" />
