@@ -16,6 +16,7 @@ type = "fixed"
 ### 글
 
 블로그 이외에 다음과 같은 곳에서 글을 쓰고 있습니다.
+* [영어 블로그](https://iamsang.com/en/)
 * [테크니들](http://techneedle.com/archives/author/sanghyun)
 * [트위터](https://twitter.com/sangdolha)
 * [커리어리](https://careerly.co.kr/profiles/414463)
@@ -29,6 +30,6 @@ type = "fixed"
 
 가끔 취미로 [Clojure](https://github.com/Sangdol/clojure-test-driven-learning)를 사용하며 해당 블로그는 [Clojure를 이용해 만든 커스텀 정적사이트생성기](https://iamsang.com/blog/2020/10/10/custom-static-site-generator/)를 통해 만들어졌습니다.
 
-[Vimscript](https://github.com/Sangdol/vimscript-test-driven-learning), [Lua](https://github.com/Sangdol/lua-test-driven-learning) (그리고 [Hammerspoon](https://github.com/Sangdol/hammerspoon-config)), bash, zsh, fish script 등을 이용해 몇 초를 아끼기 위해 몇 시간을 들여 자동화하는 것을 즐깁니다.
+[Vimscript](https://github.com/Sangdol/vimscript-test-driven-learning), [Lua](https://github.com/Sangdol/lua-test-driven-learning) (그리고 [Hammerspoon](https://github.com/Sangdol/hammerspoon-config)), bash, zsh, fish script, Alfred, Raspberry Pi 등을 이용해 자동화하는 것을 좋아합니다.
 
 맥북을 이용해 개발하며 툴은 [nvim](https://github.com/Sangdol/vimrc), IntelliJ, iTerm2를 사용합니다.
