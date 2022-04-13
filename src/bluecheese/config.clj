@@ -26,9 +26,9 @@
    ;; 'blog-title' is needed to prefix titles on article pages.
    :blog-info             {:title "I am Sang"
                            :blog-title "I am Sang"
-                           :description   "I'm a software engineer from South Korea and
-                                          currently live in Berlin. I write articles and
-                                          draw comics in Korean and English."}
+                           :description  (str "I'm a software engineer from South Korea and "
+                                              "currently live in Berlin. I write articles and "
+                                              "draw comics in Korean and English.")}
    :md-path            "md/en/blog"
    :rss-path           (str dist-path "/rss.xml")
    :web                   "web"
