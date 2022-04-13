@@ -3,7 +3,7 @@ date = "2022-04-13T21:55:00+02:00"
 draft = false
 title = "Learnings after 500 commits to my vimrc"
 slug = 'vimrc'
-images = ["img/vimrc.png"]
+images = ["img/vimrc-diagram.png"]
 
 +++
 
