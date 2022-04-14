@@ -13,7 +13,7 @@ I'm a software engineer from South Korea and live in Berlin now.
 
 I've been working on frontend, backend, distributed systems, and data-related topics.
 
-I use [Scala](https://github.com/Sangdol/scala-test-driven-learning) and [Python](https://github.com/Sangdol/python-test-driven-learning) and mainly used [Java](https://github.com/Sangdol/java-test-driven-learning) and [JavaScript](https://github.com/Sangdol/node-test-driven-learning) before.
+I use [Scala](https://github.com/Sangdol/scala-test-driven-learning) and [Python](https://github.com/Sangdol/python-test-driven-learning) and used [Java](https://github.com/Sangdol/java-test-driven-learning) and [JavaScript](https://github.com/Sangdol/node-test-driven-learning) before.
 
 I like writing tools for myself, and this website is built by [a custom static site generator](https://github.com/sangdol/bluecheese) written in [Clojure](https://github.com/Sangdol/clojure-test-driven-learning).
 
