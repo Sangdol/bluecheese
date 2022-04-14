@@ -7,19 +7,19 @@ images = ["img/vimrc-diagram.png"]
 
 +++
 
-Last winter on a Saturday, I decided to tweak [my vimrc](https://github.com/Sangdol/vimrc/). I'd been putting it off for a long time since I felt spending time on improving and cleaning up vimrc was too luxurious; it'd be fun but it wouldn't pay back the invested time.
+Last winter, on a Saturday, I decided to tweak [my vimrc](https://github.com/Sangdol/vimrc/). I'd been putting it off for a long time since I felt spending time on improving and cleaning up vimrc was too luxurious; it'd be fun, but it wouldn't pay back the invested time.
 
 <img src="/img/vimrc.png" alt="vimrc comic" />
 
 This time I determined to do myself a favor and enjoy spending a day or two working on my vimrc.
 
-I ended up spending more than three months and making around 500 commits to my vimrc, and I still work on it from time to time -- I didn't intend it but coincidentally it's exactly 500 commits at the time when I try to publish this article.
+I ended up spending more than three months and making around 500 commits to my vimrc, and I still work on it from time to time -- I didn't intend it, but coincidentally it's precisely 500 commits when I try to publish this article.
 
 <img src="/img/500-commits-2.png" alt="500 commits" />
 
-During the time, I've learned more than I'd learned for the past 10 years.
+I've learned more than I'd learned in the past ten years during this time.
 
-It was a fun and frustrating journey. I'd like to share what I've learned along the way and how happy I am now.
+It was a fun and frustrating journey. I want to share what I've learned along the way and how happy I am now.
 
 ### Table of Contents
 
@@ -43,9 +43,9 @@ It was a fun and frustrating journey. I'd like to share what I've learned along 
 
 ### What I have done
 
-I started by deleting unused plugins and configuration, then I looked for plugins to fix and improve a few things that were bothering me.
+I started by deleting unused plugins and configurations, and then I looked for plugins to fix and improve a few things that were bothering me.
 
-Once I got started working on it I couldn't stop. Learning how things work and improving my daily workflows with the new knowledge were so fun and exciting.
+Once I got started working on it, I couldn't stop. Learning how things work and improving my daily workflows with the new knowledge was too fun and exciting.
 
 #### Books
 
@@ -59,26 +59,26 @@ To better understand vim help pages and plugin documents, I started checking out
 
 Especially, _Learning the vi and Vim Editors_ was good to brush up on my vim skills, and _The VimL Primer_ was helpful to learn vimscript.
 
-I was able to access all the books freely thanks to the [O'Reilly membership](https://www.oreilly.com/) that [my employer](https://jobs.zalando.com/de/) provides me.
+I could access all the books freely thanks to the [O'Reilly membership](https://www.oreilly.com/) that [my employer](https://jobs.zalando.com/de/) provides me.
 
 I checked out chapters that interested me instead of reading cover to cover. Reading books with the membership feels like listening to music with a music streaming service instead of having to buy CDs.
 
 #### vimrcs
 
-I read a few awesome guys' vimrc such as
+I read a few awesome guys' vimrc, such as
 
 * [Junegunn](https://github.com/junegunn/dotfiles/blob/master/vimrc), who wrote [Plug](https://github.com/junegunn/vim-plug) and [fzf](https://github.com/junegunn/fzf.vim), and
 * [wookayin](https://github.com/wookayin/dotfiles/), who wrote [gpustat](https://github.com/wookayin/gpustat) and happens to be my former co-worker.
 
-I learned enormous amount of things from the books and vimrcs, but I still often had to read help pages and Stack Overflow threads to achieve what I want.
+I learned many things from the books and vimrcs, but I still often had to read help pages and Stack Overflow threads to achieve what I wanted.
 
 #### vimscript
 
 I learned that Vimscript is not that hard once you're good with vim.
 
-When I learn a new programming language I start writing tests with it. This is called Test-Driven Learning.
+When I learn a new programming language, I start writing tests with it. This method is called Test-Driven Learning.
 
-Writing test code is a good way to learn a programming language because
+Writing test code is an excellent way to learn a programming language because
 1. You learn the testing framework of a language in the early stage.
 2. You learn by writing working code.
 3. You have working documentation.
@@ -95,19 +95,19 @@ I feel powerful after learning vimscript.
 
 I used to spend hours and days to find out the reason for a vim issue, but now It usually takes no more than 30 minutes using the methods that I'll introduce soon.
 
-Knowing how to fix issues is the key to utilizing vim to its full power -- which is true for any other technologies.
+Knowing how to fix issues is the key to utilizing vim to its full power -- which is valid for any other technology.
 
 I used to keep my plugin list lean to avoid randomly happening errors and slowness; I often didn't know where I should start to troubleshoot a problem.
 
-For the past few months, I've tried tens of plugins and faced loads of issues; it sometimes took a few weeks to resolve.
+I've tried tens of plugins for the past few months and faced loads of issues; it sometimes took a few weeks to resolve.
 
 Vim plugins are powerful since they can control vim without having to reside in a sandbox or container, but this makes it harder to debug an issue.
 
 #### Showing error messages with `:message`
 
-The first thing you should do when you face an issue is to read error messages carefully, but an error message could quickly disappear when you do some actions in vim. In this case, you can use the `:message` command to bring the message back.
+When you face an issue, the first thing you should do is to read error messages carefully, but an error message could quickly disappear when you do some actions in vim. In this case, you can use the `:message` command to bring the message back.
 
-However, it's not possible to easily copy the message or have the result window open while troubleshooting. To tackle this problem, you can load messages into a buffer using this function ([source wiki](https://vim.fandom.com/wiki/Append_output_of_an_external_command)).
+However, it's impossible to easily copy the message or have the result window open while troubleshooting. You can load messages into a buffer using this function to tackle this problem ([source wiki](https://vim.fandom.com/wiki/Append_output_of_an_external_command)).
 
 ```vim
 function! TabMessage(cmd)
@@ -153,7 +153,7 @@ To make this task even easier, I've modularized my vimrc ([code link](https://gi
 
 <img src="/img/vimrc-diagram.png" alt="vimrc diagram" />
 
-With this structure, I can easily turn on and off a specific module.
+I can quickly turn on and off a specific module with this structure.
 
 These would be steps to debug:
 
@@ -162,7 +162,7 @@ These would be steps to debug:
 3. See if it's fixed.
 4. Go to Step 1 if it's not fixed.
 
-This approach can be applied to any issues when there's no clue.
+This approach can be applied to any issue when there's no clue.
 
 <img src="/img/binary-search-in-practice-en.png" alt="binary search in practice comic" />
 
@@ -205,7 +205,7 @@ Surprisingly, reading documentation often works. You can first check out the vim
 
 If the plugin doesn't have a help document, visit the GitHub page of the plugin and see if there are any related issues.
 
-To easily open the GitHub page of a Plug line in vimrc, I use a function and command similar to this:
+To quickly open the GitHub page of a Plug line in vimrc, I use a function and command similar to this:
 
 ```vim
 function! s:open_plug_gh()
@@ -227,9 +227,9 @@ Plug 'junegunn/fzf.vim'
 
 #### (Advanced) customizing plugin code
 
-If you can't find any meaningful information from documentation, you can check out the code of the plugin. A vim package manager downloads plugin files into your machine so it's easy to explore the files.
+If you can't find any meaningful information from the documentation, you can check out the plugin's code. A vim package manager downloads plugin files into your machine, so it's easy to explore the files.
 
-I do this often so I have a mapping to find installed plugin files quickly with `fzf`.
+I have a mapping to find installed plugin files quickly with `fzf` since I do it often.
 
 ```vim
 nnoremap <leader>fpl :FZF ~/.vim/plugged<CR>
@@ -237,7 +237,7 @@ nnoremap <leader>fpl :FZF ~/.vim/plugged<CR>
 
 You can try fixing the issue directly in the downloaded files and see if it's fixed by reloading plugins or rerunning vim.
 
-Sometimes I had to fix issues only for my environment. For example, the [vim-bbye](https://github.com/moll/vim-bbye) plugin and the [close-buffer](https://github.com/Asheq/close-buffers.vim) plugin conflict with each other but I wanted to use both. I just [forked vim-bbye](https://github.com/Sangdol/vim-bbye) and deleted the conflicting code.
+Sometimes I had to fix issues only for my environment. For example, the [vim-bbye](https://github.com/moll/vim-bbye) plugin and the [close-buffer](https://github.com/Asheq/close-buffers.vim) plugin conflict, but I wanted to use both. I just [forked vim-bbye](https://github.com/Sangdol/vim-bbye) and deleted the conflicting code.
 
 #### Searching for help
 
@@ -248,25 +248,25 @@ Lastly, you can look for help in a few places.
 * Gitter
 * Stack Overflow
 
-I once struggled with an issue with [Conjure](https://github.com/Olical/conjure). I thought asking and waiting for an answer would take too long, but it turned out that it's a quicker way to solve the issue.
+I once struggled with an issue with [Conjure](https://github.com/Olical/conjure). I thought asking and waiting for an answer would take too long, but it turned out that it was a quicker way to solve the issue.
 
 Looking for a Discord community is another way. I use [coc-metals](https://github.com/scalameta/coc-metals) for Scala and was able to get help from [the Discord server](https://discord.gg/mZkhURPznE).
 
-There are awesome plugin maintainers out there.
+There are fantastic plugin maintainers out there.
 
 Stack Overflow can be helpful as well. Once I even found out the answer to my issue while writing a question.
 
 ### Improved Productivity
 
-I once made a joke saying that I'll reach a break-even point for the time investment that I made if I write code until 80. That's an exaggeration but it'll take a long time if I only calculate the saved seconds to recover the time investment.
+I once made a joke saying that I'll reach a break-even point for the time investment that I made if I write code until 80. That's an exaggeration, but it'll take a long time if I only calculate the saved seconds to recover the time investment.
 
-The point is that [we automate things not to save time but to save mental energy](https://www.johndcook.com/blog/2015/12/22/automate-to-save-mental-energy-not-time/); I can try more things with the same time and energy, which reduces problem-solving time.
+But, [we automate not to save time but to save mental energy](https://www.johndcook.com/blog/2015/12/22/automate-to-save-mental-energy-not-time/); I can try more things with the same time and energy, which reduces problem-solving time.
 
 And, I'm going to write code until after 80 anyway.
 
 #### Using vim as a File Manager with `fzf` and `nvim-tree`
 
-I've tried file managers like [ranger](https://github.com/ranger/ranger) and [lf](https://github.com/gokcehan/lf) but I ended up not using them due to a few issues.
+I've tried file managers like [ranger](https://github.com/ranger/ranger) and [lf](https://github.com/gokcehan/lf), but I did not use them due to a few issues.
 
 After I started using vim as a file manager with [fzf](https://github.com/junegunn/fzf.vim) and [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), I realized that this is the file manager that I've been looking for. I can move around and search for tens of projects easily.
 
@@ -276,15 +276,15 @@ After I started using vim as a file manager with [fzf](https://github.com/junegu
 
 I haven't been using `tmux` or `screen` since they have conflicting keyboard shortcuts with command-line keyboard shortcuts.
 
-When I needed to split a window and open a new session I could do it with iTerm2 shortcuts. This has downsides but worked okay for me.
+When I needed to split a window and open a new session, I could do it with iTerm2 shortcuts. This approach has downsides, but worked okay for me.
 
-With nvim you can use terminals with customized mappings. Also, it's much easier to search, move around, and copy terminal outputs within nvim terminals.
+With nvim, you can use terminals with customized mappings. Also, it's much easier to search, move around, and copy terminal outputs within nvim terminals.
 
 #### Git
 
 I've been using [tig](https://github.com/jonas/tig) and the command-line git client with lots of shell aliases and functions.
 
-This time I tried using [vim-fugitive](https://github.com/tpope/vim-fugitive) with [vim-rhubarb](https://github.com/tpope/vim-rhubarb), [git-messenger](https://github.com/rhysd/git-messenger.vim), [gv](https://github.com/junegunn/gv.vim), fzf (again), and [vim-signify](https://github.com/mhinz/vim-signify). It took a long time to set things up and get used to them but now the old ways feel ancient.
+I'm now using [vim-fugitive](https://github.com/tpope/vim-fugitive) with [vim-rhubarb](https://github.com/tpope/vim-rhubarb), [git-messenger](https://github.com/rhysd/git-messenger.vim), [gv](https://github.com/junegunn/gv.vim), fzf (again), and [vim-signify](https://github.com/mhinz/vim-signify). It took a long time to set things up and get used to them, but now the old ways feel ancient.
 
 #### Coding
 
@@ -297,18 +297,18 @@ These are plugins that I use to write code.
 * [semshi](https://github.com/numirias/semshi) for Python
 * [tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) for code highlights
 
-I didn't have chances to write a large amount of code using vim after I set up these, but they are at least very useful for writing scripts and navigating codebases.
+I didn't have many chances to write a large amount of code using vim after I set up these, but they are at least helpful in writing scripts and navigating codebases.
 
-It wasn't always easy to set things up. I spent weeks to learn, custmoize, and troubleshoot when I started using `coc-metals` and `conjure`. I've faced a Lua version issue when I tried using `coc-lua`. Nothing was free but they were worth it.
+It wasn't always easy to set things up. I spent weeks learning, customizing, and troubleshooting when I started using `coc-metals` and `conjure`. I faced a Lua version issue when I tried using `coc-lua`. Nothing was free but they were worth it.
 
-I've put the plugins for coding in a separate vimrc module ([devplugins.vim](https://github.com/Sangdol/vimrc/blob/master/vim/rc/devplugins.vim)) so that I can exclude it in the server environment.
+I've put the plugins for coding in a separate vimrc module ([devplugins.vim](https://github.com/Sangdol/vimrc/blob/master/vim/rc/devplugins.vim)) so that I can exclude them in the server environment.
 
 ### Reflection
 
-The most productive or successful people are not the ones who have the most productive development environment.
+The most successful people do not have the most productive development environment.
 
-Once I started working on this, I didn't want to do anything else. Sometimes I was obsessed by small improvements that wouldn't affect my productivity after all. Still, I think I'm far from mastering vim and there are tons of things that I can try to tweak my productivity.
+Once I started working on this, I didn't want to do anything else. Sometimes I was obsessed with minor improvements that wouldn't affect my productivity. Still, I think I'm far from mastering vim, and there are tons of things that I can try to tweak my productivity.
 
-I learned a lot even from the effort that didn't work out, but it's important to be aware of the cost that I spend on improving productivity -- if I want to be productive.
+I learned a lot even from the effort that didn't work out, but it's essential to know the cost I spend on improving productivity -- if I want to be genuinely productive.
 
 <img src="/img/vimrc-40.png" alt="40 years" />
