@@ -56,3 +56,11 @@
           ga('require', 'GTM-PGRQWF8');
           ga('send', 'pageview');
     </script>
+    <script>
+      // Open an image in a new window when it's clicked
+      $(document).ready(function() {
+        $('.article img').click(function() {
+          window.open($(this).attr('src'));
+        });
+      });
+    </script>
