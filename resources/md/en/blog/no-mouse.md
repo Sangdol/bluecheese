@@ -18,11 +18,11 @@ It was the second most popular answer, and the most popular answer was "No mouse
 
 As usual, the thread was deleted, being flagged as off-topic.
 
-I moved from the second-best mouse to the best mouse after I started using Mac, and I rarely use Trackpad.
+I moved from the second-best mouse to the best mouse after I started using Mac, and I rarely use Trackpad when I work.
 
 ### Why no mouse?
 
-I barely move my hands when I use my laptop, and I never had wrist pain after ditching the mouse. 
+I barely move my hands when I use my laptop, and I never had wrist pain after ditching the mouse.
 It's more productive and healthy.
 
 I use these applications, tools, and tricks to avoid using the mouse.
@@ -81,7 +81,7 @@ You can find more use cases in this Reddit post:
 [Alfred](https://www.alfredapp.com/)
 is an application launcher and productivity application.
 
-I use this to launch applications, search things, and run shell commands. 
+I use this to launch applications, search things, and run shell commands.
 
 <img src="/img/alfred.png" alt="alfred usage screenshot" />
 
@@ -89,7 +89,7 @@ I use this to launch applications, search things, and run shell commands.
 
 Using vim, you can avoid using the mouse while writing or coding.
 
-vim is not an easy application since it requires lots of time investment, but it's worth the investment if you think you'll use your laptop for a long time. 
+vim is not an easy application since it requires lots of time investment, but it's worth the investment if you think you'll use your laptop for a long time.
 
 If you couldn’t start vim due to its steep learning curve, using vim plugins in your editor or IDE can be a good start.
 
@@ -124,9 +124,9 @@ I trigger these scripts with keyboard shortcuts using BetterTouchTool.
 
 #### Managing notifications
 
-I make heavy use of Reminders. I use Reminders not to forget to take vitamins, call parents, and write journals. 
+I make heavy use of Reminders. I use Reminders not to forget to take vitamins, call parents, and write journals.
 
-I wanted to close notifications without using a mouse. 
+I wanted to close notifications without using a mouse.
 
 To tackle this problem, I use two scripts:
 
