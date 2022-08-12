@@ -4,3 +4,9 @@ from = "/blog2020/10/10/custom-static-site-generator"
 to = "/blog/2020/10/10/custom-static-site-generator"
 status = 301
 force = true
+
+[[redirects]]
+from = "/blog/2022/08/21/return-to-office"
+to = "/blog/2022/08/07/return-to-office"
+status = 301
+force = true
