@@ -10,3 +10,9 @@ from = "/blog/2022/08/21/return-to-office"
 to = "/blog/2022/08/07/return-to-office"
 status = 301
 force = true
+
+[[redirects]]
+from = "/*"
+to = "/404/"
+status = 404
+force = true
