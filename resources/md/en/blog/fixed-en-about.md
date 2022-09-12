@@ -11,9 +11,9 @@ Hello, I'm Sanghyun Lee.
 
 I'm a software engineer from South Korea and live in Berlin now.
 
-I've been working on frontend, backend, distributed systems, and data-related topics.
+I've worked on frontend, backend, distributed systems, and data-related topics.
 
-I use [Python](https://github.com/Sangdol/python-test-driven-learning) and I used [Java](https://github.com/Sangdol/java-test-driven-learning), [JavaScript](https://github.com/Sangdol/node-test-driven-learning), and [Scala](https://github.com/Sangdol/scala-test-driven-learning) before.
+I use [Python](https://github.com/Sangdol/python-test-driven-learning), and I used [Java](https://github.com/Sangdol/java-test-driven-learning), [JavaScript](https://github.com/Sangdol/node-test-driven-learning), and [Scala](https://github.com/Sangdol/scala-test-driven-learning) before.
 
 This website is built by [a custom static site generator](https://github.com/sangdol/bluecheese) written in [Clojure](https://github.com/Sangdol/clojure-test-driven-learning).
 
