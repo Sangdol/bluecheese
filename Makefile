@@ -4,6 +4,10 @@
 # local
 #
 
+init:
+	lein voom build-deps
+	lein voom freshen
+
 # If you want to run a static local server,
 # create articles (make article) and run a server in the `dist` directory.
 local:

@@ -3,6 +3,14 @@ Bluecheese
 
 A custom static site generator for [my blog](https://iamsang.com/).
 
+Install
+---
+
+```sh
+# To install Voom dependencies, specifically markdown-clj
+make init
+```
+
 Usage
 ---
 
