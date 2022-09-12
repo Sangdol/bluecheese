@@ -9,9 +9,9 @@ type = "fixed"
 
 안녕하세요, 이상현입니다.
 
-[독일 베를린](https://iamsang.com/blog/2017/10/30/berlin-over-silicon-valley/)에 살며 이커머스 기업 [잘란도(Zalando)](https://tech.zalando.com)에서 소프트웨어 엔지니어로 일하고 있습니다.
+[독일 베를린](https://iamsang.com/blog/2017/10/30/berlin-over-silicon-valley/)에 살며 원격으로 아일랜드 핀테크 기업 [Wayflyer](https://www.wayflyer.com/)에서 소프트웨어 엔지니어로 일하고 있습니다.
 
-[웹개발을 주로 해왔으며](https://iamsang.com/blog/2021/01/04/2020-retro/) 현재는 백엔드, 분산 시스템, 데이터와 관련한 일을 하고 있습니다.
+[웹개발을 주로 해왔으며](https://iamsang.com/blog/2021/01/04/2020-retro/) 현재는 파이썬 백엔드 일을 하고 있습니다.
 
 ### 글
 
@@ -26,10 +26,10 @@ type = "fixed"
 
 ### 개발
 
-[Scala](https://github.com/Sangdol/scala-test-driven-learning)와 [Python](https://github.com/Sangdol/python-test-driven-learning)을 이용해 백엔드와 데이터 관련 작업을 하며 이전에는 [Java](https://github.com/Sangdol/java-test-driven-learning), [JavaScript](https://github.com/Sangdol/node-test-driven-learning)를 이용해 개발하였습니다.
+[Python](https://github.com/Sangdol/python-test-driven-learning)주로 사용하며 이전에는 [Java](https://github.com/Sangdol/java-test-driven-learning), [JavaScript](https://github.com/Sangdol/node-test-driven-learning), [Scala](https://github.com/Sangdol/scala-test-driven-learning)를 이용해 개발하였습니다.
 
 가끔 취미로 [Clojure](https://github.com/Sangdol/clojure-test-driven-learning)를 사용하며 해당 블로그는 [Clojure를 이용해 만든 커스텀 정적사이트생성기](https://iamsang.com/blog/2020/10/10/custom-static-site-generator/)를 통해 만들어졌습니다.
 
 [Vimscript](https://github.com/Sangdol/vimscript-test-driven-learning), [Lua](https://github.com/Sangdol/lua-test-driven-learning) (그리고 [Hammerspoon](https://github.com/Sangdol/hammerspoon-config)), bash, zsh, fish script, Alfred, Raspberry Pi 등을 이용해 자동화하는 것을 좋아합니다.
 
-맥북을 이용해 개발하며 툴은 [nvim](https://github.com/Sangdol/vimrc), IntelliJ, iTerm2를 사용합니다.
+맥북을 이용해 개발하며 툴은 [nvim](https://github.com/Sangdol/vimrc), iTerm2를 사용합니다.
