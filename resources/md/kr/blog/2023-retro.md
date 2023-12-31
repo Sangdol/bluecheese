@@ -3,7 +3,7 @@ draft = false
 slug = "2023-retro"
 date = "2023-12-31T21:36:00+01:00"
 title = "2023 지난 3년 회고 - 두 번의 이직 한번의 정리해고"
-images = [""]
+images = ["img/kehl-sunset.jpeg"]
 
 +++
 
@@ -185,4 +185,6 @@ Synthesia에서는 불필요한 미팅을 극단적으로 줄이고 필요한 �
 
 2018년에 테크니들에 [전원 원격근무로 한해 117억원 수익 올린 ‘깃랩 GitLab’](https://techneedle.com/archives/36570)이라는 글을 통해 공유한 내용이다.
 
-지금은 라인강너머로 프랑스가 보이는 조용한 마을에서 일하며 지내고 있다.
+지금은 라인강 너머로 프랑스가 보이는 조용한 마을에서 일하며 지내고 있다.
+
+<img src="/img/kehl-sunset.jpeg" alt="Kehl sunset" />
