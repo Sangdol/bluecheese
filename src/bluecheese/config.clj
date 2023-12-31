@@ -6,9 +6,9 @@
 (def kr
   {;; 'title' is needed to set a title on list pages.
    ;; 'blog-title' is needed to prefix titles on article pages.
-   :blog-info             {:title "이상현 IN 베를린"
-                           :blog-title "이상현 IN 베를린"
-                           :description   "베를린 사는 소프트웨어 엔지니어 이야기"}
+   :blog-info             {:title "이상현 IN 유럽"
+                           :blog-title "이상현 IN 유럽"
+                           :description   "유럽 사는 소프트웨어 엔지니어 이야기"}
    :md-path            "md/kr/blog"
    :rss-path           (str dist-path "/index.xml")
    :web                   "web"

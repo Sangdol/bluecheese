@@ -9,7 +9,7 @@ type = "fixed"
 
 Hello, I'm Sanghyun Lee.
 
-I'm a software engineer from South Korea and live in Berlin now.
+I'm a software engineer from South Korea and live in Germany now.
 
 I've worked on frontend, backend, distributed systems, and data-related topics.
 

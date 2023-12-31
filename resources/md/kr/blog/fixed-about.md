@@ -9,7 +9,7 @@ type = "fixed"
 
 안녕하세요, 이상현입니다.
 
-[독일 베를린](https://iamsang.com/blog/2017/10/30/berlin-over-silicon-valley/)에 살며 소프트웨어 엔지니어로 일하고 있습니다.
+[독일](https://iamsang.com/blog/2017/10/30/berlin-over-silicon-valley/)에 살며 소프트웨어 엔지니어로 일하고 있습니다.
 
 ### 글
 
