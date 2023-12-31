@@ -2,7 +2,7 @@
 draft = false
 slug = "2023-retro"
 date = "2023-12-31T20:52:00+01:00"
-title = "2023 지난 3년 회고 - 두 번의 이직 한번의 정리해고"
+title = "2023 지난 3년 회고 – 두 번의 이직 한번의 정리해고"
 images = ["img/kehl-sunset.jpeg"]
 
 +++
