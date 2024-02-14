@@ -57,7 +57,7 @@ body {
 section.top nav {
   color: var(--font-color);
   font-size: var(--font-nav-size);
-  font-weight: var(--font-bolder-weight);
+  font-weight: var(--font-bold-weight);
 }
 
 section.top nav span {
